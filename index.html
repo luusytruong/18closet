@@ -16,13 +16,28 @@
     <div class="app">
         <header class="header"></header>
         <div class="container">
-
+            <div class="banner">
+                <div class="banner__list">
+                    <img class="banner__list__img img1 active" src="./assets/img/banner1.png" alt="">
+                    <img class="banner__list__img img2" src="./assets/img/banner2.png" alt="">
+                </div>
+                <!-- <i class="fa-solid fa-angle-left" onclick="switchClick()"></i>
+                <i class="fa-solid fa-angle-right" onclick="switchClick()"></i> -->
+                <div class="banner__control">
+                    <div class="banner__control__outline active" onclick="activeImg1(this)">
+                        <div class="banner__control__inner"></div>
+                    </div>
+                    <div class="banner__control__outline"  onclick="activeImg2(this)">
+                        <div class="banner__control__inner"></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <footer id="footer">
             <div class="grid">
                 <div class="footer__list">
                     <div class="footer__items">
-                        <img src="./assets/img/image.png" alt="">
+                        <img src="./assets/img/logo.png" alt="">
                         <span class="footer__items__descriptions">HLMD là nền tảng bán lẻ mặt hàng thời trang hàng đầu
                             Đông Nam Á, chuyên cung cấp sản phẩm theo
                             xu hướng mới nhất, mang đến trải nghiệm mua sắm thời trang quốc tế đơn giản cho giới trẻ
@@ -130,6 +145,7 @@
 
     </footer>
     </div>
+    <script src="./assets/JavaScript/index.js"></script>
 </body>
 
 </html>
