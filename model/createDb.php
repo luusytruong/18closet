@@ -1,10 +1,10 @@
 <?php
 
 // host info
-$servername = "localhost";
-$username = "root";
+$servername = "";
+$username = "";
 $password = "";
-$dbname = "chitchat_db";
+$dbname = "";
 
 try {
     $pdo = new PDO("mysql:host=$servername", $username, $password);
