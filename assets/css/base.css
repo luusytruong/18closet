@@ -1,0 +1,55 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"); */
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  /* font-family: Inter; */
+  line-height: 1.5;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  --font-family: 'Poppins', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url("/assets/font/FzPoppins/Poppins-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: Poppins;
+  src: url("/assets/font/FzPoppins/Poppins-SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: Poppins;
+  src: url("/assets/font/FzPoppins/Poppins-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family:  Poppins-Italic;
+  src: url("/assets/font/FzPoppins/Poppins-SemiBoldItalic.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: Poppins-Italic;
+  src: url("/assets/font/FzPoppins/Poppins-BoldItalic.ttf");
+  font-weight: 700;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  font-family: var(--font-family);
+}
+
+.grid{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
