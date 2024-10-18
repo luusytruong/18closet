@@ -2,78 +2,129 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px 0 60px 0;
 }
 
 .album__content .diplay__title {
   padding: 30px 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 .album__list {
   display: flex;
   justify-content: space-between;
+  /* padding: 30px 0; */
 }
 
 .album__items {
   position: relative;
   width: calc(100% / 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 10px;
+  opacity: .6;
+  border-left: 1px solid #DCACF3;
+  border-right: 1px solid #DCACF3;
 }
-.album__items:not(:nth-child(2)) {
-  width: calc(100% / 3);
-  padding: 16px;
+
+.album__items.active {
+  margin: -30px 0;
+  opacity: 1;
 }
+
 .album__items img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .album__items__btn {
-  position: absolute;
-  bottom: 8%;
-  left: 50%;
-  transform: translateX(-50%);
+  height: 50px;
+  position: relative;
+  margin-top: -50px;
   display: flex;
   width: 70%;
   background-color: #b49b9b;
   border-radius: 40px;
   padding: 4px 0;
   cursor: pointer;
-  /* overflow: hidden; */
+  transform: translateY(-40px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .album__items__btn::before {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Căn giữa chính xác */
-    content: "";
-    display: block;
-    width: 100%; /* Chiều rộng và chiều cao của ::before */
-    height: 100%;
-    background-image: linear-gradient(#444, #fff); /* Hình nền gradient */
-    background-size: cover;
-    animation: rotate 3s linear infinite; /* Hiệu ứng xoay */
-  }
+  position: absolute;
+  content: "";
+  width: 100%;
+  aspect-ratio: 1/1;
+  animation: rotate 10s linear infinite;
+  background: linear-gradient(90deg, rgba(204,192,0,1) 0%, rgba(0,204,204,1) 52%, rgba(204,0,204,1) 100%);
+}
 
 .album__items__btn span {
-    z-index: 2;
+  z-index: 2;
   text-align: center;
-  font-size: 1.6rem;
-  font-weight: 600;
   background-color: white;
-  /* border-radius: 50em !important; */
-  padding: 8px 0;
-  height: 100%;
-  color: black;
+  line-height: 42px;
   width: calc(100% - 8px);
-  margin: 0 auto;
   border-radius: 40px;
+  font-family: "SVN Poppins";
+  font-weight: bold;
+  vertical-align: middle;
+  letter-spacing: 1px;
 }
 
 @keyframes rotate {
-  from {
-    transform: rotate(0deg); /* Bắt đầu từ góc 0 */
+  0% {
+    transform: rotate(0deg);
+    scale: 1;
+    
   }
-  to {
-    transform: rotate(360deg); /* Xoay đến góc 360 */
+  10%{
+    scale: 1;
+  }
+  12%{
+    scale: .8;
+  }
+  20%{
+    scale: 1;
+  }
+  35%{
+    scale: 1;
+  }
+  38%{
+    scale: .8;
+  }
+  46%{
+    scale: 1;
+  }
+  60%{
+    scale: 1;
+  }
+  62%{
+    scale: .8;
+  }
+  70%{
+    scale: 1;
+  }
+  84%{
+    scale: 1;
+  }
+  87%{
+    scale: .8;
+  }
+  95%{
+    scale: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    scale: 1;
   }
 }
