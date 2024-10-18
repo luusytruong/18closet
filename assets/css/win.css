@@ -414,7 +414,6 @@
   background-color: #fff;
   overflow: hidden;
   box-shadow: 8px 8px 12px 2px #ddd;
-s
 }
 
 table,
@@ -508,7 +507,7 @@ tr td.container__cart__table__col:nth-child(1) {
   border-radius: 10px;
   overflow: hidden;
   background-color: #fff;
-box-shadow: 8px 8px 12px 2px #ddd;
+  box-shadow: 8px 8px 12px 2px #ddd;
 }
 
 .container__cart__confirm__noti {
@@ -536,11 +535,11 @@ box-shadow: 8px 8px 12px 2px #ddd;
   flex: 1;
 }
 
-.container__cart__confirm__row span{
+.container__cart__confirm__row span {
   display: inline-block;
 }
 
-.container__cart__confirm__btn{
+.container__cart__confirm__btn {
   font-weight: 600;
   font-size: 1.6rem;
   padding: 10px 0;
@@ -551,4 +550,211 @@ box-shadow: 8px 8px 12px 2px #ddd;
   color: #fff;
   background-color: #b407ce;
   cursor: pointer;
+}
+
+/* payment page */
+
+.container__pay {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+}
+.container__pay img {
+  width: 128px;
+}
+
+.container__pay__infor {
+  flex: 7;
+  display: flex;
+  flex-direction: column;
+  padding-right: 40px;
+}
+
+.container__pay__infor__title,
+.pay__infor__address__title {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+}
+.container__pay__infor__title img,
+.pay__infor__address__title img {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+.container__pay__infor__count {
+  font-weight: 600;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.container__pay__box {
+  display: flex;
+}
+
+.container__pay__infor__products {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.container__pay__infor__items {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  width: 48%;
+  box-shadow: 1px 2px 4px 4px #dddddd7c;
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+.container__pay__infor__items__in4 {
+  margin-left: 20px;
+}
+
+.container__pay__infor__items__in4__title {
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.container__pay__infor__items__row {
+  display: flex;
+  color: #4f4f4f;
+  font-size: 1.4rem;
+  margin-top: 4px;
+}
+.container__pay__infor__items__row > span:first-child {
+  color: #352e2e;
+  font-weight: 600;
+}
+.container__pay__infor__items__row > span:last-child {
+  margin-left: 8px;
+}
+
+.container__pay__infor__items__row__price {
+  margin-left: 8px;
+}
+
+.container__pay__infor__items__row__price > span:first-child {
+  color: red;
+  font-weight: 600;
+  margin-right: 8px;
+  font-size: 1.5rem;
+}
+.container__pay__infor__items__row__price > span:last-child {
+  margin-right: 8px;
+  text-decoration: line-through;
+}
+
+.pay__infor__address__title {
+  margin-top: 40px;
+}
+
+.container__pay__infor__address__row {
+  display: flex;
+  margin-top: 0px;
+}
+
+.container__pay__infor__address__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  margin-top: 10px;
+}
+
+.container__pay__infor__address__col span {
+  font-weight: 600;
+}
+
+.container__pay__infor__address__col input {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+.container__pay__confirm {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  background-color: rgba(242, 223, 255, 1);
+}
+
+.container__pay__confirm__discount,
+.container__pay__confirm__way {
+  display: flex;
+  flex-direction: column;
+}
+
+.container__pay__confirm > div,
+.container__pay__confirm > span {
+  margin-top: 20px;
+}
+
+.container__pay__confirm__discount__title {
+  font-weight: 600;
+}
+
+.container__pay__confirm__discount input[type="text"] {
+  padding: 10px 12px;
+  font-size: 1.6rem;
+  border-radius: 4px;
+  margin-top: 12px;
+}
+
+.container__pay__confirm__discount__btn,
+.container__pay__confirm__order-btn{
+  padding: 10px 0 8px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 4px;
+  margin-top: 12px;
+}
+.container__pay__confirm__discount__btn{
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  
+}
+.container__pay__confirm__discount__btn:hover{
+  background-color: #ddd;
+}
+.container__pay__confirm__order-btn{
+  color: #fff;
+  background-color: black;
+  cursor: pointer;
+}
+.container__pay__confirm__order-btn:hover{
+  background-color: rgb(43, 43, 43);
+}
+
+
+.container__pay__confirm__way label{
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+input[name="way-pay"]{
+  margin-right: 12px;
+  color: #b407ce;
+}
+
+.container__pay__confirm__order-btn{
+  padding: 10px 0 8px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 4px;
+  margin-top: 12px;
+
+}
+
+.container__pay__confirm__notif{
+  font-size: 14px;
+  font-style: italic;
+  text-align: justify;
 }
