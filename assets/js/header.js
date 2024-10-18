@@ -1,20 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navItems = Array.from(document.querySelectorAll('.nav-item'))
+    const subMenu = Array.from(document.querySelectorAll('.sub__menu'))
     let showSubMenu = false
     let timeoutId = null
 
-    navItems.map(navItem => {
+    navItems.map((navItem, index) => {
         navItem.addEventListener('mouseenter', () => {
-            if (document.querySelector('.current-dropdown')) {
-                document.querySelector('.current-dropdown').classList.remove('current-dropdown')
+            if (document.querySelector('.sub__menu.shows')) {
+                document.querySelector('.sub__menu.shows').classList.remove('shows')
             }
-            if (document.querySelector('.animation')) {
-                document.querySelector('.animation').classList.remove('animation')
+
+            if (subMenu[index]) {
+                subMenu[index].classList.add('shows')
+
+                subMenu[index].addEventListener('mouseenter', () => {
+                    subMenu[index].classList.add('shows')
+
+                    if (timeoutId) {
+                        clearTimeout(timeoutId)
+                    }
+                })
+
+                subMenu[index].addEventListener('mouseleave', () => {
+                    timeoutId = setTimeout(() => {
+                        subMenu[index].classList.remove('shows')
+                    }, 300);
+                })
             }
-            if (navItem.querySelector('.sub__menu__dropdown')) {
-                navItem.querySelector('.sub__menu__dropdown').classList.add('animation')
-            }
-            navItem.classList.add('current-dropdown')
+
             showSubMenu = true
 
             if (timeoutId) {
@@ -22,15 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
         navItem.addEventListener('mouseleave', () => {
-            if (document.querySelector('.current-dropdown')) {
+            if (document.querySelector('.sub__menu.shows')) {
                 if (showSubMenu) {
                     timeoutId = setTimeout(() => {
-                        if (document.querySelector('.current-dropdown')) {
-                            document.querySelector('.current-dropdown').classList.remove('current-dropdown')
+                        if (document.querySelector('.sub__menu.shows')) {
+                            document.querySelector('.sub__menu.shows').classList.remove('shows')
                             showSubMenu = false
-                        }
-                        if (document.querySelector('.animation')) {
-                            document.querySelector('.animation').classList.remove('animation')
                         }
                     }, 200);
                 }
@@ -38,5 +48,5 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
     console.log('load');
-    
+
 })
