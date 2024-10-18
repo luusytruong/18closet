@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (document.querySelector('.current-dropdown')) {
                 document.querySelector('.current-dropdown').classList.remove('current-dropdown')
             }
-            if (document.querySelector('.sub__menu__dropdown')) {
-                document.querySelector('.sub__menu__dropdown').classList.remove('animation')
+            if (document.querySelector('.animation')) {
+                document.querySelector('.animation').classList.remove('animation')
             }
             if (navItem.querySelector('.sub__menu__dropdown')) {
                 navItem.querySelector('.sub__menu__dropdown').classList.add('animation')
@@ -29,14 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
                             document.querySelector('.current-dropdown').classList.remove('current-dropdown')
                             showSubMenu = false
                         }
+                        if (document.querySelector('.animation')) {
+                            document.querySelector('.animation').classList.remove('animation')
+                        }
                     }, 200);
                 }
             }
-            if (document.querySelector('.sub__menu__dropdown')) {
-                timeoutId = setTimeout(() => {
-                    document.querySelector('.sub__menu__dropdown').classList.remove('animation')
-                }, 200);
-            }
         })
     })
+    console.log('load');
+    
 })
