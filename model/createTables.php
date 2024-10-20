@@ -2,60 +2,87 @@
 
 include 'createDb.php';
 
+// Create table admin
+$sql = "CREATE TABLE IF NOT EXISTS admins (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    adminname VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE
+)";
+
+$pdo->exec( $sql );
+
 // Create table users
 $sql = "CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    fullname VARCHAR(50) NOT NULL,
+    full_name VARCHAR(50) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL UNIQUE,
+    email VARCHAR(100) UNIQUE,
+    address VARCHAR(255),
     password VARCHAR(255) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
 
 $pdo->exec( $sql );
 
-// Create table groups
-$sql = "CREATE TABLE IF NOT EXISTS groups (
+//create default account admin
+$adminname = "admin";
+$password = "admin";
+$email = "admin@gmail.com";
+
+$sql = "INSERT INTO admins (adminname, password, email) VALUES (:adminname, :password, :email)";
+
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':adminname', $adminname);
+$stmt->bindParam(':password', $password);
+$stmt->bindParam(':email', $email);
+$stmt->execute();
+
+// Create table categorys
+$sql = "CREATE TABLE IF NOT EXISTS categorys (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    group_name VARCHAR(100) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    category_name VARCHAR(100) NOT NULL,
+    description TEXT
 )";
 
 $pdo->exec( $sql );
 
-// Create table group_members
-$sql = "CREATE TABLE IF NOT EXISTS group_members (
+// Create table products
+$sql = "CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    group_id INT NOT NULL,
-    user_id INT NOT NULL,
-    FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE CASCADE,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    UNIQUE (group_id, user_id)
+    product_name VARCHAR(255) NOT NULL,
+    category_id INT NOT NULL,
+    price INT NOT NULL,
+    stock_quantity INT NOT NULL,
+    description TEXT,
+    image_url VARCHAR(255),
+    added_date TIMESTAMP DEFAULT  CURRENT_TIMESTAMP,
+    FOREIGN KEY (category_id) REFERENCES categorys(id) ON DELETE CASCADE
 )";
 
 $pdo->exec( $sql );
 
-// Create table messages
-$sql = "CREATE TABLE IF NOT EXISTS messages (
+// Create table orders
+$sql = "CREATE TABLE IF NOT EXISTS orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    sender_id INT NOT NULL,
-    receiver_id INT,
-    group_id INT,
-    message TEXT NOT NULL,
-    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (sender_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (receiver_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE CASCADE
+    customer_id INT NOT NULL,
+    order_date TIMESTAMP DEFAULT  CURRENT_TIMESTAMP,
+    total_amount INT NOT NULL,
+    shipping_adress VARCHAR(255) NOT NULL,
+    payment_status VARCHAR(255) NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES users(id) ON DELETE CASCADE
 )";
 
 $pdo->exec( $sql );
 
-// Create table status
-$sql = "CREATE TABLE IF NOT EXISTS status (
+// Create table carts
+$sql = "CREATE TABLE IF NOT EXISTS carts (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    is_online TINYINT DEFAULT 0,
-    is_compose TINYINT DEFAULT 0,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    customer_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 )";
 
 $pdo->exec( $sql );

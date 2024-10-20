@@ -1,10 +1,10 @@
 <?php
 
-// host local info
+// host info
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "";
+$dbname = "closet_18_db";
 
 
 // connect host
@@ -12,5 +12,5 @@ try {
     $pdo = new PDO("mysql:host=$servername; dbname=$dbname", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    echo "" . $e->getMessage() . "\n";
+    echo "err" . $e->getMessage() . "\n";
 }
