@@ -38,7 +38,13 @@
     background-color: #fff;
     font-weight: 500;
 }
-.sidebar__item:hover{
+
+.sidebar__item.active{
+    background-color: rgb(197, 2, 2);
+    color: #fff;
+}
+
+.sidebar__item:not(.active):hover{
     box-shadow: 2px 2px 4px 1px #ddd;
     background-color: #e1e1e1
 
@@ -54,8 +60,37 @@
     padding: 20px;
 }
 
+.actions{
+    margin-top: 30px;
+    display: none;
+}
+
+.actions__add{
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    color: #fff;
+    background-color: #0081ff;
+}
+.actions__add:hover{
+    cursor: pointer;
+    background-color: #006fdd;
+}
+
+.container__table.active{
+    display: table;
+}
+.container__table{
+    margin-top: 20px;
+    display: none;
+}
+
 table{
     border-collapse: collapse;
+    width: 100%;
 }
 
 table, tr, th, td{
@@ -64,6 +99,7 @@ table, tr, th, td{
 
 .container__col{
     padding: 10px;
+    text-align: center;
 }
 
 .container__col i:hover{
