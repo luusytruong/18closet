@@ -31,9 +31,9 @@
   padding: 0 15px;
   background: linear-gradient(
     0deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 251, 255, 1) 50%,
-    rgba(242, 223, 255, 1) 100%
+    #ffffff 0%,
+    #fffbff 50%,
+    #f2dfff 100%
   );
 }
 .header__wrapper::before{
@@ -405,18 +405,18 @@
   flex-direction: column;
 }
 .criterion__items + .criterion__items {
-  border-left: 1px solid #333;
+  border-left: 1px solid #555;
 }
 
 .criterion__items__title {
   color: #0a0a0a;
-  font-size: 20px;
-  font-weight: 700;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .criterion__items__text {
   color: rgb(35, 35, 35);
-  font-size: 16px;
+  font-size: 12px;
 }
 
 /* category */

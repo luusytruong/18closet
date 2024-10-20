@@ -9,6 +9,7 @@
   padding: 0;
   margin: 0;
   --font-family: 'SVN Poppins', sans-serif;
+  user-select: none;
 }
 
 html {
