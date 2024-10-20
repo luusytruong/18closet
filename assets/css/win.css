@@ -142,6 +142,9 @@
 .diplay__content {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+  padding: 30px 10px;
 }
 
 .introduce__content__row {
