@@ -14,3 +14,4 @@ try {
 } catch (PDOException $e) {
     echo "err" . $e->getMessage() . "\n";
 }
+?>
