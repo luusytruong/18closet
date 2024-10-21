@@ -20,7 +20,7 @@ function createMiniProductDisplay(value) {
   const miniDisplay = document.createElement("div");
   miniDisplay.classList.add("product__items");
   miniDisplay.innerHTML = `
-        <img src="./assets/img/prodcut-display/hot/img1.png" alt="" class="product__items__img">
+        <img src="./assets/img_upload/${value.image_url}" alt="" class="product__items__img">
         <span class="product__items__name">${value.product_name}</span>
         <div class="product__items__price">
             <span class="product__items__price__cur__content">${

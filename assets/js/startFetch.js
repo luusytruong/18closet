@@ -57,24 +57,25 @@ export function startPOSTFetch(path, data = {}){
     })
     .then(response => response.json())
     .then(data => {
-        if (data.login === 'true') {
-            isLogin = true;
-        }
-        if (data.status === 'success'){
-            beginToast('success', data.title, data.content);
-            if (data.redirect) {
-                setTimeout(() => {
-                    window.location.href = data.redirect;
-                }, 1500);
-            }
-            if (data.session_id) {
-                console.log(data.session_id);
-            }
-        } else if (data.status === 'error') {
-            beginToast('error', data.title, data.content);
-        } else {
-            beginToast('error', 'Đã xảy ra lỗi không rõ', 'vui lòng thử lại sau');
-        }
+        // if (data.login === 'true') {
+        //     isLogin = true;
+        // }
+        // if (data.status === 'success'){
+        //     beginToast('success', data.title, data.content);
+        //     if (data.redirect) {
+        //         setTimeout(() => {
+        //             window.location.href = data.redirect;
+        //         }, 1500);
+        //     }
+        //     if (data.session_id) {
+        //         console.log(data.session_id);
+        //     }
+        // } else if (data.status === 'error') {
+        //     beginToast('error', data.title, data.content);
+        // } else {
+        //     beginToast('error', 'Đã xảy ra lỗi không rõ', 'vui lòng thử lại sau');
+        // }
+        console.log(data);
     })
     .catch(error => {
         console.error('error: ', error);

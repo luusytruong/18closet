@@ -66,27 +66,47 @@ overlayElement.addEventListener("click", () => {
 });
 
 const routePost = [
-  "http://localhost/fashion-store/controller/readData.php?table=users",
-  "http://localhost/fashion-store/controller/readData.php?table=products",
-  "http://localhost/fashion-store/controller/readData.php?table=categorys",
-  "http://localhost/fashion-store/controller/readData.php?table=orders"
+  "http://localhost/fashion-store/controller/createData.php?table=users",
+  "http://localhost/fashion-store/controller/createData.php?table=products",
+  "http://localhost/fashion-store/controller/createData.php?table=categorys",
+  "http://localhost/fashion-store/controller/createData.php?table=orders"
 ]
 
-confirmBTNs.map((btn, index) => {
-  btn.addEventListener("click", () => {
-    // console.log("hello")
+function startPOSTFetchF(url, formData) {
+  fetch(url, {
+    method: 'POST',
+    body: formData, 
+  })
+  .then(response => response.json())
+  .then(data => {
+    // console.log(data);
+    if (data.error) {
+      // Xử lý lỗi
+      console.log(data.error);
+    } else {
+      // Xử lý thành công
+      console.log('Upload successful!');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+
+confirmBTNs.map(btn => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+
     const form = btn.closest(".modal__box").querySelector("form");
-    const formData = new FormData(form);
-    const dataObj = {};
+    const formData = new FormData(form); // Sử dụng FormData
 
-    // Iterate over the form data and populate the object
-    formData.forEach((value, key) => {
-      dataObj[key] = value;
-    });
-    console.log(dataObj);
-    // hideModal();
+    // Thêm thông tin vào FormData
+    formData.append('table', 'products'); // Thêm trường 'table'
 
-    startPOSTFetch(routePost[index], dataObj);
+    console.log([...formData]); // In ra các giá trị trong FormData
+
+    // Gọi hàm gửi dữ liệu
+    startPOSTFetchF(routePost[1], formData); // Gửi formData
   });
 });
 
@@ -95,14 +115,16 @@ const inputFileElement = document.getElementById("input-file");
 const imgDisplay = document.querySelector(".col__image");
 
 inputFileElement.addEventListener("change", (e) => {
-  const file = e.target.files[0]; // Lấy tệp đầu tiên từ danh sách
+  const files = e.target.files; // Lấy danh sách các tệp
+  const file = files[files.length - 1]; // Lấy tệp cuối cùng
+
   if (file) {
     const reader = new FileReader();
-    
+
     reader.onload = (event) => {
       imgDisplay.src = event.target.result; // Đặt src của imgDisplay thành đường dẫn dữ liệu (data URL)
     };
-    
+
     reader.readAsDataURL(file); // Đọc tệp hình ảnh và trả về dữ liệu ở dạng URL
   }
 });

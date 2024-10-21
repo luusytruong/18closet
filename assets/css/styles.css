@@ -718,6 +718,8 @@ span.category__items__name {
 .product__items img {
   width: 100%;
   border-radius: 8px;
+  aspect-ratio: 2/3;
+  object-fit: cover;
 }
 
 .product__items__name {
@@ -759,6 +761,7 @@ span.category__items__name {
 
 span.product__items__price__cur__content {
   margin-right: 10px;
+  font-weight: bold;
 }
 
 .product__items__price__old__content {

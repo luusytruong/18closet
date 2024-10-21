@@ -31,11 +31,11 @@ try {
                     // $imageUrl  = $_POST['image_url'];
                     //xy ly anh
                     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-                        $targetDir = "../assets/img_upload";
+                        $targetDir = "../assets/img_upload/";
                         $targetFile = $targetDir . basename($_FILES["image"]["name"]);
                         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
                         //kiem tra kich thuoc anh
-                        if ($_FILES['image']['size'] > 500000) {
+                        if ($_FILES['image']['size'] > 1000000) {
                             echo json_encode(['error' => 'file to large']);
                             exit;
                         }
