@@ -1,0 +1,101 @@
+[
+    {
+        "id": 1,
+        "product_name": "Váy Chữ A Tay Dài Phối Nơ Thun Giấy DCATCU7",
+        "category_id": 1,
+        "price": 1500000,
+        "stock_quantity": 5,
+        "description": "Váy nữ dạ hội thiết kế sang trọng với chất liệu cao cấp, phù hợp cho các buổi tiệc tối hoặc sự kiện đặc biệt.",
+        "image_url": "//images/vay_nu_da_hoi.png",
+        "added_date": "2024-10-21 02:00:00"
+    },
+    {
+        "id": 2,
+        "product_name": "Đầm Chữ A Phối Khoác Đính Nút Dáng Ngắn DCATCU6",
+        "category_id": 1,
+        "price": 1200000,
+        "stock_quantity": 8,
+        "description": "Váy maxi hoa nhí nhẹ nhàng, thoáng mát, thích hợp cho những ngày dạo phố hay du lịch biển.",
+        "image_url": "//images/vay_maxi_hoa_nhi.png",
+        "added_date": "2024-10-21 02:05:00"
+    },
+    {
+        "id": 3,
+        "product_name": "Đầm Chữ A Cổ Sơ Mi Đính Nút Dáng Ngắn DCATCU5",
+        "category_id": 1,
+        "price": 1300000,
+        "stock_quantity": 10,
+        "description": "Váy công sở xếp ly với thiết kế thanh lịch, phù hợp cho môi trường văn phòng, chất liệu thoáng mát dễ chịu.",
+        "image_url": "//images/vay_cong_so_xep_ly.png",
+        "added_date": "2024-10-21 02:10:00"
+    },
+    {
+        "id": 4,
+        "product_name": "Đầm Chữ A Cúp Ngực Đính Nơ Dáng Ngắn DCATCU4",
+        "category_id": 1,
+        "price": 1400000,
+        "stock_quantity": 7,
+        "description": "Váy chữ A cài nút, kiểu dáng thời thượng với phần eo nhấn nhẹ, phù hợp cho nhiều dáng người.",
+        "image_url": "//images/vay_chu_A_cai_nut.png",
+        "added_date": "2024-10-21 02:15:00"
+    },
+    {
+        "id": 5,
+        "product_name": "Váy Chữ A Cổ Sơ Mi Thắt Nơ Hai Nắp Túi DCATCU3",
+        "category_id": 1,
+        "price": 1100000,
+        "stock_quantity": 9,
+        "description": "Váy suông trơn đơn giản nhưng tinh tế, dễ phối đồ cho những ngày đi làm hay dạo phố.",
+        "image_url": "//images/vay_suong_tron.png",
+        "added_date": "2024-10-21 02:20:00"
+    },{
+        "id": 6,
+        "product_name": "Váy Chữ A Cổ V Đính Nơ Tay Bồng DCATCU2",
+        "category_id": 1,
+        "price": 1500000,
+        "stock_quantity": 5,
+        "description": "Váy nữ dạ hội thiết kế sang trọng với chất liệu cao cấp, phù hợp cho các buổi tiệc tối hoặc sự kiện đặc biệt.",
+        "image_url": "//images/vay_nu_da_hoi.png",
+        "added_date": "2024-10-21 02:00:00"
+    },
+    {
+        "id": 7,
+        "product_name": "Đầm Chữ A Cổ Thắt Nơ Phối Viền Trắng DCATCU1",
+        "category_id": 1,
+        "price": 1200000,
+        "stock_quantity": 8,
+        "description": "Váy maxi hoa nhí nhẹ nhàng, thoáng mát, thích hợp cho những ngày dạo phố hay du lịch biển.",
+        "image_url": "//images/vay_maxi_hoa_nhi.png",
+        "added_date": "2024-10-21 02:05:00"
+    },
+    {
+        "id": 8,
+        "product_name": "Váy 2 Dây Dáng Ngắn Cổ Thắt Nơ DHDTCU11",
+        "category_id": 1,
+        "price": 1300000,
+        "stock_quantity": 10,
+        "description": "Váy công sở xếp ly với thiết kế thanh lịch, phù hợp cho môi trường văn phòng, chất liệu thoáng mát dễ chịu.",
+        "image_url": "//images/vay_cong_so_xep_ly.png",
+        "added_date": "2024-10-21 02:10:00"
+    },
+    {
+        "id": 9,
+        "product_name": "Đầm 2 Dây Ngực Thắt Nơ Nhún Hông DHDTCU2",
+        "category_id": 1,
+        "price": 1400000,
+        "stock_quantity": 7,
+        "description": "Váy chữ A cài nút, kiểu dáng thời thượng với phần eo nhấn nhẹ, phù hợp cho nhiều dáng người.",
+        "image_url": "//images/vay_chu_A_cai_nut.png",
+        "added_date": "2024-10-21 02:15:00"
+    },
+    {
+        "id": 10,
+        "product_name": "Váy Chữ A Hoạ Tiết Hoa Hồng Dáng Xòe Tay Bồng VCAFM43",
+        "category_id": 1,
+        "price": 1100000,
+        "stock_quantity": 9,
+        "description": "Váy suông trơn đơn giản nhưng tinh tế, dễ phối đồ cho những ngày đi làm hay dạo phố.",
+        "image_url": "//images/vay_suong_tron.png",
+        "added_date": "2024-10-21 02:20:00"
+    }
+]

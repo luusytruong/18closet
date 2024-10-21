@@ -1,3 +1,5 @@
+import { startPOSTFetch } from "./startFetch.js";
+
 export const modalElement = document.querySelector(".modal");
 export const overlayElement = modalElement.querySelector(".modal-overlay");
 export const modalContainer = modalElement.querySelector(".modal-container");
@@ -64,7 +66,10 @@ overlayElement.addEventListener("click", () => {
 });
 
 const routePost = [
-
+  "http://localhost/fashion-store/controller/readData.php?table=users",
+  "http://localhost/fashion-store/controller/readData.php?table=products",
+  "http://localhost/fashion-store/controller/readData.php?table=categorys",
+  "http://localhost/fashion-store/controller/readData.php?table=orders"
 ]
 
 confirmBTNs.map((btn, index) => {
@@ -78,9 +83,26 @@ confirmBTNs.map((btn, index) => {
     formData.forEach((value, key) => {
       dataObj[key] = value;
     });
-    console.log(dataObj)
+    console.log(dataObj);
     // hideModal();
 
-    startPOSTFetch('POST', routePost[index], dataObj);
+    startPOSTFetch(routePost[index], dataObj);
   });
+});
+
+
+const inputFileElement = document.getElementById("input-file");
+const imgDisplay = document.querySelector(".col__image");
+
+inputFileElement.addEventListener("change", (e) => {
+  const file = e.target.files[0]; // Lấy tệp đầu tiên từ danh sách
+  if (file) {
+    const reader = new FileReader();
+    
+    reader.onload = (event) => {
+      imgDisplay.src = event.target.result; // Đặt src của imgDisplay thành đường dẫn dữ liệu (data URL)
+    };
+    
+    reader.readAsDataURL(file); // Đọc tệp hình ảnh và trả về dữ liệu ở dạng URL
+  }
 });

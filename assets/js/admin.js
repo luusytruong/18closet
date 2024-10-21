@@ -31,7 +31,7 @@ sidebars.map((sidebar, index) => {
 
     try {
       const data = await startGETFetch("GET", route); // Wait for the data
-
+      console.log(data)
       const tableOld = tableList[index].querySelector("table");
       const newTable = createTableArray[index](data)
 

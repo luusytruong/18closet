@@ -10,10 +10,10 @@ export async function apiFetch(path){
 };
 
 const path = [
-    'http://localhost/fashion-store/controller/getData.php?table=users',
-    'http://localhost/fashion-store/controller/getData.php?table=products',
-    'http://localhost/fashion-store/controller/getData.php?table=categorys',
-    'http://localhost/fashion-store/controller/getData.php?table=orders',
+    'http://localhost/fashion-store/controller/readData.php?table=users',
+    'http://localhost/fashion-store/controller/readData.php?table=products',
+    'http://localhost/fashion-store/controller/readData.php?table=categorys',
+    'http://localhost/fashion-store/controller/readData.php?table=orders',
 ]
 
 

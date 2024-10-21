@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "product_name": "Áo Thun Nữ Croptop Cổ Tròn In Chữ GOTUE ATFM14",
+        "category_id": 1,
+        "price": 350000,
+        "stock_quantity": 15,
+        "description": "Áo Thun Nữ Croptop Cổ Tròn In Chữ GOTUE ATFM14 thiết kế cổ điển, phù hợp cho môi trường công sở, chất liệu mềm mại, dễ chịu khi mặc cả ngày dài.",
+        "image_url": "//images/ao_so_mi_tay_dai.png",
+        "added_date": "2024-10-21 03:00:00"
+    },
+    {
+        "id": 2,
+        "product_name": "Áo Dài Cách Tân Nữ Cổ Yếm Thều Hoa ADTC5",
+        "category_id": 1,
+        "price": 980000,
+        "stock_quantity": 7,
+        "description": "Áo Dài Cách Tân Nữ Cổ Yếm Thều Hoa ADTC5 với thiết kế quyến rũ, giúp tôn dáng và mang lại vẻ đẹp sang trọng cho người mặc.",
+        "image_url": "//images/dam_om_sat_body.png",
+        "added_date": "2024-10-21 03:05:00"
+    },
+    {
+        "id": 3,
+        "product_name": "Áo Dài Cách Tân Nữ Tay Phồng Cổ Tròn Đính Nơ ADTC4",
+        "category_id": 1,
+        "price": 250000,
+        "stock_quantity": 25,
+        "description": "Áo Dài Cách Tân Nữ Tay Phồng Cổ Tròn Đính Nơ ADTC4 đơn giản, chất liệu cotton mềm mịn, thoáng mát, phù hợp để mặc hằng ngày hoặc khi tập thể thao.",
+        "image_url": "//images/ao_thun_basic.png",
+        "added_date": "2024-10-21 03:10:00"
+    },
+    {
+        "id": 4,
+        "product_name": "Áo Dài Cách Tân Nữ Tay Lỡ Voan Tơ Thều Hoa Nhí ADTC3",
+        "category_id": 1,
+        "price": 1200000,
+        "stock_quantity": 10,
+        "description": "Áo Dài Cách Tân Nữ Tay Lỡ Voan Tơ Thều Hoa Nhí ADTC3 với thiết kế thướt tha, nhẹ nhàng, lý tưởng cho những buổi dạo phố hoặc đi biển.",
+        "image_url": "//images/dam_maxi_dai.png",
+        "added_date": "2024-10-21 03:15:00"
+    },
+    {
+        "id": 5,
+        "product_name": "Áo Dài Hiện Đại Nữ Trễ Vai Phối Nơ ADTC2",
+        "category_id": 1,
+        "price": 750000,
+        "stock_quantity": 5,
+        "description": "Áo Dài Hiện Đại Nữ Trễ Vai Phối Nơ ADTC2 phong cách trẻ trung, năng động, phù hợp cho những ngày trời se lạnh hoặc làm điểm nhấn thời trang.",
+        "image_url": "//images/ao_khoac_bomber.png",
+        "added_date": "2024-10-21 03:20:00"
+    },
+    {
+        "id": 6,
+        "product_name": "Áo Dài Cách Tân Nữ Cổ Yếm Sát Nách ADTC1",
+        "category_id": 1,
+        "price": 1450000,
+        "stock_quantity": 8,
+        "description": "Áo Dài Cách Tân Nữ Cổ Yếm Sát Nách ADTC1 với thiết kế tinh tế, họa tiết ren sang trọng, phù hợp cho các buổi tiệc cưới hay sự kiện trang trọng.",
+        "image_url": "//images/dam_xoe_ren.png",
+        "added_date": "2024-10-21 03:25:00"
+    },
+    {
+        "id": 7,
+        "product_name": "Áo Dài Hiện Đại Nữ Cổ Tàu Tay Lỡ Đính Nút Ngọc ADFM10",
+        "category_id": 1,
+        "price": 1050000,
+        "stock_quantity": 12,
+        "description": "Áo Dài Hiện Đại Nữ Cổ Tàu Tay Lỡ Đính Nút Ngọc ADFM10 thời thượng, phù hợp khi kết hợp với quần jean hoặc chân váy cho phong cách năng động.",
+        "image_url": "//images/ao_blazer_dang_rong.png",
+        "added_date": "2024-10-21 03:30:00"
+    },
+    {
+        "id": 8,
+        "product_name": "Áo Khoác Vest/Blazer Nữ Oversize Tay Lỡ 2 Túi Nắp AKBZFM5",
+        "category_id": 1,
+        "price": 890000,
+        "stock_quantity": 14,
+        "description": "Đầm suông trơn với thiết kế đơn giản, thanh lịch, phù hợp cho các buổi đi chơi hoặc hẹn hò nhẹ nhàng.",
+        "image_url": "//images/dam_suong_tron.png",
+        "added_date": "2024-10-21 03:35:00"
+    },
+    {
+        "id": 9,
+        "product_name": "Áo Khoác Vest/Blazer Nữ Oversize 1 Lớp 2 Túi Nắp AKBZFM4",
+        "category_id": 1,
+        "price": 550000,
+        "stock_quantity": 20,
+        "description": "Áo Khoác Vest/Blazer Nữ Oversize 1 Lớp 2 Túi Nắp AKBZFM4 ấm áp, thoải mái, phù hợp cho những ngày lạnh và những ai yêu thích phong cách thể thao, năng động.",
+        "image_url": "//images/ao_hoodie_ni.png",
+        "added_date": "2024-10-21 03:40:00"
+    },
+    {
+        "id": 10,
+        "product_name": "Áo Khoác Vest/Blazer Nữ Croptop 1 Nút AKBZFM2",
+        "category_id": 1,
+        "price": 1350000,
+        "stock_quantity": 6,
+        "description": "Áo Khoác Vest/Blazer Nữ Croptop 1 Nút AKBZFM2 thanh lịch, tinh tế với thiết kế giúp tôn lên vẻ đẹp thanh thoát và sang trọng của người mặc.",
+        "image_url": "//images/dam_co_yem.png",
+        "added_date": "2024-10-21 03:45:00"
+    }
+]

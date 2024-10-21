@@ -113,3 +113,9 @@ input[type="file"] {
     /* border-color:  red; */
     box-sizing: border-box;
 }
+
+.col__image{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}

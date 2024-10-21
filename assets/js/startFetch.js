@@ -1,9 +1,9 @@
 
 export const routes = [
-    "http://localhost/fashion-store/controller/php/getData.php?table=users",
-    "http://localhost/fashion-store/controller/php/getData.php?table=products",
-    "http://localhost/fashion-store/controller/php/getData.php?table=categorys",
-    "http://localhost/fashion-store/controller/php/getData.php?table=orders"
+    "http://localhost/fashion-store/controller/readData.php?table=users",
+    "http://localhost/fashion-store/controller/readData.php?table=products",
+    "http://localhost/fashion-store/controller/readData.php?table=categorys",
+    "http://localhost/fashion-store/controller/readData.php?table=orders"
 ]
 
 function beginToast(type, title, message){
@@ -46,10 +46,10 @@ export function startGETFetch(method, path){
     });
 };
 
-export function startPOSTFetch(method, path, data = {}){
+export function startPOSTFetch(path, data = {}){
     const params = new URLSearchParams(data);
     fetch(path, {
-        method: method,
+        method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },

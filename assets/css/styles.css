@@ -700,12 +700,16 @@ span.category__items__name {
 
 .product__list {
   display: flex;
+  flex-wrap: wrap;
   margin-left: -10px !important;
   margin-right: -10px !important;
   padding-top: 20px;
 }
 
 .product__items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   width: calc(100% / 5 - 20px);
   margin: 0 10px 20px 10px;
   cursor: pointer;
