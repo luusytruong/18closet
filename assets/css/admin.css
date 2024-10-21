@@ -80,12 +80,16 @@
     background-color: #006fdd;
 }
 
-.container__table.active{
-    display: table;
-}
 .container__table{
     margin-top: 20px;
+}
+
+.table__wrapper{
     display: none;
+    
+}
+.table__wrapper.active{
+    display: flex;
 }
 
 table{

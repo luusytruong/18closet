@@ -1,4 +1,13 @@
-import { modalElement, overlayElement, modalContainer } from "./modal.js";
+import {
+  modalElement,
+  overlayElement,
+  modalContainer,
+  addModal,
+  editModal,
+  showAddModal,
+  showEditModal,
+  showRemoveModal,
+} from "./modal.js";
 
 export const createTableUser = (values) => {
   const tableElement = document.createElement("table");
@@ -51,7 +60,6 @@ export const createTableProducts = (values) => {
                         <th class="container__col"></th>
     `;
   tableElement.appendChild(headTable);
-
   values.map((value) => {
     const trElement = document.createElement("tr");
     trElement.classList.add("container__row");
@@ -71,13 +79,24 @@ export const createTableProducts = (values) => {
                     </div>
                 </td>
         `;
-        console.log(trElement)
     const editIcon = trElement.querySelector(".fa-pen-to-square");
-    console.log(editIcon)
     editIcon.addEventListener("click", () => {
-      console.log("hello")
-      modalElement.style.display = "flex";
-      console.log(modalElement)
+      showEditModal(
+        value.id,
+        value.product_name,
+        value.category_id,
+        value.price,
+        value.stock_quantity,
+        value.description,
+        value.image_url,
+        value.added_date
+      );
+    });
+    const removeIcon = trElement.querySelector(".fa-trash");
+    removeIcon.addEventListener("click", () => {
+      showRemoveModal(
+        value.id,
+        value.product_name);
     });
     tableElement.appendChild(trElement);
   });

@@ -27,7 +27,11 @@
   border-radius: 8px;
 }
 
-.modal__add {
+
+
+.modal__add,
+.modal__edit,
+.modal__remove {
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -47,6 +51,12 @@
   /* padding: 8px; */
   margin-bottom: 12px;
 }
+
+.col.id{
+  max-width: 30%;;
+  width: 100%;
+}
+
 .col.col1 {
   width: 100%;
 }
@@ -68,6 +78,7 @@
   min-height: 40px;
   border-radius: 4px;
   background-color: #fff;
+  caret-color: rgb(197, 2, 2);
 }
 
 .col label {
@@ -82,7 +93,7 @@ input[type="file"] {
   display: none;
 }
 
-.modal__add__btn{
+.modal__confirm__btn{
     align-self: self-end;
     font-size: 1.6rem;
     padding: 8px 12px;
@@ -96,7 +107,7 @@ input[type="file"] {
     border: 1px solid;
 }
 
-.modal__add__btn:hover{
+.modal__confirm__btn:hover{
     background-color: #bc05176e;
     color: #fff;
     /* border-color:  red; */

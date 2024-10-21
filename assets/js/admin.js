@@ -1,9 +1,9 @@
 import { startGETFetch, startPOSTFetch, routes } from "./startFetch.js";
 import { createTableArray } from "./createTable.js";
-import { modalElement, overlayElement, modalContainer } from "./modal.js";
+import { modalElement, overlayElement, modalContainer, showAddModal } from "./modal.js";
 
 const sidebars = Array.from(document.querySelectorAll(".sidebar__item"));
-const tableList = Array.from(document.querySelectorAll(".container__table"));
+const tableList = Array.from(document.querySelectorAll(".table__wrapper"));
 const displayTitle = document.querySelector(".display__title");
 const actionElement = document.querySelector(".actions");
 
@@ -32,7 +32,11 @@ sidebars.map((sidebar, index) => {
     try {
       const data = await startGETFetch("GET", route); // Wait for the data
 
-      tableList[index].innerHTML = createTableArray[index](data).innerHTML;
+      const tableOld = tableList[index].querySelector("table");
+      const newTable = createTableArray[index](data)
+
+      tableOld.replaceWith(newTable);
+
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -41,9 +45,8 @@ sidebars.map((sidebar, index) => {
 
 const btnAddProduct = document.querySelector(".actions__add");
 btnAddProduct.addEventListener("click", () => {
-  modalElement.style.display = 'flex';
+  showAddModal()
 });
-
 
 //
 sidebars[1].click();
