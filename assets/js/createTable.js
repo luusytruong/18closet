@@ -1,3 +1,5 @@
+import { modalElement, overlayElement, modalContainer } from "./modal.js";
+
 export const createTableUser = (values) => {
   const tableElement = document.createElement("table");
   tableElement.className = "container__table";
@@ -69,6 +71,14 @@ export const createTableProducts = (values) => {
                     </div>
                 </td>
         `;
+        console.log(trElement)
+    const editIcon = trElement.querySelector(".fa-pen-to-square");
+    console.log(editIcon)
+    editIcon.addEventListener("click", () => {
+      console.log("hello")
+      modalElement.style.display = "flex";
+      console.log(modalElement)
+    });
     tableElement.appendChild(trElement);
   });
 
@@ -132,7 +142,6 @@ export const createTableOders = (values) => {
 
   return tableElement;
 };
-
 
 export const createTableArray = [
   createTableUser,

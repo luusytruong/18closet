@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="stylesheet" href="./assets/css/admin.css">
+    <link rel="stylesheet" href="./assets/css/modal.css">
     <script src="./assets/js/header.js"></script>
     <title>Document</title>
 </head>
@@ -181,10 +182,61 @@
             </div>
         </div>
     </div>
+    
+    <div class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <!-- add -->
+             <div class="modal__add">
+                <h2>Thêm sản phẩm</h2>
+                <form action="" class="form">
+                    <!-- <div class="col">
+                        <span>Mã sản phẩm</span>
+                        <input type="text">
+                    </div> -->
+                    <div class="col col1">
+                        <span>Tên sản phẩm</span>
+                        <input type="text">
+                    </div>
+                    <div class="col  col3">
+                        <span>Danh mục</span>
+                        <select name="" id="">
+                            <option value="">Váy</option>
+                            <option value="">Áo</option>
+                            <option value="">Đầm</option>
+                        </select>
+                    </div>
+                    <div class="col col3">
+                        <span>Giá</span>
+                        <input type="text">
+                    </div>
+                    <div class="col col3">
+                        <span>Số lượng</span>
+                        <input type="text">
+                    </div>
+                    <div class="col  col1">
+                        <span>Mô tả</span>
+                        <!-- <input type="text"> -->
+                        <textarea name="" id=""></textarea>
+                    </div>
+                    <div class="col">
+                        <span>URL</span>
+                        <input type="file" id="input-file">
+                        <label for="input-file">Chọn ảnh</label>
+                    </div>
+                    <div class="col">
+                        <span>Ngày thêm</span>
+                        <input type="date" readonly>
+                    </div>
+                </form>
+                <button class="modal__add__btn">Xác nhận</button>
+             </div>
 
-    </footer>
+        </div>
     </div>
     <script type="module" src="./assets/js/admin.js"></script>
+    <script type="module" src="./assets/js/modal.js"></script>
+
 </body>
 
 </html>

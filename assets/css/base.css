@@ -10,6 +10,7 @@
   margin: 0;
   --font-family: 'SVN Poppins', sans-serif;
   user-select: none;
+  position: relative;
 }
 
 html {

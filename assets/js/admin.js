@@ -1,5 +1,7 @@
 import { startGETFetch, startPOSTFetch, routes } from "./startFetch.js";
 import { createTableArray } from "./createTable.js";
+import { modalElement, overlayElement, modalContainer } from "./modal.js";
+
 const sidebars = Array.from(document.querySelectorAll(".sidebar__item"));
 const tableList = Array.from(document.querySelectorAll(".container__table"));
 const displayTitle = document.querySelector(".display__title");
@@ -26,7 +28,7 @@ sidebars.map((sidebar, index) => {
     if (index === 1) {
       actionElement.style.display = "inline-flex";
     }
-    
+
     try {
       const data = await startGETFetch("GET", route); // Wait for the data
 
@@ -36,3 +38,12 @@ sidebars.map((sidebar, index) => {
     }
   });
 });
+
+const btnAddProduct = document.querySelector(".actions__add");
+btnAddProduct.addEventListener("click", () => {
+  modalElement.style.display = 'flex';
+});
+
+
+//
+sidebars[1].click();
