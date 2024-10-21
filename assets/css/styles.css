@@ -283,7 +283,6 @@ input[type="password"]::-ms-clear {
   background: linear-gradient(135deg, #ed55c7, #6756ca);
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .nav-item:hover.nav-item::before {
@@ -379,7 +378,7 @@ input[type="password"]::-ms-clear {
 .sub__menu.shows {
   display: unset;
   opacity: 0;
-  animation: subMenuOpacity .35s ease .1s forwards;
+  animation: subMenuOpacity .35s ease forwards;
 }
 
 .sub__menu {
@@ -409,11 +408,20 @@ input[type="password"]::-ms-clear {
   background-color: var(--bgr-color);
   z-index: -1;
 }
-
+.sub__menu.shows .sub__menu__dropdown{
+  animation: fadeInForSubMenu .35s forwards;
+}
 .sub__menu__dropdown {
   max-width: 1200px;
   margin: 0 -30px;
   display: flex;
+  opacity: 0;
+}
+
+@keyframes fadeInForSubMenu {
+  to{
+    opacity: 1;
+  }
 }
 
 .menu__dropdown__col {
