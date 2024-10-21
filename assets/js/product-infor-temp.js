@@ -38,3 +38,7 @@ async function loadLostProduct() {
     }
   });
 }
+
+
+// input up down
+

@@ -74,14 +74,14 @@ async function loadLostProduct() {
 
     // dress
     if (value.category_id == 1) {
-      if (count1 < 5) {
+      if (count1 < 10) {
         dressProductDisplay
           .querySelector(".product__list")
           .appendChild(miniDisplay);
         count1++;
       }
     } else {
-      if (count2 < 5) {
+      if (count2 < 10) {
         shirtProductDisplay
           .querySelector(".product__list")
           .appendChild(miniDisplay);

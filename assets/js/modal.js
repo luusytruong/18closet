@@ -1,3 +1,4 @@
+import { sidebarActiveNow } from "./admin.js";
 import { startPOSTFetch } from "./startFetch.js";
 
 export const modalElement = document.querySelector(".modal");
@@ -10,12 +11,17 @@ export const removeModal = modalContainer.querySelector(".modal__remove");
 const confirmBTNs = Array.from(
   modalElement.querySelectorAll(".modal__confirm__btn")
 );
+const addConfirmBTN = document.querySelector(".modal__add__btn");
+const editConfirmBTN = document.querySelector(".modal__edit__btn");
+const removeConfirmBTN = document.querySelector(".modal__remove__btn");
 
 export const hideModal = () => {
   removeModal.style.display = "none";
   editModal.style.display = "none";
   modalElement.style.display = "none";
   addModal.style.display = "none";
+
+  sidebarActiveNow.click();
 };
 
 export const showAddModal = () => {
@@ -32,7 +38,6 @@ export const showEditModal = (
   price,
   stock_quantity,
   description,
-  image_url,
   added_date
 ) => {
   removeModal.style.display = "none";
@@ -40,7 +45,6 @@ export const showEditModal = (
   modalElement.style.display = "flex";
   editModal.style.display = "flex";
 
-  // insert value
   editModal.querySelector(".input-id").value = id;
   editModal.querySelector(".name").value = product_name;
   editModal.querySelector(".category").value = category_id;
@@ -66,65 +70,80 @@ overlayElement.addEventListener("click", () => {
 });
 
 const routePost = [
-  "http://localhost/fashion-store/controller/createData.php?table=users",
   "http://localhost/fashion-store/controller/createData.php?table=products",
-  "http://localhost/fashion-store/controller/createData.php?table=categorys",
-  "http://localhost/fashion-store/controller/createData.php?table=orders"
-]
+  "http://localhost/fashion-store/controller/updateData.php?table=products",
+  "http://localhost/fashion-store/controller/deleteData.php?table=products",
+];
 
 function startPOSTFetchF(url, formData) {
   fetch(url, {
-    method: 'POST',
-    body: formData, 
+    method: "POST",
+    body: formData,
   })
-  .then(response => response.json())
-  .then(data => {
-    // console.log(data);
-    if (data.error) {
-      // Xử lý lỗi
-      console.log(data.error);
-    } else {
-      // Xử lý thành công
-      console.log('Upload successful!');
-    }
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.error) {
+        // Xử lý lỗi
+        console.log(data.error);
+      } else {
+        // Xử lý thành công
+        console.log("Upload successful!");
+        hideModal();
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 }
 
-confirmBTNs.map(btn => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
+addConfirmBTN.addEventListener("click", (e) => {
+  e.preventDefault();
 
-    const form = btn.closest(".modal__box").querySelector("form");
-    const formData = new FormData(form); // Sử dụng FormData
+  const form = addConfirmBTN.closest(".modal__box").querySelector("form");
+  const formData = new FormData(form);
 
-    // Thêm thông tin vào FormData
-    formData.append('table', 'products'); // Thêm trường 'table'
+  formData.append("table", "products");
 
-    console.log([...formData]); // In ra các giá trị trong FormData
 
-    // Gọi hàm gửi dữ liệu
-    startPOSTFetchF(routePost[1], formData); // Gửi formData
-  });
+  startPOSTFetchF(routePost[0], formData);
 });
 
+editConfirmBTN.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const form = editConfirmBTN.closest(".modal__box").querySelector("form");
+  const formData = new FormData(form);
+
+  formData.append("table", "products");
+
+
+  startPOSTFetchF(routePost[1], formData);
+});
+
+removeConfirmBTN.addEventListener("click", (e) => {
+  e.preventDefault();
+  const form = removeConfirmBTN.closest(".modal__box").querySelector("form");
+  const formData = new FormData(form);
+
+  formData.append("table", "products");
+
+  startPOSTFetchF(routePost[2], formData);
+});
 
 const inputFileElement = document.getElementById("input-file");
 const imgDisplay = document.querySelector(".col__image");
 
 inputFileElement.addEventListener("change", (e) => {
-  const files = e.target.files; // Lấy danh sách các tệp
-  const file = files[files.length - 1]; // Lấy tệp cuối cùng
+  const files = e.target.files;
+  const file = files[files.length - 1];
 
   if (file) {
     const reader = new FileReader();
 
     reader.onload = (event) => {
-      imgDisplay.src = event.target.result; // Đặt src của imgDisplay thành đường dẫn dữ liệu (data URL)
+      imgDisplay.src = event.target.result;
     };
 
-    reader.readAsDataURL(file); // Đọc tệp hình ảnh và trả về dữ liệu ở dạng URL
+    reader.readAsDataURL(file);
   }
 });

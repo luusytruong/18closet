@@ -1,11 +1,13 @@
-import { startGETFetch, startPOSTFetch, routes } from "./startFetch.js";
+import { startGETFetch, routes } from "./startFetch.js";
 import { createTableArray } from "./createTable.js";
-import { modalElement, overlayElement, modalContainer, showAddModal } from "./modal.js";
+import { showAddModal } from "./modal.js";
 
 const sidebars = Array.from(document.querySelectorAll(".sidebar__item"));
 const tableList = Array.from(document.querySelectorAll(".table__wrapper"));
 const displayTitle = document.querySelector(".display__title");
 const actionElement = document.querySelector(".actions");
+
+export let sidebarActiveNow = sidebars[1];
 
 const unActiveTable = (title) => {
   sidebars.map((bar) => {
@@ -20,6 +22,7 @@ const unActiveTable = (title) => {
 
 sidebars.map((sidebar, index) => {
   sidebar.addEventListener("click", async () => {
+    sidebarActiveNow = sidebar;
     const title = sidebar.querySelector("span").innerText;
     unActiveTable(title);
     sidebar.classList.add("active");
@@ -49,4 +52,4 @@ btnAddProduct.addEventListener("click", () => {
 });
 
 //
-sidebars[1].click();
+sidebarActiveNow.click();

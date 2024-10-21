@@ -199,5 +199,5 @@ function insertData($pdo, $name, $category, $price, $stock, $des, $url)
     echo 'ok' . $name . '<br>';
 }
 
-loop($pdo, $dress, 'dress', 'dress is the best');
-loop($pdo, $shirt, 'shirt', 'shirt is the best');
+loop($pdo, $dress, 'dress', 'Chất liệu vải tuyết mưa cao cấp làm chiếc đầm chữ A này có độ rơi tự nhiên và thanh thoát. Bạn có thể tự tin diện nó trong các sự kiện quan trọng như tiệc tùng, dạo phố hay cả môi trường làm việc. Màu sắc đa dạng với sự lựa chọn từ màu Be, Đen, Trắng giúp bạn thể hiện phong cách và cá tính của mình một cách tự tin.');
+loop($pdo, $shirt, 'shirt', 'Chất liệu vải tuyết mưa cao cấp giúp áo khoác mềm mại và thoáng mát, mang đến sự thoải mái khi mặc. Áo có size S và M, phù hợp với nhiều vóc dáng khác nhau. Với họa tiết trơn đơn giản, áo khoác nữ xinh đẹp này tạo nên một vẻ ngoài giản dị nhưng không kém phần sang trọng. Thiết kế của áo Blazer giúp bạn có thể diện quanh năm không sợ lỗi thời.');

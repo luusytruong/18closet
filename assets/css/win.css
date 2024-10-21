@@ -305,6 +305,7 @@
   padding: 0 8px;
 }
 .product__infor__col__list__input input {
+  text-align: center;
   max-width: 100px;
   padding: 0 8px;
   outline: none;

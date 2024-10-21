@@ -93,7 +93,9 @@ input[type="file"] {
   display: none;
 }
 
-.modal__confirm__btn{
+.modal__add__btn,
+.modal__edit__btn,
+.modal__remove__btn{
     align-self: self-end;
     font-size: 1.6rem;
     padding: 8px 12px;
