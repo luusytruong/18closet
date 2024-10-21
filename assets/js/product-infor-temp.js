@@ -33,7 +33,7 @@ async function loadLostProduct() {
       console.log(value)
       productNameElement.innerText = value.product_name
       currentPriceElement.innerText = value.price;
-      oldPriceElement.innerText = value.price;
+      oldPriceElement.innerText = value.price;  
       detailProduct.innerText = value.description;
     }
   });

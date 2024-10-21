@@ -6,7 +6,7 @@
         "price": 1500000,
         "stock_quantity": 5,
         "description": "Váy nữ dạ hội thiết kế sang trọng với chất liệu cao cấp, phù hợp cho các buổi tiệc tối hoặc sự kiện đặc biệt.",
-        "image_url": "//images/vay_nu_da_hoi.png",
+        "image_url": "dress1.png",
         "added_date": "2024-10-21 02:00:00"
     },
     {
@@ -16,7 +16,7 @@
         "price": 1200000,
         "stock_quantity": 8,
         "description": "Váy maxi hoa nhí nhẹ nhàng, thoáng mát, thích hợp cho những ngày dạo phố hay du lịch biển.",
-        "image_url": "//images/vay_maxi_hoa_nhi.png",
+        "image_url": "dress2.png",
         "added_date": "2024-10-21 02:05:00"
     },
     {
@@ -26,7 +26,7 @@
         "price": 1300000,
         "stock_quantity": 10,
         "description": "Váy công sở xếp ly với thiết kế thanh lịch, phù hợp cho môi trường văn phòng, chất liệu thoáng mát dễ chịu.",
-        "image_url": "//images/vay_cong_so_xep_ly.png",
+        "image_url": "dress3.png",
         "added_date": "2024-10-21 02:10:00"
     },
     {
@@ -36,7 +36,7 @@
         "price": 1400000,
         "stock_quantity": 7,
         "description": "Váy chữ A cài nút, kiểu dáng thời thượng với phần eo nhấn nhẹ, phù hợp cho nhiều dáng người.",
-        "image_url": "//images/vay_chu_A_cai_nut.png",
+        "image_url": "dress4.png",
         "added_date": "2024-10-21 02:15:00"
     },
     {
@@ -46,7 +46,7 @@
         "price": 1100000,
         "stock_quantity": 9,
         "description": "Váy suông trơn đơn giản nhưng tinh tế, dễ phối đồ cho những ngày đi làm hay dạo phố.",
-        "image_url": "//images/vay_suong_tron.png",
+        "image_url": "dress5.png",
         "added_date": "2024-10-21 02:20:00"
     },{
         "id": 6,
@@ -55,7 +55,7 @@
         "price": 1500000,
         "stock_quantity": 5,
         "description": "Váy nữ dạ hội thiết kế sang trọng với chất liệu cao cấp, phù hợp cho các buổi tiệc tối hoặc sự kiện đặc biệt.",
-        "image_url": "//images/vay_nu_da_hoi.png",
+        "image_url": "dress6.png",
         "added_date": "2024-10-21 02:00:00"
     },
     {
@@ -65,7 +65,7 @@
         "price": 1200000,
         "stock_quantity": 8,
         "description": "Váy maxi hoa nhí nhẹ nhàng, thoáng mát, thích hợp cho những ngày dạo phố hay du lịch biển.",
-        "image_url": "//images/vay_maxi_hoa_nhi.png",
+        "image_url": "dress7.png",
         "added_date": "2024-10-21 02:05:00"
     },
     {
@@ -75,7 +75,7 @@
         "price": 1300000,
         "stock_quantity": 10,
         "description": "Váy công sở xếp ly với thiết kế thanh lịch, phù hợp cho môi trường văn phòng, chất liệu thoáng mát dễ chịu.",
-        "image_url": "//images/vay_cong_so_xep_ly.png",
+        "image_url": "dress8.png",
         "added_date": "2024-10-21 02:10:00"
     },
     {
@@ -85,7 +85,7 @@
         "price": 1400000,
         "stock_quantity": 7,
         "description": "Váy chữ A cài nút, kiểu dáng thời thượng với phần eo nhấn nhẹ, phù hợp cho nhiều dáng người.",
-        "image_url": "//images/vay_chu_A_cai_nut.png",
+        "image_url": "dress9.png",
         "added_date": "2024-10-21 02:15:00"
     },
     {
@@ -95,7 +95,7 @@
         "price": 1100000,
         "stock_quantity": 9,
         "description": "Váy suông trơn đơn giản nhưng tinh tế, dễ phối đồ cho những ngày đi làm hay dạo phố.",
-        "image_url": "//images/vay_suong_tron.png",
+        "image_url": "dress10.png",
         "added_date": "2024-10-21 02:20:00"
     }
 ]
