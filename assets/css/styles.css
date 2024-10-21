@@ -27,6 +27,9 @@ input[type="password"]::-ms-clear {
     display: none;
 }
 /* form login*/
+.login.show{
+  display: grid;
+}
 .login {
   width: 100%;
   height: 100%;
@@ -259,7 +262,7 @@ input[type="password"]::-ms-clear {
 .nav {
   display: inherit;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .nav-item {

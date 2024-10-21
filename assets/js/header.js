@@ -47,6 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
     })
-    console.log('load');
+    
+    const formLogin = document.querySelector('.login')
+    const btnShowLogin = document.getElementById('show-login')
+    const hidenLogin = document.querySelector('.login .wrapper')
+
+    btnShowLogin.addEventListener('click', ()=>{
+        formLogin.classList.add('show')
+    })
+    hidenLogin.addEventListener('click', ()=>{
+        // formLogin.classList.remove('show')
+    })
+
 
 })
