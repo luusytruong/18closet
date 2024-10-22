@@ -53,7 +53,7 @@ export const createTableProducts = (values) => {
                         <th class="container__col">TÊN SẢN PHẨM</th>
                         <th class="container__col">DANH MỤC</th>
                         <th class="container__col">GIÁ</th>
-                        <th class="container__col">SỐ LƯỢNG</th>
+                        <th class="container__col">KHO</th>
                         <th class="container__col">MÔ TẢ</th>
                         <th class="container__col">URL</th>
                         <th class="container__col">NGÀY THÊM</th>

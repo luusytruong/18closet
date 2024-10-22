@@ -1,73 +1,114 @@
-.content{
-    display: flex;   
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
+body {
+    background-color: #292929;
+    overflow: hidden;
+    color: #cfcfcf !important;
 }
 
-.sidebar{
+.content {
+    display: flex;
+    align-items: stretch;
+}
+
+.sidebar {
     width: 20%;
-    border-right: 1px solid #ddd;
-    padding: 20px;
+    min-width: 220px;
+    border-right: 1px solid #333;
+    padding: 20px 10px;
     min-height: 100vh;
+    position: relative;
 }
 
-.sidebar__head{
+.sidebar__head {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.sidebar__head img{
-    height: 20px;
-    margin-right: 8px;
+
+.sidebar__head img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.sidebar h2{
-    font-size: 2.4rem;
+.sidebar h2 {
+    text-align: center;
+    font-size: 7.6rem;
+    width: 100%;
+    font-family: Cookie;
+    color: transparent;
+    font-weight: normal;
+    line-height: 70px;
+    background-image: linear-gradient(135deg, #ed55c7, #6756ca);
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 
-.sidebar__list{
+.sidebar__list {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    position: absolute;
+    top: 120px;
+    left: 10px;
+    right: 10px;
 }
 
-.sidebar__item{
-    padding: 6px 12px;
-    border: 1px solid #ddd;
+.sidebar__item {
+    padding: 8px 12px;
+    /* border: 1px solid #0000000f; */
+    box-shadow: 0 0 10px #0000000f;
     border-radius: 4px;
-    box-shadow: 2px 2px 4px 1px #ddd;
     cursor: pointer;
-    background-color: #fff;
-    font-weight: 500;
+    background-color: #333;
+    font-weight: bold;
 }
 
-.sidebar__item.active{
-    background-color: rgb(197, 2, 2);
+.sidebar__item.active {
+    background-color: transparent;
+    background-image: linear-gradient(135deg, #ed55c7, #6756ca);
+    /* border: 1px solid #fff; */
     color: #fff;
 }
 
-.sidebar__item:not(.active):hover{
-    box-shadow: 2px 2px 4px 1px #ddd;
-    background-color: #e1e1e1
+.sidebar__item:not(.active):hover {
+    background-image: linear-gradient(135deg, #ed55c72a, #6756ca2a);
+    /* box-shadow: 2px 2px 4px 1px #333; */
+    /* background-color: #efefef; */
 
 }
-.sidebar__item + .sidebar__item{
+
+.sidebar__item+.sidebar__item {
     margin-top: 12px;
 }
 
-.display{
+.display {
     display: flex;
     flex-direction: column;
     width: 80%;
     padding: 20px;
+    height: 100svh;
+    position: relative;
 }
 
-.actions{
-    margin-top: 30px;
+.display__wrapper {
+    height: 100%;
+    padding-top: 100px;
+}
+
+h2.display__title {
+    position: absolute;
+    top: 0px;
+}
+
+.actions {
+    position: absolute;
+    top: 50px;
     display: none;
 }
 
-.actions__add{
+.actions__add {
     font-size: 1.6rem;
-    font-weight: 600;
     padding: 6px 12px;
     border-radius: 4px;
     outline: none;
@@ -75,39 +116,90 @@
     color: #fff;
     background-color: #0081ff;
 }
-.actions__add:hover{
+
+.actions__add:hover {
     cursor: pointer;
     background-color: #006fdd;
 }
 
-.container__table{
-    margin-top: 20px;
-}
-
-.table__wrapper{
+.table__wrapper {
+    height: 100%;
+    overflow-y: auto;
+    border-top: 1px solid #333;
     display: none;
-    
-}
-.table__wrapper.active{
-    display: flex;
+
+
 }
 
-table{
+.table__wrapper::-webkit-scrollbar {
+    width: 1em;
+}
+
+.table__wrapper::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #0000004d;
+}
+
+.table__wrapper::-webkit-scrollbar-thumb {
+    background-color: #333;
+}
+
+.table__wrapper.active {
+    display: block;
+    position: relative;
+}
+
+.display__wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #333;
+}
+
+table {
     border-collapse: collapse;
     width: 100%;
+    margin-top: -1px;
 }
 
-table, tr, th, td{
-    border: 1px solid #ddd;
+table,
+tr,
+th,
+td {
+    border: 1px solid #333;
 }
 
-.container__col{
+tr:hover{
+    background-color: #262626;
+    cursor: pointer;
+}
+
+.container__col {
     padding: 10px;
     text-align: center;
 }
 
-.container__col i:hover{
+.container__col i:hover {
     opacity: 0.8;
-    color: #eac7c7;
     cursor: pointer;
+}
+
+.fa-solid {
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #333;
+    border-radius: 4px;
+}
+
+.fa-pen-to-square {
+    color: #0081ff;
+}
+
+.fa-trash {
+    color: #cc0000;
+    margin-top: 10px;
 }
