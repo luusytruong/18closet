@@ -130,7 +130,7 @@ removeConfirmBTN.addEventListener("click", (e) => {
   startPOSTFetchF(routePost[2], formData);
 });
 
-const inputFileElement = Array.from(document.querySelectorAll("input-file"));
+const inputFileElement = Array.from(document.querySelectorAll(".input-file"));
 
 inputFileElement.map(inputt=>{
   inputt.addEventListener("change", (e) => {
@@ -147,5 +147,7 @@ inputFileElement.map(inputt=>{
   
       reader.readAsDataURL(file);
     }
+    console.log('he', inputt);
+    
   });
 })
