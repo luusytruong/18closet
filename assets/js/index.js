@@ -101,11 +101,3 @@ function activeImg2(btn) {
 
 startSlideInterval();
 
-// const price = 255000
-// //
-// const currentPriceItems = Array.from(document.querySelectorAll(".product__items__price__cur__content"));
-// currentPriceItems.map(elemnent=>{
-//   elemnent.textContent = price.toLocaleString('vi-VN',{ style: 'currency', currency: 'VND' });
-//   console.log(elemnent.textContent  )
-// })
-
