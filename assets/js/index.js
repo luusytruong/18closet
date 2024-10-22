@@ -7,41 +7,39 @@ let interval;
 let timeOut;
 
 function switchClick() {
-    console.log("!run")
-  
-  if (switchValue) {
-    img1.style.transition = "left 0.5s ease"; 
-    img2.style.transition = "left 0.5s ease";
-    img1.style.left = "-100%"; 
-    img2.style.left = "0"; 
-    img2.style.zIndex = 1; 
-    timeOut = setTimeout(() => {
-      img1.style.zIndex = 0;
-      img1.style.left = "100%"; 
-    }, 500); 
-    switchValue = 0;
-  } else {
-    img1.style.transition = "left 0.5s ease";
-    img2.style.transition = "left 0.5s ease";
-    
-    img2.style.left = "-100%"; 
-    img1.style.left = "0"; 
-    img1.style.zIndex = 1; 
-    timeOut = setTimeout(() => {
-      img2.style.zIndex = 0;
-      img2.style.left = "100%"; 
-    }, 500);
-    switchValue = 1;
-  }
-}
+  console.log("!run");
+  // if (img1 && img2)
+    if (switchValue) {
+      img1.style.transition = "left 0.5s ease";
+      img2.style.transition = "left 0.5s ease";
+      img1.style.left = "-100%";
+      img2.style.left = "0";
+      img2.style.zIndex = 1;
+      timeOut = setTimeout(() => {
+        img1.style.zIndex = 0;
+        img1.style.left = "100%";
+      }, 500);
+      switchValue = 0;
+    } else {
+      img1.style.transition = "left 0.5s ease";
+      img2.style.transition = "left 0.5s ease";
 
+      img2.style.left = "-100%";
+      img1.style.left = "0";
+      img1.style.zIndex = 1;
+      timeOut = setTimeout(() => {
+        img2.style.zIndex = 0;
+        img2.style.left = "100%";
+      }, 500);
+      switchValue = 1;
+    }
+}
 
 function startSlideInterval() {
   interval = setInterval(() => {
     switchClick();
-  }, 10000); 
+  }, 10000);
 }
-
 
 function removeActive() {
   const outlines = Array.from(
@@ -52,9 +50,8 @@ function removeActive() {
   });
 }
 
-
 function activeImg1(btn) {
-  if (switchValue === 1) return; 
+  if (switchValue === 1) return;
 
   removeActive();
   btn.classList.add("active");
@@ -64,9 +61,9 @@ function activeImg1(btn) {
   img1.style.transition = "left 0.5s ease";
   img2.style.transition = "left 0.5s ease";
 
-  img1.style.left = "0"; 
-  img2.style.left = "100%"; 
-  img1.style.zIndex = 1; 
+  img1.style.left = "0";
+  img2.style.left = "100%";
+  img1.style.zIndex = 1;
 
   timeOut = setTimeout(() => {
     img2.style.zIndex = 0;
@@ -75,9 +72,8 @@ function activeImg1(btn) {
   switchValue = 1;
 }
 
-
 function activeImg2(btn) {
-  if (switchValue === 0) return; 
+  if (switchValue === 0) return;
 
   removeActive();
   btn.classList.add("active");
@@ -87,9 +83,9 @@ function activeImg2(btn) {
   img1.style.transition = "left 0.5s ease";
   img2.style.transition = "left 0.5s ease";
 
-  img1.style.left = "-100%"; 
-  img2.style.left = "0"; 
-  img2.style.zIndex = 1; 
+  img1.style.left = "-100%";
+  img2.style.left = "0";
+  img2.style.zIndex = 1;
 
   timeOut = setTimeout(() => {
     img1.style.zIndex = 0;
@@ -98,6 +94,4 @@ function activeImg2(btn) {
   switchValue = 0;
 }
 
-
 startSlideInterval();
-

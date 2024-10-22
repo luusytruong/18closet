@@ -33,9 +33,11 @@ function calculateOldValue(currentValue) {
   return Math.ceil(oldValue);
 }
 
+const addCartBTN = document.querySelector(".product__infor__col__list__btn--add")
+
 async function loadProductItem() {
   const route =
-    "http://localhost/fashion-store/controller/readData.php?table=products";
+  "http://localhost/fashion-store/controller/readData.php?table=products";
   const data = await startGETFetch("GET", route);
   data.map((value, index) => {
     var idLocal = localStorage.getItem("id");
@@ -48,8 +50,14 @@ async function loadProductItem() {
       detailProduct.appendChild(spane);
       imgBig.src = "./assets/img_upload/" + value.image_url;
       imgColor.src = "./assets/img_upload/" + value.image_url;
-
+      
       document.title = `18CLOSET - ${value.product_name}`
+      
+      const inputCouter = document.querySelector(".input-counter");
+      addCartBTN.addEventListener("click", ()=>{
+        const localValue = localStorage.getItem("product-cart");
+        localStorage.setItem("product-cart", JSON.stringify({id: value.id, count: inputCouter.value}))
+      })
     }
   });
 }
@@ -62,19 +70,14 @@ const inputControl = controls.querySelector("input");
 
 mitus.addEventListener("click", () => {
   const value = parseInt(inputControl.value);
-  if (value && value > 0) {
+  if (value && value > 1) {
     inputControl.value = value - 1;
-  } else {
-    value = 1;
   }
 });
 plus.addEventListener("click", () => {
   const value = parseInt(inputControl.value);
-  console.log(value);
   if (value) {
     inputControl.value = value + 1;
-  } else {
-    value = 1;
   }
 });
 
@@ -137,3 +140,5 @@ async function loadLostProduct() {
   });
   // console.log(buyLostProductDisplay);
 }
+
+

@@ -130,20 +130,22 @@ removeConfirmBTN.addEventListener("click", (e) => {
   startPOSTFetchF(routePost[2], formData);
 });
 
-const inputFileElement = document.getElementById("input-file");
-const imgDisplay = document.querySelector(".col__image");
+const inputFileElement = Array.from(document.querySelectorAll("input-file"));
 
-inputFileElement.addEventListener("change", (e) => {
-  const files = e.target.files;
-  const file = files[files.length - 1];
-
-  if (file) {
-    const reader = new FileReader();
-
-    reader.onload = (event) => {
-      imgDisplay.src = event.target.result;
-    };
-
-    reader.readAsDataURL(file);
-  }
-});
+inputFileElement.map(inputt=>{
+  inputt.addEventListener("change", (e) => {
+    const files = e.target.files;
+    const file = files[files.length - 1];
+    const imgDisplay = inputt.closest(".col").querySelector(".col__image");
+  
+    if (file) {
+      const reader = new FileReader();
+  
+      reader.onload = (event) => {
+        imgDisplay.src = event.target.result;
+      };
+  
+      reader.readAsDataURL(file);
+    }
+  });
+})
