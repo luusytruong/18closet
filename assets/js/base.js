@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded',()=>{
+    dmImg()
+})
+export function dmImg(){
 
     const imgs = Array.from(document.querySelectorAll('img'))
     
@@ -7,4 +10,4 @@ document.addEventListener('DOMContentLoaded',()=>{
             e.preventDefault()
         })
     })
-})
+}
