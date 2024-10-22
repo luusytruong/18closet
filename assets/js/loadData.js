@@ -1,3 +1,4 @@
+import { dmImg } from "./base.js";
 import { startGETFetch } from "./startFetch.js";
 
 window.onload = function () {
@@ -94,5 +95,6 @@ async function loadLostProduct() {
       }
     }
   });
+  dmImg()
   console.log(buyLostProductDisplay);
 }
