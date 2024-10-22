@@ -80,13 +80,15 @@
     background-color: #006fdd;
 }
 
+
 .container__table{
     margin-top: 20px;
 }
 
 .table__wrapper{
     display: none;
-    
+    overflow: auto;
+    max-height: 80vh;
 }
 .table__wrapper.active{
     display: flex;

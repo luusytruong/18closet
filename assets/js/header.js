@@ -60,21 +60,18 @@ document.addEventListener("DOMContentLoaded", () => {
   hidenLogin.addEventListener("click", () => {
     // formLogin.classList.remove('show')
   });
-});
-
-
-const subMenu = Array.from(document.querySelectorAll(".sub__menu"));
-
-subMenu.map((menu, index) => {
-  const aE = Array.from(menu.querySelectorAll(".col__menu-link"));
-  aE.map((a) => {
-    a.addEventListener("click", function(event) {
-      event.preventDefault();
-      localStorage.setItem("category", index + 1);
-      window.location.href = this.href;
+  subMenu.map((menu, index) => {
+    const aE = Array.from(menu.querySelectorAll(".col__menu-link"));
+    aE.map((a) => {
+      a.addEventListener("click", function(event) {
+        event.preventDefault();
+        localStorage.setItem("category", index + 1);
+        window.location.href = this.href;
+      });
     });
   });
 });
+
 
 // khong thay cái nào
 // allLink.map(link=>{

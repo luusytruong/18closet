@@ -40,8 +40,6 @@ async function loadProductItem() {
   data.map((value, index) => {
     var idLocal = localStorage.getItem("id");
     if (idLocal == value.id) {
-      console.log(value);
-      console.log(value);
       productNameElement.innerText = value.product_name;
       currentPriceElement.innerText = value.price.toLocaleString('vi-VN',{ style: 'currency', currency: 'VND' });
       oldPriceElement.innerText = calculateOldValue(value.price).toLocaleString('vi-VN',{ style: 'currency', currency: 'VND' });
