@@ -739,7 +739,7 @@ span.category__items__name {
 
 .product__items__price {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   flex-wrap: wrap;
 }
 
@@ -762,14 +762,22 @@ span.category__items__name {
 span.product__items__price__cur__content {
   margin-right: 10px;
   font-weight: bold;
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+span.product__items__price__cur__content.l {
+  
+  font-size: 2.4rem;
+  line-height: 2.6rem;
 }
 
 .product__items__price__old__content {
+  font-size: 1.6rem;
+  line-height: 1.6rem;
   opacity: 0.6;
   font-weight: normal;
   white-space: nowrap;
   color: #111;
-  font-size: 12px;
   text-decoration: line-through;
   display: flex;
   justify-content: center;

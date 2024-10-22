@@ -3,16 +3,16 @@
 
 <head>
     <link rel="shortcut icon" href="./assets/img/shortut-ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/win.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./assets/css/base.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="stylesheet" href="./assets/css/win.css">
-    <script src="./assets/js/header.js"></script>
-    <title>18CLOSET - Sản phẩm</title>
+    <script src="./assets/js/base.js"></script>
+    <title>18CLOSET - Trang chủ</title>
 </head>
 
 <body>
@@ -232,9 +232,9 @@
                 </div>
                 <div class="header__inner">
                     <div class="header__inner__left">
-                        <a href="http://localhost/fashion-store" class="header__logo">
+                        <div class="header__logo">
                             <img src="./assets/img/logo.png" alt="logo">
-                        </a>
+                        </div>
                     </div>
                     <div class="header__inner__middle">
                         <ul class="header__middel nav">
@@ -296,256 +296,125 @@
             </div>
         </header>
         <div class="container">
-            <div class="container__nav">
-                <span>Trang chủ</span>
-                <span>/</span>
-                <span>Váy</span>
-                <span>/</span>
-                <span>Váy Chữ A</span>
-            </div>
-            <div class="grid">
-                <div class="product--infor--wrapp">
-                    <div class="product__infor__images">
-                        <img id="img-main" src="./assets/img/information/mig1.png" alt="">
+
+            <div class="criterion">
+                <div class="criterion__list">
+                    <div class="criterion__items">
+                        <span class="criterion__items__title">
+                            MIỄN PHÍ giao hàng
+                        </span>
+                        <span class="criterion__items__text">
+                            FREESHIP đơn hàng từ 500K
+                        </span>
                     </div>
-                    <div class="product__infor">
-                        <h2 class="product__infor__name">Set Chân Váy 2 Túi Kiểu + Áo Caro SDNFM18</h2>
-                        <div class="product__infor__row">
-                            <div class="product__items__price">
-                                <span class="product__items__price__cur"><span
-                                        class="product__items__price__cur__content l">299.000</span>
-                                    <!-- <span>₫</span> -->
-                                </span>
-                                <div class="price-old-wrapp">
-                                    <span class="product__items__price__old"><span
-                                            class="product__items__price__old__content">299.000</span>
-                                        <!-- <span>₫</span> -->
-                                    </span>
-                                    <span class="product__items__price__discount">-25%</span>
-                                </div>
-                            </div>
-                            <span>Đã bán: 155</span>
-                        </div>
-                        <div class="product__infor__col">
-                            <span class="product__infor__select--type">
-                                Màu sắc:
-                                <!-- <span>Đỏ</span> -->
-                            </span>
-                            <div class="product__infor__col__list">
-                                <img class="img-color" src="./assets/img/information/mig1.png" alt="">
-                            </div>
-                        </div>
-                        <div class="product__infor__col">
-                            <span class="product__infor__select--type">Kích thước:</span>
-                            <div class="product__infor__col__list">
-                              <label class="product__infor__col__list__size">
-                                <input type="radio" name="size" value="S" checked>
-                                <span>S</span>
-                              </label>
-                              <label class="product__infor__col__list__size">
-                                <input type="radio" name="size" value="M">
-                                <span>M</span>
-                              </label>
-                              <label class="product__infor__col__list__size">
-                                <input type="radio" name="size" value="L">
-                                <span>L</span>
-                              </label>
-                            </div>
-                          </div>
-                          
-                        <div class="product__infor__col">
-                            <span class="product__infor__select--type">
-                                Chọn số lượng:
-                            </span>
-                            <div class="product__infor__col__list">
-                                <div class="product__infor__col__list__input">
-                                    <span class="down">-</span>
-                                    <input class="input" type="text" value="1">
-                                    <span class="up">+</span>
-                                </div>
-                                <button class="product__infor__col__list__btn--add">THÊM VÀO GIỎ HÀNG</button>
-                                <button class="product__infor__col__list__btn--buy">MUA NGAY</button>
-                            </div>
-                        </div>
-                        <div class="product__infor__commit">
-                            <div class="product__infor__commit__items">
-                                <img src="./assets/img/icons/clock.png" alt="">
-                                <div>
-                                    <span>Giao hàng nhanh</span>
-                                    <span>Từ 2 5 ngày</span>
-                                </div>
-                            </div>
-                            <div class="product__infor__commit__items">
-                                <img src="./assets/img/icons/ship.png" alt="">
-                                <div>
-                                    <span>Miễn phí vận chuyển</span>
-                                    <span>Đơn hàng từ 500k</span>
-                                </div>
-                            </div>
-                            <div class="product__infor__commit__items">
-                                <img src="./assets/img/icons/find.png" alt="">
-                                <div>
-                                    <span>Theo dõi đơn hàng</span>
-                                    <span>1 cách dễ dàng</span>
-                                </div>
-                            </div>
-                            <div class="product__infor__commit__items">
-                                <img src="./assets/img/icons/box.png" alt="">
-                                <div>
-                                    <span>Đổi trả linh hoạt</span>
-                                    <span>Với sản phẩm sale < 30%</span>
-                                </div>
-                            </div>
-                            <div class="product__infor__commit__items">
-                                <img src="./assets/img/icons/cart.png" alt="">
-                                <div>
-                                    <span>Thanh toán dễ dàng nhiều hình thức</span>
-                                </div>
-                            </div>
-                            <div class="product__infor__commit__items">
-                                <img src="./assets/img/icons/contact.png" alt="">
-                                <div>
-                                    <span>Hotline hỗ trợ</span>
-                                    <span>055377688</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product__infor__features">
-                            <h4 class="product__infor__features__title">ĐẶC ĐIỂM NỔI BẬT</h4>
-                            <div class="product__infor__features__list">
-                                <div class="product__infor__features__items">
-                                    <span class="product__infor__features__items__name">Màu sắc</span>
-                                    <span class="product__infor__features__items__text">Đỏ, Nâu, Xanh biển, Xanh
-                                        lá</span>
-                                </div>
-                                <div class="product__infor__features__items">
-                                    <span class="product__infor__features__items__name">Kích thước</span>
-                                    <span class="product__infor__features__items__text">S, M, L</span>
-                                </div>
-                                <div class="product__infor__features__items">
-                                    <span class="product__infor__features__items__name">Chất Liệu</span>
-                                    <span class="product__infor__features__items__text">Vải cotton caro</span>
-                                </div>
-                                <div class="product__infor__features__items">
-                                    <span class="product__infor__features__items__name">Phù Hợp</span>
-                                    <span class="product__infor__features__items__text">Đi chơi, Đi làm, Đi tiệc, Mặc Đi
-                                        học
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product__infor__detail">
-                            <h4 class="product__infor__detail__title">THÔNG TIN CHI TIẾT</h4>
-                            <div class="product__infor__detail__item">
-                                <span class="product__infor__detail__item__text"><span>Thời trang nữ 18 CLOSET</span>
-                                    muốn đem đến cho bạn một
-                                    sự trải nghiệm thú vị . Giúp tạo nên vẻ ngoài nữ tính, thoải mái và ấn tượng cho
-                                    người mặc.
-                                </span>
-                                <!-- <span class="product__infor__detail__item__text">Được thiết kế kiểu yếm 2 tầng với chất
-                                    vải
-                                    phi khó bị nhàu, cho chi em phụ nữ dễ dàng
-                                    khoe được bờ vai cùng xương quai xanh quyến rũ. Kèm theo là chân váy hình chữ A sử
-                                    dụng
-                                    chất vải mango làm tôn lên đôi chân thon thả của bạn.
-                                </span>
-                                <span class="product__infor__detail__item__text">Set đồ nữ này bao gồm các màu như da,
-                                    đen,
-                                    trắng, vàng với các size đa dạng là S, M và
-                                    L, giúp bạn không phải lo lắng làn da hay vóc dáng của mình không phù hợp. Đừng chần
-                                    chờ, hãy đặt hàng ngay để kịp mặc cho các buổi đi chơi, đi tiệc, đi làm hay đi học
-                                    nhé!</span> -->
-                            </div>
-                        </div>
+                    <div class="criterion__items">
+                        <span class="criterion__items__title">
+                            Thanh toán COD
+                        </span>
+                        <span class="criterion__items__text">
+                            Thanh toán khi nhận hàng
+                        </span>
+                    </div>
+                    <div class="criterion__items">
+                        <span class="criterion__items__title">
+                            Ưu đãi khách hàng
+                        </span>
+                        <span class="criterion__items__text">
+                            Nhiều ưu đãi khủng
+                        </span>
+                    </div>
+                    <div class="criterion__items">
+                        <span class="criterion__items__title">
+                            Đặt hàng nhanh chóng
+                        </span>
+                        <span class="criterion__items__text">
+                            Linh hoạt, bảo mật
+                        </span>
                     </div>
                 </div>
             </div>
-            <div class="product-diplay foryou">
+
+            <div class="product-diplay dress">
                 <div class="grid">
                     <div class="diplay__content">
-                        <h2 class="diplay__title">SẢN PHẨM HLMD GỢI Ý RIÊNG CHO BẠN</h2>
+                        <h2 class="diplay__title">VÁY - ĐẦM</h2>
+                        <div class="product__types">
+                            <span class="product__types__items">
+                                Váy chữ A
+                            </span>
+                            <span class="product__types__items">
+                                Váy Babydoll
+                            </span>
+                            <span class="product__types__items">
+                                Váy Suông
+                            </span>
+                            <span class="product__types__items">
+                                Váy Maxi
+                            </span>
+                            <span class="product__types__items">
+                                Váy Ôm
+                            </span>
+                            <span class="product__types__items">
+                                Váy Oversize
+                            </span>
+                        </div>
                         <div class="product__list">
                             <!-- <div class="product__items">
-                                <img src="./assets/img/prodcut-display/hot/img1.png" alt="" class="product__items__img">
+                                <img src="./assets/img/prodcut-display/dress/dress1.png" alt=""
+                                    class="product__items__img">
                                 <div class="product__items__name">Váy Chữ A Thiết Kế Chỉ Nổi Thắt Nơ Cổ VCAFM33</div>
                                 <div class="product__items__price">
-                                    <span class="product__items__price__cur"><span
-                                            class="product__items__price__cur__content">299.000</span>
-                                        <span>₫</span>
-                                    </span>
+                                    <span class="product__items__price__cur__content">299.000</span>
                                     <div class="price-old-wrapp">
-                                        <span class="product__items__price__old"><span
-                                                class="product__items__price__old__content">299.000</span>
-                                            <span>₫</span>
-                                        </span>
+                                        <span class="product__items__price__old__content">299.000</span>
                                         <span class="product__items__price__discount">-25%</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="product__items">
-                                <img src="./assets/img/prodcut-display/hot/img2.png" alt="" class="product__items__img">
+                                <img src="./assets/img/prodcut-display/dress/dress2.png" alt=""
+                                    class="product__items__img">
                                 <div class="product__items__name">Váy Chữ A Thiết Kế Chỉ Nổi Thắt Nơ Cổ VCAFM33</div>
                                 <div class="product__items__price">
-                                    <span class="product__items__price__cur"><span
-                                            class="product__items__price__cur__content">299.000</span>
-                                        <span>₫</span>
-                                    </span>
+                                    <span class="product__items__price__cur__content">299.000</span>
                                     <div class="price-old-wrapp">
-                                        <span class="product__items__price__old"><span
-                                                class="product__items__price__old__content">299.000</span>
-                                            <span>₫</span>
-                                        </span>
+                                        <span class="product__items__price__old__content">299.000</span>
                                         <span class="product__items__price__discount">-25%</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="product__items">
-                                <img src="./assets/img/prodcut-display/hot/img3.png" alt="" class="product__items__img">
+                                <img src="./assets/img/prodcut-display/dress/dress3.png" alt=""
+                                    class="product__items__img">
                                 <div class="product__items__name">Váy Chữ A Thiết Kế Chỉ Nổi Thắt Nơ Cổ VCAFM33</div>
                                 <div class="product__items__price">
-                                    <span class="product__items__price__cur"><span
-                                            class="product__items__price__cur__content">299.000</span>
-                                        <span>₫</span>
-                                    </span>
+                                    <span class="product__items__price__cur__content">299.000</span>
                                     <div class="price-old-wrapp">
-                                        <span class="product__items__price__old"><span
-                                                class="product__items__price__old__content">299.000</span>
-                                            <span>₫</span>
-                                        </span>
+                                        <span class="product__items__price__old__content">299.000</span>
                                         <span class="product__items__price__discount">-25%</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="product__items">
-                                <img src="./assets/img/prodcut-display/hot/img4.png" alt="" class="product__items__img">
+                                <img src="./assets/img/prodcut-display/dress/dress4.png" alt=""
+                                    class="product__items__img">
                                 <div class="product__items__name">Váy Chữ A Thiết Kế Chỉ Nổi Thắt Nơ Cổ VCAFM33</div>
                                 <div class="product__items__price">
-                                    <span class="product__items__price__cur"><span
-                                            class="product__items__price__cur__content">299.000</span>
-                                        <span>₫</span>
-                                    </span>
+                                    <span class="product__items__price__cur__content">299.000</span>
                                     <div class="price-old-wrapp">
-                                        <span class="product__items__price__old"><span
-                                                class="product__items__price__old__content">299.000</span>
-                                            <span>₫</span>
-                                        </span>
+                                        <span class="product__items__price__old__content">299.000</span>
                                         <span class="product__items__price__discount">-25%</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="product__items">
-                                <img src="./assets/img/prodcut-display/hot/img5.png" alt="" class="product__items__img">
+                                <img src="./assets/img/prodcut-display/dress/dress5.png" alt=""
+                                    class="product__items__img">
                                 <div class="product__items__name">Váy Chữ A Thiết Kế Chỉ Nổi Thắt Nơ Cổ VCAFM33</div>
                                 <div class="product__items__price">
-                                    <span class="product__items__price__cur"><span
-                                            class="product__items__price__cur__content">299.000</span>
-                                        <span>₫</span>
-                                    </span>
+                                    <span class="product__items__price__cur__content">299.000</span>
                                     <div class="price-old-wrapp">
-                                        <span class="product__items__price__old"><span
-                                                class="product__items__price__old__content">299.000</span>
-                                            <span>₫</span>
-                                        </span>
+                                        <span class="product__items__price__old__content">299.000</span>
                                         <span class="product__items__price__discount">-25%</span>
                                     </div>
                                 </div>
@@ -553,26 +422,42 @@
                         </div>
                     </div>
                 </div>
+
             </div>
-            <div class="product-diplay seen">
+            <div class="product-diplay shirt">
                 <div class="grid">
                     <div class="diplay__content">
-                        <h2 class="diplay__title">SẢN PHẨM ĐÃ XEM</h2>
+                        <h2 class="diplay__title">ÁO - ÁO KHOÁC</h2>
+
+                        <div class="product__types">
+                            <span class="product__types__items">
+                                Áo sơ mi
+                            </span>
+                            <span class="product__types__items">
+                                Áo thun
+                            </span>
+                            <span class="product__types__items">
+                                Áo dài
+                            </span>
+                            <span class="product__types__items">
+                                Áo croptop
+                            </span>
+                            <span class="product__types__items">
+                                Áo polo
+                            </span>
+                            <span class="product__types__items">
+                                Áo khoác
+                            </span>
+                        </div>
                         <div class="product__list">
                             <!-- <div class="product__items">
                                 <img src="./assets/img/prodcut-display/set_female/fe1.png" alt=""
                                     class="product__items__img">
                                 <div class="product__items__name">Váy Chữ A Thiết Kế Chỉ Nổi Thắt Nơ Cổ VCAFM33</div>
                                 <div class="product__items__price">
-                                    <span class="product__items__price__cur"><span
-                                            class="product__items__price__cur__content">299.000</span>
-                                        <span>₫</span>
-                                    </span>
+                                    <span class="product__items__price__cur__content">299.000</span>
                                     <div class="price-old-wrapp">
-                                        <span class="product__items__price__old"><span
-                                                class="product__items__price__old__content">299.000</span>
-                                            <span>₫</span>
-                                        </span>
+                                        <span class="product__items__price__old__content">299.000</span>
                                         <span class="product__items__price__discount">-25%</span>
                                     </div>
                                 </div>
@@ -582,15 +467,9 @@
                                     class="product__items__img">
                                 <div class="product__items__name">Váy Chữ A Thiết Kế Chỉ Nổi Thắt Nơ Cổ VCAFM33</div>
                                 <div class="product__items__price">
-                                    <span class="product__items__price__cur"><span
-                                            class="product__items__price__cur__content">299.000</span>
-                                        <span>₫</span>
-                                    </span>
+                                    <span class="product__items__price__cur__content">299.000</span>
                                     <div class="price-old-wrapp">
-                                        <span class="product__items__price__old"><span
-                                                class="product__items__price__old__content">299.000</span>
-                                            <span>₫</span>
-                                        </span>
+                                        <span class="product__items__price__old__content">299.000</span>
                                         <span class="product__items__price__discount">-25%</span>
                                     </div>
                                 </div>
@@ -600,15 +479,9 @@
                                     class="product__items__img">
                                 <div class="product__items__name">Váy Chữ A Thiết Kế Chỉ Nổi Thắt Nơ Cổ VCAFM33</div>
                                 <div class="product__items__price">
-                                    <span class="product__items__price__cur"><span
-                                            class="product__items__price__cur__content">299.000</span>
-                                        <span>₫</span>
-                                    </span>
+                                    <span class="product__items__price__cur__content">299.000</span>
                                     <div class="price-old-wrapp">
-                                        <span class="product__items__price__old"><span
-                                                class="product__items__price__old__content">299.000</span>
-                                            <span>₫</span>
-                                        </span>
+                                        <span class="product__items__price__old__content">299.000</span>
                                         <span class="product__items__price__discount">-25%</span>
                                     </div>
                                 </div>
@@ -618,15 +491,9 @@
                                     class="product__items__img">
                                 <div class="product__items__name">Váy Chữ A Thiết Kế Chỉ Nổi Thắt Nơ Cổ VCAFM33</div>
                                 <div class="product__items__price">
-                                    <span class="product__items__price__cur"><span
-                                            class="product__items__price__cur__content">299.000</span>
-                                        <span>₫</span>
-                                    </span>
+                                    <span class="product__items__price__cur__content">299.000</span>
                                     <div class="price-old-wrapp">
-                                        <span class="product__items__price__old"><span
-                                                class="product__items__price__old__content">299.000</span>
-                                            <span>₫</span>
-                                        </span>
+                                        <span class="product__items__price__old__content">299.000</span>
                                         <span class="product__items__price__discount">-25%</span>
                                     </div>
                                 </div>
@@ -636,15 +503,9 @@
                                     class="product__items__img">
                                 <div class="product__items__name">Váy Chữ A Thiết Kế Chỉ Nổi Thắt Nơ Cổ VCAFM33</div>
                                 <div class="product__items__price">
-                                    <span class="product__items__price__cur"><span
-                                            class="product__items__price__cur__content">299.000</span>
-                                        <span>₫</span>
-                                    </span>
+                                    <span class="product__items__price__cur__content">299.000</span>
                                     <div class="price-old-wrapp">
-                                        <span class="product__items__price__old"><span
-                                                class="product__items__price__old__content">299.000</span>
-                                            <span>₫</span>
-                                        </span>
+                                        <span class="product__items__price__old__content">299.000</span>
                                         <span class="product__items__price__discount">-25%</span>
                                     </div>
                                 </div>
@@ -653,6 +514,27 @@
                     </div>
                 </div>
 
+            </div>
+            <div class="album">
+                <div class="grid">
+                    <div class="album__content">
+                        <h2 class="diplay__title">BỘ SƯU TẬP</h2>
+                        <div class="album__list">
+                            <div class="album__items">
+                                <img src="./assets/img/album/al1.png" alt="">
+                            </div>
+                            <div class="album__items active">
+                                <img src="./assets/img/album/al2.png" alt="">
+                                <div class="album__items__btn">
+                                    <span>XEM THÊM</span>
+                                </div>
+                            </div>
+                            <div class="album__items">
+                                <img src="./assets/img/album/al3.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="introduce">
                 <div class="grid">
@@ -678,7 +560,6 @@
                 </div>
             </div>
         </div>
-
         <footer id="footer">
             <div class="grid">
                 <div class="footer__list">
@@ -789,10 +670,9 @@
 
         </footer>
     </div>
-
-    </footer>
-    </div>
-    <script type="module" src="./assets/js/product-infor-temp.js"></script>
+    <script src="./assets/js/index.js"></script>
+    <script type="module" src="./assets/js/category-page.js"></script>
+    <script src="./assets/js/actionPassword.js"></script>
     <script src="./assets/js/header.js"></script>
 
 </body>

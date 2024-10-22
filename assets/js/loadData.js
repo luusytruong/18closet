@@ -12,25 +12,31 @@ const dressProductDisplay = document.querySelector(".product-diplay.dress");
 
 const shirtProductDisplay = document.querySelector(".product-diplay.shirt");
 
-function caculatorOldPrice(giaHienTai, phanTramGiam) {
-  return giaHienTai / (1 - phanTramGiam);
+function calculateOldValue(currentValue) {
+  const oldValue = currentValue / 0.75;
+  return Math.ceil(oldValue);
 }
 
-function createMiniProductDisplay(value) {
+export function createMiniProductDisplay(value) {
   const miniDisplay = document.createElement("div");
   miniDisplay.classList.add("product__items");
   miniDisplay.innerHTML = `
-        <img src="./assets/img_upload/${value.image_url}" alt="" class="product__items__img">
+        <img src="./assets/img_upload/${
+          value.image_url
+        }" alt="" class="product__items__img">
         <span class="product__items__name">${value.product_name}</span>
         <div class="product__items__price">
-            <span class="product__items__price__cur__content">${
-              value.price
-            }</span>
+            <span class="product__items__price__cur__content">${value.price.toLocaleString(
+              "vi-VN",
+              { style: "currency", currency: "VND" }
+            )}</span>
             <div class="price-old-wrapp">
-                <span class="product__items__price__old__content">${caculatorOldPrice(
-                  parseInt(value.price),
-                  25
-                )}</span>
+                <span class="product__items__price__old__content">${calculateOldValue(
+                  value.price
+                ).toLocaleString("vi-VN", {
+                  style: "currency",
+                  currency: "VND",
+                })}</span>
                 <span class="product__items__price__discount">-25%</span>
             </div>
         </div>
@@ -38,7 +44,7 @@ function createMiniProductDisplay(value) {
   return miniDisplay;
 }
 
-function handleClickMiniDisplay(value) {
+export function handleClickMiniDisplay(value) {
   console.log("clicked!");
   window.location.href = "./product-infor-temp.html";
   localStorage.setItem("id", value.id);
@@ -52,7 +58,6 @@ async function loadLostProduct() {
   let count1 = 0;
   let count2 = 0;
   data.map((value, index) => {
-    console.log(value);
     const miniDisplay = createMiniProductDisplay(value);
     const clonedMiniDisplay = miniDisplay.cloneNode(true);
 
