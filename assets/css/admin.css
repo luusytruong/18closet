@@ -97,6 +97,7 @@ h2.display__title {
     position: absolute;
     top: 0px;
     font-size: 4.6rem;
+    color: #eee;
 }
 
 .actions {

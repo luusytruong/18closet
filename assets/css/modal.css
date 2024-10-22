@@ -24,6 +24,9 @@
   max-width: 800px;
   width: 100%;
   overflow-y: auto;
+  h2 {
+    color: #eee;
+}
 }
 .modal-container {
 -ms-overflow-style: none;
