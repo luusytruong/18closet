@@ -2,7 +2,7 @@
 
 body {
     background-color: #292929;
-    overflow: hidden;
+    /* overflow: hidden; */
     color: #cfcfcf !important;
 }
 
@@ -67,14 +67,11 @@ body {
 .sidebar__item.active {
     background-color: transparent;
     background-image: linear-gradient(135deg, #ed55c7, #6756ca);
-    /* border: 1px solid #fff; */
-    color: #fff;
+    color: #eee;
 }
 
 .sidebar__item:not(.active):hover {
     background-image: linear-gradient(135deg, #ed55c72a, #6756ca2a);
-    /* box-shadow: 2px 2px 4px 1px #333; */
-    /* background-color: #efefef; */
 
 }
 
@@ -99,11 +96,13 @@ body {
 h2.display__title {
     position: absolute;
     top: 0px;
+    font-size: 4.6rem;
 }
 
 .actions {
     position: absolute;
-    top: 50px;
+    top: 18px;
+    left: 315px;
     display: none;
 }
 
@@ -171,7 +170,7 @@ td {
     border: 1px solid #333;
 }
 
-tr:hover{
+td:hover{
     background-color: #262626;
     cursor: pointer;
 }
