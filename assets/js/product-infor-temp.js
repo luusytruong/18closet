@@ -35,6 +35,8 @@ async function loadLostProduct() {
       currentPriceElement.innerText = value.price;
       oldPriceElement.innerText = value.price;  
       detailProduct.innerText = value.description;
+
+      document.title = `18CLOSET - ${value.product_name}`
     }
   });
 }
