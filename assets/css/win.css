@@ -221,6 +221,7 @@
 .product--infor--wrapp {
   display: flex;
   margin-top: 32px;
+  padding: 0 15px;
 }
 
 .product__infor__images {

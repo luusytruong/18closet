@@ -37,22 +37,24 @@ try {
                         $targetFile = $targetDir . basename($_FILES["image"]["name"]);
                         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
                         //kiem tra kich thuoc anh
-                        if ($_FILES['image']['size'] > 1000000) {
-                            echo json_encode(['error' => 'file to large']);
+                        if ($_FILES['image']['size'] > 5000000) {
+                            echo json_encode(['status' => 'error', 'title'=>'Đã xảy ra lỗi', 'content'=>'Kích thước của ảnh quá lớn']);
                             exit;
                         }
                         //dinh dang anh
                         $validFormats = ['jpg', 'png', 'jpeg', 'gif'];
                         if (!in_array($imageFileType, $validFormats)) {
+                            echo json_encode(['status' => 'error', 'title'=>'Đã xảy ra lỗi', 'content'=>'Tệp tin không phải là ảnh']);
+                            exit;
                         }
                         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetFile)) {
                             $imageUrl = basename($_FILES['image']['name']);
                         } else {
-                            echo json_encode(['error' => 'failed to upload image']);
+                            echo json_encode(['status' => 'error', 'title'=>'Đã xảy ra lỗi', 'content'=>'Không thể tải lên hình ảnh']);
                             exit;
                         }
                     } else {
-                        echo json_encode(['error' => 'no image uploaded or upload error']);
+                        echo json_encode(['status' => 'error', 'title'=>'Đã xảy ra lỗi', 'content'=>'Không có ảnh nào được chọn, hoặc không thể tải lên']);
                         exit;
                     }
                     $sql = 'UPDATE products SET product_name = :product_name, category_id = :category_id, price = :price, stock_quantity = :stock_quantity, description = :description, image_url = :image_url WHERE id = :id';
@@ -66,9 +68,9 @@ try {
                     $stmt->bindParam(':image_url', $imageUrl);
                     $stmt->bindParam(':id', $id);
                     if ($stmt->execute()) {
-                        echo json_encode(['message' => 'product updated successfully']);
+                        echo json_encode(['status' => 'success', 'title'=>'Thành công', 'content'=>'Thông tin đã được chỉnh sửa']);
                     } else {
-                        echo json_encode(['error' => 'failed to update product']);
+                        echo json_encode(['status' => 'error', 'title'=>'Đã xảy ra lỗi', 'content'=>'Sửa thông tin không thành công']);
                     }
                     break;
                 default:

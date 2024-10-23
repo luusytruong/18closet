@@ -87,7 +87,29 @@ body {
     height: 100svh;
     position: relative;
 }
+#btn__to__top{
+    all: unset;
+    display: none;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #444;
+    opacity: .5;
+    padding: 0 6px;
 
+    i{
+        background-color: transparent;
+    }
+}
+#btn__to__top:hover{
+    opacity: 1;
+    background-color: transparent;
+    background-image: linear-gradient(135deg, #ed55c7, #6756ca);
+}
 .display__wrapper {
     height: 100%;
     padding-top: 100px;

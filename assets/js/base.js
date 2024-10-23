@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded',()=>{
     dmImg()
 })
-export function dmImg(){
+function dmImg(){
 
     const imgs = Array.from(document.querySelectorAll('img'))
     
