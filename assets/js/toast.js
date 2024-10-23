@@ -15,7 +15,7 @@ export function beginToast(status, title, content) {
         toastTitle.textContent = title;
         toastContent.textContent = content;
     }
-    const timeoutId = setTimeout(() => {
+    setTimeout(() => {
         toast.classList.remove('successful');
         toast.classList.remove('error');
     }, 3000);
