@@ -6,8 +6,8 @@ const sidebars = Array.from(document.querySelectorAll(".sidebar__item"));
 const tableList = Array.from(document.querySelectorAll(".table__wrapper"));
 const displayTitle = document.querySelector(".display__title");
 const actionElement = document.querySelector(".actions");
-
-export let sidebarActiveNow = sidebars[1];
+let indexSidebar = 1
+export let sidebarActiveNow = sidebars[indexSidebar];
 
 const unActiveTable = (title) => {
   sidebars.map((bar) => {
@@ -53,3 +53,38 @@ btnAddProduct.addEventListener("click", () => {
 
 //
 sidebarActiveNow.click();
+
+// Lấy nút Quay Lên Đầu
+const btnToTop = document.getElementById('btn__to__top');
+const wrapperTabless = document.querySelectorAll('.table__wrapper');
+
+// Hàm để kiểm tra vị trí cuộn
+const checkScrollPosition = () => {
+    const wrapper = wrapperTabless[indexSidebar];
+    const scrollPosition = wrapper.scrollTop; // Vị trí cuộn hiện tại
+    const documentHeight = wrapper.scrollHeight; // Chiều cao của tài liệu
+
+    // Nếu vị trí cuộn vượt quá 1/4 chiều cao tài liệu, hiển thị nút
+    if (scrollPosition > documentHeight / 4) {
+        btnToTop.style.display = 'block'; // Hiển thị nút
+    } else {
+        btnToTop.style.display = 'none'; // Ẩn nút
+    }
+};
+
+// Hàm cuộn lên đầu trang
+const scrollToTop = () => {
+    const wrapper = wrapperTabless[indexSidebar];
+    wrapper.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Cuộn mượt mà
+    });
+};
+
+// Gắn sự kiện cuộn
+wrapperTabless.forEach((wrapper, index) => {
+    wrapper.addEventListener('scroll', checkScrollPosition);
+});
+
+// Gắn sự kiện click cho nút
+btnToTop.addEventListener('click', scrollToTop);

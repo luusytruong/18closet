@@ -12,9 +12,9 @@ try {
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             if ($stmt->execute()) {
-                echo json_encode(['message' => 'data deleted successfully']);
+                echo json_encode(['status' => 'success', 'title'=>'Thành công', 'content'=>'Đã xoá thành công']);
             } else {
-                echo json_encode(['error' => 'failed to delete data']);
+                echo json_encode(['status' => 'error', 'title'=>'Đã xảy ra lỗi', 'content'=>'Không thể xoá, vui lòng thử lại sau']);
             }
         } else {
             echo json_encode(['error' => 'table parameter or id parameter is missing']);

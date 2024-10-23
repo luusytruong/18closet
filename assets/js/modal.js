@@ -1,5 +1,6 @@
 import { sidebarActiveNow } from "./admin.js";
 import { startPOSTFetch } from "./startFetch.js";
+import { beginToast } from "./toast.js";
 
 export const modalElement = document.querySelector(".modal");
 export const overlayElement = modalElement.querySelector(".modal-overlay");
@@ -14,6 +15,8 @@ const confirmBTNs = Array.from(
 const addConfirmBTN = document.querySelector(".modal__add__btn");
 const editConfirmBTN = document.querySelector(".modal__edit__btn");
 const removeConfirmBTN = document.querySelector(".modal__remove__btn");
+
+let wrapperTableIndex = 0;
 
 export const hideModal = () => {
   removeModal.style.display = "none";
@@ -75,6 +78,17 @@ const routePost = [
   "http://localhost/fashion-store/controller/deleteData.php?table=products",
 ];
 
+export const scrollToBottom = (index) => {
+  setTimeout(() => {
+    const wrapperTables = document.querySelectorAll('.table__wrapper')
+    const wrapper = wrapperTables[index];
+    wrapper.scrollTo({
+      top: wrapper.scrollHeight,
+      behavior: 'smooth'
+    });
+  }, 300);
+}
+
 function startPOSTFetchF(url, formData) {
   fetch(url, {
     method: "POST",
@@ -82,13 +96,16 @@ function startPOSTFetchF(url, formData) {
   })
     .then((response) => response.json())
     .then((data) => {
-      if (data.error) {
+      if (data.status === 'error') {
         // Xử lý lỗi
-        console.log(data.error);
+        console.log(data);
+        beginToast(data.status, data.title, data.content)
       } else {
         // Xử lý thành công
-        console.log("Upload successful!");
+        console.log(data);
+        beginToast(data.status, data.title, data.content)
         hideModal();
+        scrollToBottom(wrapperTableIndex)
       }
     })
     .catch((error) => {
@@ -96,7 +113,16 @@ function startPOSTFetchF(url, formData) {
     });
 }
 
+let cooldown = true
+
 addConfirmBTN.addEventListener("click", (e) => {
+  if (!cooldown) {
+    console.log('đang hồi chiêu');
+    return
+  }
+  cooldown = false
+
+  wrapperTableIndex = 1
   e.preventDefault();
 
   const form = addConfirmBTN.closest(".modal__box").querySelector("form");
@@ -104,11 +130,21 @@ addConfirmBTN.addEventListener("click", (e) => {
 
   formData.append("table", "products");
 
-
   startPOSTFetchF(routePost[0], formData);
+
+  setTimeout(() => {
+    cooldown = true
+  }, 3000);
 });
 
 editConfirmBTN.addEventListener("click", (e) => {
+  if (!cooldown) {
+    console.log('đang hồi chiêu');
+    return
+  }
+  cooldown = false
+
+  wrapperTableIndex = 1
   e.preventDefault();
 
   const form = editConfirmBTN.closest(".modal__box").querySelector("form");
@@ -116,11 +152,21 @@ editConfirmBTN.addEventListener("click", (e) => {
 
   formData.append("table", "products");
 
-
   startPOSTFetchF(routePost[1], formData);
+
+  setTimeout(() => {
+    cooldown = true
+  }, 3000);
 });
 
 removeConfirmBTN.addEventListener("click", (e) => {
+  if (!cooldown) {
+    console.log('đang hồi chiêu');
+    return
+  }
+  cooldown = false
+
+  wrapperTableIndex = 1
   e.preventDefault();
   const form = removeConfirmBTN.closest(".modal__box").querySelector("form");
   const formData = new FormData(form);
@@ -128,26 +174,31 @@ removeConfirmBTN.addEventListener("click", (e) => {
   formData.append("table", "products");
 
   startPOSTFetchF(routePost[2], formData);
+
+  setTimeout(() => {
+    cooldown = true
+  }, 3000);
 });
 
 const inputFileElement = Array.from(document.querySelectorAll(".input-file"));
-
-inputFileElement.map(inputt=>{
+inputFileElement.map(inputt => {
   inputt.addEventListener("change", (e) => {
     const files = e.target.files;
     const file = files[files.length - 1];
     const imgDisplay = inputt.closest(".col").querySelector(".col__image");
-  
+    const imgName = inputt.closest(".col").querySelector(".col label span");
+
     if (file) {
       const reader = new FileReader();
-  
+
       reader.onload = (event) => {
         imgDisplay.src = event.target.result;
+        imgName.textContent = file.name
+        console.log('he', file.name);
       };
-  
+
       reader.readAsDataURL(file);
     }
-    console.log('he', inputt);
-    
+
   });
 })

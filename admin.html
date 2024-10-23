@@ -19,6 +19,22 @@
 </head>
 
 <body>
+    <div id="toast" class="toast">
+        <div class="wrapper">
+            <div class="toast-icon">
+                
+            </div>
+            <div class="toast-info">
+                <div class="toast-title">
+
+                </div>
+                <div class="toast-content">
+
+                </div>
+            </div>
+            <div class="cooldown"></div>
+        </div>
+    </div>
     <div class="app">
         <div class="grid">
             <div class="content">
@@ -43,6 +59,9 @@
                     </div>
                 </div>
                 <div class="display">
+                    <button id="btn__to__top">
+                        <i class="fa-solid fa-chevron-up"></i>
+                    </button>
                     <div class="display__wrapper">
 
                         <h2 class="display__title">Quản lý khách hàng</h2>
@@ -133,7 +152,7 @@
                             </table>
                         </div>
 
-                        
+
                         <!-- danh muc -->
                         <div class="table__wrapper">
                             <table class="container__table">
@@ -190,12 +209,12 @@
             </div>
         </div>
     </div>
-    
+
     <div class="modal">
         <div class="modal-overlay"></div>
         <div class="modal-container">
             <!-- add -->
-             <div class="modal__box modal__add">
+            <div class="modal__box modal__add">
                 <h2>Thêm sản phẩm</h2>
                 <form action="" class="form">
                     <!-- <div class="col">
@@ -210,7 +229,7 @@
                         <span>Danh mục</span>
                         <select id="" name="category_id">
                             <option value="1" selected>Áo</option>
-                            <option value="2" >Váy</option>
+                            <option value="2">Váy</option>
                         </select>
                     </div>
                     <div class="col col3">
@@ -228,10 +247,10 @@
                     </div>
                     <div class="col">
                         <span>URL</span>
-                        <label>
-
-                            Chọn ảnh
-
+                        <label title="Chọn ảnh">
+                            <span>
+                                Chọn ảnh
+                            </span>
                             <input type="file" class="input-file" name="image">
                             <img src="" alt="" class="col__image">
                         </label>
@@ -242,11 +261,11 @@
                     </div>
                 </form>
                 <button class="modal__add__btn">Xác nhận</button>
-             </div>
-             
-             <div class="modal__box modal__edit">
+            </div>
+
+            <div class="modal__box modal__edit">
                 <h2>Sửa thông tin sản phẩm</h2>
-                <form action="#" class="form"  enctype="multipart/form-data">
+                <form action="#" class="form" enctype="multipart/form-data">
                     <div class="col id">
                         <span>Mã sản phẩm</span>
                         <input type="text" class="input-id" name="id" readonly>
@@ -275,11 +294,13 @@
                         <!-- <input type="text"> -->
                         <textarea id="" class="description" name="description"></textarea>
                     </div>
-                    
+
                     <div class="col">
                         <span>URL</span>
-                        <label>
-                            Chọn ảnh
+                        <label title="Chọn ảnh">
+                            <span>
+                                Chọn ảnh
+                            </span>
                             <input type="file" class="input-file" name="image">
                             <img src="" alt="" class="col__image">
                         </label>
@@ -290,8 +311,8 @@
                     </div>
                 </form>
                 <button class="modal__edit__btn" id="">Xác nhận</button>
-             </div>
-             <div class="modal__box modal__remove">
+            </div>
+            <div class="modal__box modal__remove">
                 <h2>Xác nhận xóa</h2>
                 <form action="" class="form">
                     <div class="col col1">
@@ -304,7 +325,7 @@
                     </div>
                 </form>
                 <button class="modal__remove__btn" id="">Xác nhận</button>
-             </div>
+            </div>
 
         </div>
     </div>
