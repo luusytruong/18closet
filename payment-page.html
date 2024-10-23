@@ -41,7 +41,8 @@
                         </label>
                         <div>
                             <i class="fa-solid fa-lock"></i>
-                            <input tabindex="2" id="password" name="password" type="password" placeholder="••••••" required>
+                            <input tabindex="2" id="password" name="password" type="password" placeholder="••••••"
+                                required>
                             <i class="fa-solid fa-eye" tabindex="3"></i>
                         </div>
                     </div>
@@ -316,7 +317,7 @@
                     <div class="container__pay__box">
                         <div class="container__pay__infor">
                             <div class="container__pay__infor__products">
-                                <div class="container__pay__infor__items">
+                                <!-- <div class="container__pay__infor__items">
                                     <img src="./assets/img/information/mig1.png" alt="">
                                     <div class="container__pay__infor__items__in4">
                                         <span class="container__pay__infor__items__in4__title">Đầm 2 Dây Dáng A Buộc Nơ
@@ -414,7 +415,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="container__pay__infor__address">
                                 <h2 class="pay__infor__address__title"><img src="./assets/img/icons/address.png"
@@ -422,16 +423,16 @@
                                 <div class="container__pay__infor__address__row">
                                     <div class="container__pay__infor__address__col">
                                         <span>Họ và tên:</span>
-                                        <input type="text" placeholder="Họ và tên của bạn">
+                                        <input class="input-name" name="name" type="text" placeholder="Họ và tên của bạn">
                                     </div>
                                     <div class="container__pay__infor__address__col">
                                         <span>Số điện thoại:</span>
-                                        <input type="text" placeholder="Số điện thoại của bạn">
+                                        <input class="input-phone" name="phone_number" type="text" placeholder="Số điện thoại của bạn">
                                     </div>
                                 </div>
                                 <div class="container__pay__infor__address__col">
-                                    <span>Địa chỉ:</span>
-                                    <input type="text" placeholder="Địa chỉ của bạn">
+                                    <span>Địa chỉ:*</span>
+                                    <input class="input-address" name="shipping_adress" type="text" placeholder="Địa chỉ của bạn">
                                 </div>
                             </div>
                         </div>
@@ -452,10 +453,19 @@
                                     Chuyển khoản ngân hàng
                                 </label>
                             </div>
+                            <div class="container__cart__confirm__row">
+                                <span>
+                                    Tổng đơn
+                                </span>
+                                <span>
+                                    <span class="container__cart__confirm__row__total">1.500.000&nbsp;₫</span>
+                                </span>
+                            </div>
                             <button class="container__pay__confirm__order-btn">ĐẶT HÀNG</button>
                             <span class="container__pay__confirm__notif">Sau khi hoàn tất đơn hàng khoảng 60-90 phút
                                 (trong
-                                giờ hành chính), 18 CLOSET sẽ nhanh chóng gọi điện xác nhận lại thời gian giao hàng với bạn.
+                                giờ hành chính), 18 CLOSET sẽ nhanh chóng gọi điện xác nhận lại thời gian giao hàng với
+                                bạn.
                                 18 CLOSET
                                 xin cảm ơn!</span>
                         </div>
@@ -469,7 +479,8 @@
 
     </footer>
     </div>
-    <script src="./assets/js/index.js"></script>
+    <!-- <script src="./assets/js/index.js"></script> -->
+    <script type="module" src="./assets/js/payment-page.js"></script>
 </body>
 
 </html>

@@ -559,6 +559,10 @@ tr td.container__cart__table__col:nth-child(1) {
   background-color: #ddd;
 }
 
+.container__cart__table__col__total{
+  text-decoration: line-through;
+}
+
 .fa-solid.fa-trash {
   position: absolute;
   bottom: 10%;
@@ -718,7 +722,7 @@ tr td.container__cart__table__col:nth-child(1) {
   margin-right: 8px;
   font-size: 1.5rem;
 }
-.container__pay__infor__items__row__price > span:last-child {
+.old-price {
   margin-right: 8px;
   text-decoration: line-through;
 }
