@@ -23,4 +23,4 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
           echo "Deploying to FTP server"
-          lftp -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST -e "mirror -R . /public_html && bye"
+          lftp -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST --no-check-certificate -e "mirror -R . /public_html && bye"
