@@ -25,6 +25,9 @@
   --toast-normal: #DDDDDD;
   --toast-successful: #75D00F;
   --toast-error: #F33950;
+
+  --toast-theme-1-brg: #444;
+  --toast-theme-1-color: #ddd;
 }
 
 @keyframes toast {
@@ -53,7 +56,6 @@
   position: fixed;
   top: 10px;
   right: 15px;
-  background-color: var(--toast-brg);
 
 
   border-radius: 6px;
@@ -83,6 +85,7 @@
   }
 
   .wrapper {
+    background-color: var(--toast-brg);
     position: relative;
     display: flex;
     justify-content: flex-start;
@@ -118,8 +121,8 @@
       justify-content: flex-start;
       align-items: flex-start;
       flex-direction: column;
-
       height: 100%;
+      color: #000;
 
       .toast-title {
         font-weight: 500;
@@ -130,6 +133,23 @@
         font-weight: 300;
       }
     }
+  }
+}
+
+.toast.admin {
+  .wrapper {
+    background-color: var(--toast-theme-1-brg);
+    .toast-info{
+      color: var(--toast-theme-1-color);
+    }
+  }
+
+  .wrapper::before {
+    background-color: var(--toast-theme-1-brg);
+  }
+
+  .wrapper::after {
+    background-color: var(--toast-theme-1-brg);
   }
 }
 
@@ -176,55 +196,69 @@ input[type="password"]::-ms-clear {
 
 /* form login*/
 @keyframes formInOpacity {
-  0%{
+  0% {
     opacity: 0;
   }
-  100%{
+
+  100% {
     opacity: 1;
   }
 }
+
 @keyframes formOutOpacity {
-  0%{
+  0% {
     opacity: 1;
   }
-  100%{
+
+  100% {
     opacity: 0;
   }
 }
+
 @keyframes formSideToTop {
-  0%{
+  0% {
     transform: translateY(0px);
   }
-  100%{
+
+  100% {
     transform: translateY(-50px);
   }
 }
+
 @keyframes formSideToBottom {
-  0%{
+  0% {
     transform: translateY(-50px);
   }
-  100%{
+
+  100% {
     transform: translateY(0px);
   }
 }
-.login.show{
+
+.login.show {
   display: unset;
-  .form-overlay{
+
+  .form-overlay {
     animation: formInOpacity .35s forwards;
   }
-  .form{
-    animation: formSideToBottom .35s forwards,formInOpacity .5s forwards;
+
+  .form {
+    animation: formSideToBottom .35s forwards, formInOpacity .5s forwards;
   }
 }
-.login.wait{
+
+.login.wait {
   display: unset;
-  .form-overlay{
+
+  .form-overlay {
     animation: formOutOpacity .5s forwards;
   }
-  .form{
-    animation: formSideToTop .25s forwards,formOutOpacity .25s forwards;
+
+  .form {
+    animation: formSideToTop .25s forwards, formOutOpacity .25s forwards;
   }
 }
+
 .login {
   display: none;
   position: fixed;
@@ -233,8 +267,8 @@ input[type="password"]::-ms-clear {
   bottom: 0;
   left: 0;
   z-index: 100;
-  
-  
+
+
   .wrapper {
     position: relative;
     height: 100%;
@@ -243,7 +277,7 @@ input[type="password"]::-ms-clear {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     .form-overlay {
       background-color: #0000005a;
       backdrop-filter: blur(10px);
@@ -365,7 +399,8 @@ input[type="password"]::-ms-clear {
           font-size: 12px;
         }
       }
-      .option.register{
+
+      .option.register {
         justify-content: center;
       }
     }
