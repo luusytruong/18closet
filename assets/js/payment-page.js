@@ -1,3 +1,4 @@
+import { startFetch } from "./formActions.js";
 import { startPOSTFetch } from "./startFetch.js";
 
 const productList = document.querySelector(".container__pay__infor__products");
@@ -87,17 +88,16 @@ const inputAddress = document.querySelector(".input-address");
 
 payBTN.addEventListener("click", () => {
   const data = {
-    customer_id: "1",
+    table: "orders",
+    customer_id: 1,
     total_amount: totalInssert,
     shipping_adress: inputAddress.value,
-    payment_status: "Chưa thanh toán",
   };
   console.log(data)
 
-  startPOSTFetch('http://localhost/fashion-store/controller/createData.php?table=orders', data);
-  localStorage.setItem(
-    "product-cart",
-    JSON.stringify({ data: [] })
-  );
-  alert("Nhân viên 18 CLOSET sẽ sớm liên hệ với bạn");
+  startFetch('http://localhost/fashion-store/controller/createData.php', data);
+  // localStorage.setItem(
+  //   "product-cart",
+  //   JSON.stringify({ data: [] })
+  // );
 });

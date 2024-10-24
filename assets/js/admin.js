@@ -28,7 +28,6 @@ sidebars.map((sidebar, index) => {
     sidebar.classList.add("active");
     tableList[index].classList.add("active");
     const readRoutes = routes.filter(route => route.includes('readData.php'));
-    console.log(readRoutes)
     const route = readRoutes[index];
     if (index === 1) {
       actionElement.style.display = "inline-flex";

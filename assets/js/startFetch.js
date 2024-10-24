@@ -1,3 +1,5 @@
+import { beginToast } from "./toast.js";
+
 export const routes = [
   //0
   "http://localhost/fashion-store/controller/createData.php?table=users",
@@ -36,9 +38,6 @@ export const routes = [
   "http://localhost/fashion-store/controller/deleteData.php?table=orders",
 ];
 
-function beginToast(type, title, message) {
-  console.error(type, title, message);
-}
 
 export function startGETFetch(method, path) {
   return fetch(path, {
@@ -74,7 +73,7 @@ export function startGETFetch(method, path) {
       beginToast(
         "error",
         "Đã xảy ra lỗi phía máy chủ",
-        "vui lòng thử lại sau ít phút"
+        error
       );
     });
 }
