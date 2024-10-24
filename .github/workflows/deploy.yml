@@ -13,17 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
       - name: Deploy to Hosting
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
@@ -31,4 +20,4 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
           echo "Deploying to FTP server"
-          lftp -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST -e "mirror -R ./dist /public_html && bye"
+          lftp -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST -e "mirror -R . /public_html && bye"
