@@ -33,6 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (timeoutId) {
         clearTimeout(timeoutId);
       }
+
+      console.log(navItem);
+      
     });
     navItem.addEventListener("mouseleave", () => {
       if (document.querySelector(".sub__menu.shows")) {
