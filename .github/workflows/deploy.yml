@@ -13,6 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install lftp
+        run: sudo apt-get install lftp -y
+
       - name: Deploy to Hosting
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
