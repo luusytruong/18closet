@@ -27,7 +27,9 @@ sidebars.map((sidebar, index) => {
     unActiveTable(title);
     sidebar.classList.add("active");
     tableList[index].classList.add("active");
-    const route = routes[index];
+    const readRoutes = routes.filter(route => route.includes('readData.php'));
+    console.log(readRoutes)
+    const route = readRoutes[index];
     if (index === 1) {
       actionElement.style.display = "inline-flex";
     }
