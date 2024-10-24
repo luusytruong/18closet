@@ -1,5 +1,5 @@
 import { createMiniProductDisplay, handleClickMiniDisplay } from "./loadData.js";
-import { startGETFetch } from "./startFetch.js";
+import { routes, startGETFetch } from "./startFetch.js";
 
 const productNameElement = document.querySelector(".product__infor__name");
 const currentPriceElement = document.querySelector(
@@ -36,9 +36,7 @@ function calculateOldValue(currentValue) {
 const addCartBTN = document.querySelector(".product__infor__col__list__btn--add")
 
 async function loadProductItem() {
-  const route =
-  "http://localhost/fashion-store/controller/readData.php?table=products";
-  const data = await startGETFetch("GET", route);
+  const data = await startGETFetch("GET", routes[5]);
   data.map((value, index) => {
     var idLocal = localStorage.getItem("id");
     if (idLocal == value.id) {
@@ -95,9 +93,7 @@ const seenProductDisplay = document.querySelector(".product-diplay.seen")
 
 
 async function loadLostProduct() {
-  const route =
-    "http://localhost/fashion-store/controller/readData.php?table=products";
-  const data = await startGETFetch("GET", route);
+  const data = await startGETFetch("GET", routes[5]);
   let countLost = 0;
   let count1 = 0;
   let count2 = 0;
