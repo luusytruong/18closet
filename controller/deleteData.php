@@ -17,11 +17,11 @@ try {
                 echo json_encode(['status' => 'error', 'title'=>'Đã xảy ra lỗi', 'content'=>'Không thể xoá, vui lòng thử lại sau']);
             }
         } else {
-            echo json_encode(['error' => 'table parameter or id parameter is missing']);
+            echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Chưa định nghĩa bảng']);
         }
     } else {
-        echo json_encode(['error' => 'invalid request method']);
+        echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Phương thức không hợp lệ']);
     }
 } catch (PDOException $e) {
-    echo json_encode(['error' => $e->getMessage()]);
+    echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => $e->getMessage()]);
 }

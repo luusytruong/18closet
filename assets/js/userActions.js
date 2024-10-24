@@ -91,13 +91,14 @@ export const hideForm = () => {
 document.querySelector(".form-overlay").addEventListener("click", () => {
   hideForm();
 });
+
 const formLogin = document.querySelector(".login");
 const btnShowForm = document.getElementById("show-login");
 
 btnShowForm.addEventListener("click", () => {
-    const letHimCook = getCookie()
-    if (letHimCook !== null) {
-        return
-    }
+  const letHimCook = getCookie();
+  if (letHimCook !== null) {
+    return;
+  }
   formLogin.classList.add("show");
 });

@@ -12,14 +12,14 @@ try {
                 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 echo json_encode($data);
             } else {
-                echo json_encode(['error' => 'failed to execute query']);
+                echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Không thể thực hiện truy vấn']);
             }
         } else {
-            echo json_encode(['error' => 'table parameter is missing']);
+            echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Chưa định nghĩa bảng']);
         }
     } else {
-        echo json_encode(['error' => 'invalid request method']);
+        echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Phương thức không hợp lệ']);
     }
 } catch (PDOException $e) {
-    echo json_encode(['error' => $e->getMessage()]);
+    echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => $e->getMessage()]);
 }
