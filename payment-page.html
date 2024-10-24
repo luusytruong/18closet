@@ -40,33 +40,51 @@
     <div class="app">
         <div class="login">
             <div class="wrapper">
-                <form action="" method="post">
+                <div class="form-overlay"></div>
+                <form action="#" class="form active">
                     <img src="./assets/img/logo.webp" alt="realtime chat logo">
-                    <div class="box-input">
-                        <label for="email">
-                            Địa chỉ email
-                        </label>
-                        <div>
-                            <i class="fa-solid fa-envelope"></i>
-                            <input tabindex="1" id="email" name="email" type="text" placeholder="example" required>
-                        </div>
-                    </div>
-                    <div id="box-pw-login" class="box-input">
-                        <label for="password">
-                            Mật khẩu
-                        </label>
-                        <div>
-                            <i class="fa-solid fa-lock"></i>
-                            <input tabindex="2" id="password" name="password" type="password" placeholder="••••••" required>
-                            <i class="fa-solid fa-eye" tabindex="3"></i>
-                        </div>
-                    </div>
-                    <button tabindex="4" type="submit">
+                    <label class="box-input">
+                        Số Điện thoại
+                        <i class="fa-solid fa-phone"></i>
+                        <input name="tel-login" type="tel" placeholder="+84" required>
+                    </label>
+                    <label class="box-input password">
+                        Mật khẩu
+                        <i class="fa-solid fa-lock"></i>
+                        <input name="password-login" type="password" placeholder="••••••" required>
+                        <i class="fa-solid fa-eye"></i>
+                    </label>
+                    <button type="submit">
                         Đăng nhập
                     </button>
                     <div class="option">
-                        <a tabindex="5" href="#">Đăng ký</a>
-                        <a tabindex="6" href="#">Quên mật khẩu?</a>
+                        <a class="btn-show-register" href="#">Đăng ký</a>
+                        <a href="#">Quên mật khẩu?</a>
+                    </div>
+                </form>
+                <form action="#" class="form">
+                    <img src="./assets/img/logo.webp" alt="realtime chat logo">
+                    <label class="box-input">
+                        Họ và tên
+                        <i class="fa-solid fa-user"></i>
+                        <input name="fullname" type="text" placeholder="nguyen van a" required>
+                    </label>
+                    <label class="box-input">
+                        Số Điện thoại
+                        <i class="fa-solid fa-phone"></i>
+                        <input name="tel-register" type="tel" placeholder="+84" required>
+                    </label>
+                    <label class="box-input password">
+                        Mật khẩu
+                        <i class="fa-solid fa-lock"></i>
+                        <input name="password-register" type="password" placeholder="••••••" required>
+                        <i class="fa-solid fa-eye"></i>
+                    </label>
+                    <button type="submit">
+                        Đăng ký
+                    </button>
+                    <div class="option register">
+                        <a class="btn-show-login" href="#">Đăng nhập</a>
                     </div>
                 </form>
             </div>
@@ -252,9 +270,9 @@
                 </div>
                 <div class="header__inner">
                     <div class="header__inner__left">
-                        <div class="header__logo">
+                        <a href="http://localhost/fashion-store" class="header__logo">
                             <img src="./assets/img/logo.webp" alt="logo">
-                        </div>
+                        </a>
                     </div>
                     <div class="header__inner__middle">
                         <ul class="header__middel nav">
@@ -332,7 +350,7 @@
                     <div class="container__pay__box">
                         <div class="container__pay__infor">
                             <div class="container__pay__infor__products">
-                                <div class="container__pay__infor__items">
+                                <!-- <div class="container__pay__infor__items">
                                     <img src="./assets/img/information/mig1.webp" alt="">
                                     <div class="container__pay__infor__items__in4">
                                         <span class="container__pay__infor__items__in4__title">Đầm 2 Dây Dáng A Buộc Nơ
@@ -430,7 +448,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="container__pay__infor__address">
                                 <h2 class="pay__infor__address__title"><img src="./assets/img/icons/address.webp"
@@ -438,16 +456,16 @@
                                 <div class="container__pay__infor__address__row">
                                     <div class="container__pay__infor__address__col">
                                         <span>Họ và tên:</span>
-                                        <input type="text" placeholder="Họ và tên của bạn">
+                                        <input class="input-name" name="name" type="text" placeholder="Họ và tên của bạn">
                                     </div>
                                     <div class="container__pay__infor__address__col">
                                         <span>Số điện thoại:</span>
-                                        <input type="text" placeholder="Số điện thoại của bạn">
+                                        <input class="input-phone" name="phone_number" type="text" placeholder="Số điện thoại của bạn">
                                     </div>
                                 </div>
                                 <div class="container__pay__infor__address__col">
-                                    <span>Địa chỉ:</span>
-                                    <input type="text" placeholder="Địa chỉ của bạn">
+                                    <span>Địa chỉ:*</span>
+                                    <input class="input-address" name="shipping_adress" type="text" placeholder="Địa chỉ của bạn">
                                 </div>
                             </div>
                         </div>
@@ -468,10 +486,19 @@
                                     Chuyển khoản ngân hàng
                                 </label>
                             </div>
+                            <div class="container__cart__confirm__row">
+                                <span>
+                                    Tổng đơn
+                                </span>
+                                <span>
+                                    <span class="container__cart__confirm__row__total">1.500.000&nbsp;₫</span>
+                                </span>
+                            </div>
                             <button class="container__pay__confirm__order-btn">ĐẶT HÀNG</button>
                             <span class="container__pay__confirm__notif">Sau khi hoàn tất đơn hàng khoảng 60-90 phút
                                 (trong
-                                giờ hành chính), 18 CLOSET sẽ nhanh chóng gọi điện xác nhận lại thời gian giao hàng với bạn.
+                                giờ hành chính), 18 CLOSET sẽ nhanh chóng gọi điện xác nhận lại thời gian giao hàng với
+                                bạn.
                                 18 CLOSET
                                 xin cảm ơn!</span>
                         </div>
@@ -485,7 +512,8 @@
 
     </footer>
     </div>
-    <script src="./assets/js/index.js"></script>
+    <!-- <script src="./assets/js/index.js"></script> -->
+    <script type="module" src="./assets/js/payment-page.js"></script>
 </body>
 
 </html>

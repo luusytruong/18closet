@@ -1,3 +1,5 @@
+import { beginToast } from "./toast.js";
+
 export const routes = [
   //0
   "http://localhost/fashion-store/controller/createData.php?table=users",
@@ -36,9 +38,6 @@ export const routes = [
   "http://localhost/fashion-store/controller/deleteData.php?table=orders",
 ];
 
-function beginToast(type, title, message) {
-  console.error(type, title, message);
-}
 
 export function startGETFetch(method, path) {
   return fetch(path, {
@@ -74,41 +73,23 @@ export function startGETFetch(method, path) {
       beginToast(
         "error",
         "Đã xảy ra lỗi phía máy chủ",
-        "vui lòng thử lại sau ít phút"
+        error
       );
     });
 }
 
-export function startPOSTFetch(path, data = {}) {
-  const params = new URLSearchParams(data);
-  fetch(path, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: params.toString(),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      // if (data.login === 'true') {
-      //     isLogin = true;
-      // }
-      // if (data.status === 'success'){
-      //     beginToast('success', data.title, data.content);
-      //     if (data.redirect) {
-      //         setTimeout(() => {
-      //             window.location.href = data.redirect;
-      //         }, 1500);
-      //     }
-      //     if (data.session_id) {
-      //         console.log(data.session_id);
-      //     }
-      // } else if (data.status === 'error') {
-      //     beginToast('error', data.title, data.content);
-      // } else {
-      //     beginToast('error', 'Đã xảy ra lỗi không rõ', 'vui lòng thử lại sau');
-      // }
-      console.log(data);
+export function startPOSTFetch(path, data = {}){
+    const params = new URLSearchParams(data);
+    fetch(path, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: params.toString()
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
     })
     .catch((error) => {
       console.error("error: ", error);

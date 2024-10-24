@@ -40,33 +40,51 @@
     <div class="app">
         <div class="login">
             <div class="wrapper">
-                <form action="" method="post">
+                <div class="form-overlay"></div>
+                <form action="#" class="form active">
                     <img src="./assets/img/logo.webp" alt="realtime chat logo">
-                    <div class="box-input">
-                        <label for="email">
-                            Địa chỉ email
-                        </label>
-                        <div>
-                            <i class="fa-solid fa-envelope"></i>
-                            <input tabindex="1" id="email" name="email" type="text" placeholder="example" required>
-                        </div>
-                    </div>
-                    <div id="box-pw-login" class="box-input">
-                        <label for="password">
-                            Mật khẩu
-                        </label>
-                        <div>
-                            <i class="fa-solid fa-lock"></i>
-                            <input tabindex="2" id="password" name="password" type="password" placeholder="••••••" required>
-                            <i class="fa-solid fa-eye" tabindex="3"></i>
-                        </div>
-                    </div>
-                    <button tabindex="4" type="submit">
+                    <label class="box-input">
+                        Số Điện thoại
+                        <i class="fa-solid fa-phone"></i>
+                        <input name="tel-login" type="tel" placeholder="+84" required>
+                    </label>
+                    <label class="box-input password">
+                        Mật khẩu
+                        <i class="fa-solid fa-lock"></i>
+                        <input name="password-login" type="password" placeholder="••••••" required>
+                        <i class="fa-solid fa-eye"></i>
+                    </label>
+                    <button type="submit">
                         Đăng nhập
                     </button>
                     <div class="option">
-                        <a tabindex="5" href="#">Đăng ký</a>
-                        <a tabindex="6" href="#">Quên mật khẩu?</a>
+                        <a class="btn-show-register" href="#">Đăng ký</a>
+                        <a href="#">Quên mật khẩu?</a>
+                    </div>
+                </form>
+                <form action="#" class="form">
+                    <img src="./assets/img/logo.webp" alt="realtime chat logo">
+                    <label class="box-input">
+                        Họ và tên
+                        <i class="fa-solid fa-user"></i>
+                        <input name="fullname" type="text" placeholder="nguyen van a" required>
+                    </label>
+                    <label class="box-input">
+                        Số Điện thoại
+                        <i class="fa-solid fa-phone"></i>
+                        <input name="tel-register" type="tel" placeholder="+84" required>
+                    </label>
+                    <label class="box-input password">
+                        Mật khẩu
+                        <i class="fa-solid fa-lock"></i>
+                        <input name="password-register" type="password" placeholder="••••••" required>
+                        <i class="fa-solid fa-eye"></i>
+                    </label>
+                    <button type="submit">
+                        Đăng ký
+                    </button>
+                    <div class="option register">
+                        <a class="btn-show-login" href="#">Đăng nhập</a>
                     </div>
                 </form>
             </div>
@@ -252,9 +270,9 @@
                 </div>
                 <div class="header__inner">
                     <div class="header__inner__left">
-                        <div class="header__logo">
+                        <a href="http://localhost/fashion-store" class="header__logo">
                             <img src="./assets/img/logo.webp" alt="logo">
-                        </div>
+                        </a>
                     </div>
                     <div class="header__inner__middle">
                         <ul class="header__middel nav">
@@ -326,7 +344,8 @@
             <div class="grid">
                 <div class="container__cart">
                     <table class="container__cart__table">
-                        <tr class="container__cart__table__row">
+                        <tbody></tbody>
+                        <!-- <tr class="container__cart__table__row">
                             <th class="container__cart__table__col  start" colspan="2">Sản phẩm</th>
                             <th class="container__cart__table__col">Đơn giá</th>
                             <th class="container__cart__table__col">Số lượng</th>
@@ -366,8 +385,8 @@
                                     <i class="fa-solid fa-trash"></i>
                                 </div>
                             </td>
-                        </tr>
-                        <tr class="container__cart__table__row">
+                        </tr> -->
+                        <!-- <tr class="container__cart__table__row">
                             <td class="container__cart__table__col">
                                 <img src="./assets/img/information/mig1.webp" alt="">
                             </td>
@@ -401,7 +420,7 @@
                                     <i class="fa-solid fa-trash"></i>
                                 </div>
                             </td>
-                        </tr>
+                        </tr> -->
                     </table>
                     <div class="container__cart__confirm">
                         <span class="container__cart__confirm__noti">Dùng mã giảm giá của 18 CLOSET ở bước tiếp theo</span>
@@ -411,10 +430,10 @@
                                     Tổng đơn
                                 </span>
                                 <span>
-                                    <span class="container__cart__confirm__row__total">1.095.000</span>₫
+                                    <span class="container__cart__confirm__row__total">1.095.000</span>
                                 </span>
                             </div>
-                            <a href="./payment-page.html" class="container__cart__confirm__btn">TIẾN HÀNH THANH TOÁN</a>
+                            <button class="container__cart__confirm__btn">TIẾN HÀNH THANH TOÁN</button>
                         </div>
                     </div>
                 </div>
@@ -426,7 +445,6 @@
 
     </footer>
     </div>
-    <script src="./assets/js/index.js"></script>
     <script src="./assets/js/cart-page.js"></script>
 </body>
 

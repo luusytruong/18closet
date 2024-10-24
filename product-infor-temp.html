@@ -35,34 +35,51 @@
         </div>
         <div class="login">
             <div class="wrapper">
-                <form action="" method="post">
+                <div class="form-overlay"></div>
+                <form action="#" class="form active">
                     <img src="./assets/img/logo.webp" alt="realtime chat logo">
-                    <div class="box-input">
-                        <label for="email">
-                            Địa chỉ email
-                        </label>
-                        <div>
-                            <i class="fa-solid fa-envelope"></i>
-                            <input tabindex="1" id="email" name="email" type="text" placeholder="example" required>
-                        </div>
-                    </div>
-                    <div id="box-pw-login" class="box-input">
-                        <label for="password">
-                            Mật khẩu
-                        </label>
-                        <div>
-                            <i class="fa-solid fa-lock"></i>
-                            <input tabindex="2" id="password" name="password" type="password" placeholder="••••••"
-                                required>
-                            <i class="fa-solid fa-eye" tabindex="3"></i>
-                        </div>
-                    </div>
-                    <button tabindex="4" type="submit">
+                    <label class="box-input">
+                        Số Điện thoại
+                        <i class="fa-solid fa-phone"></i>
+                        <input name="tel-login" type="tel" placeholder="+84" required>
+                    </label>
+                    <label class="box-input password">
+                        Mật khẩu
+                        <i class="fa-solid fa-lock"></i>
+                        <input name="password-login" type="password" placeholder="••••••" required>
+                        <i class="fa-solid fa-eye"></i>
+                    </label>
+                    <button type="submit">
                         Đăng nhập
                     </button>
                     <div class="option">
-                        <a tabindex="5" href="#">Đăng ký</a>
-                        <a tabindex="6" href="#">Quên mật khẩu?</a>
+                        <a class="btn-show-register" href="#">Đăng ký</a>
+                        <a href="#">Quên mật khẩu?</a>
+                    </div>
+                </form>
+                <form action="#" class="form">
+                    <img src="./assets/img/logo.webp" alt="realtime chat logo">
+                    <label class="box-input">
+                        Họ và tên
+                        <i class="fa-solid fa-user"></i>
+                        <input name="fullname" type="text" placeholder="nguyen van a" required>
+                    </label>
+                    <label class="box-input">
+                        Số Điện thoại
+                        <i class="fa-solid fa-phone"></i>
+                        <input name="tel-register" type="tel" placeholder="+84" required>
+                    </label>
+                    <label class="box-input password">
+                        Mật khẩu
+                        <i class="fa-solid fa-lock"></i>
+                        <input name="password-register" type="password" placeholder="••••••" required>
+                        <i class="fa-solid fa-eye"></i>
+                    </label>
+                    <button type="submit">
+                        Đăng ký
+                    </button>
+                    <div class="option register">
+                        <a class="btn-show-login" href="#">Đăng nhập</a>
                     </div>
                 </form>
             </div>
@@ -377,7 +394,7 @@
                                 </div>
                                 <button class="product__infor__col__list__btn--add">THÊM VÀO GIỎ HÀNG</button>
 
-                                <a href="./payment-page.html" class="product__infor__col__list__btn--buy">MUA NGAY</a>
+                                <button class="product__infor__col__list__btn--buy">MUA NGAY</button>
                             </div>
                         </div>
                         <div class="product__infor__commit">
