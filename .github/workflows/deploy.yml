@@ -13,14 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install lftp
-        run: sudo apt-get install lftp -y
-
-      - name: Deploy to Hosting
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          echo "Deploying to FTP server"
-          lftp -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST --no-check-certificate -e "mirror -R . /public_html && bye"
+      - name: Deploy to FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          ftp-server: ${{ secrets.FTP_HOST }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: .  # Trỏ đến thư mục gốc của dự án của bạn
+          server-dir: /public_html
+          server-is-ftp: true
