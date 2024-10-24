@@ -168,9 +168,7 @@ const forYouProductDisplay = document.querySelector(".product-diplay.foryou");
 const seenProductDisplay = document.querySelector(".product-diplay.seen");
 
 async function loadLostProduct() {
-  const route =
-    "http://localhost/fashion-store/controller/readData.php?table=products";
-  const data = await startGETFetch("GET", route);
+  const data = await startGETFetch("GET", routes[5]);
   let countLost = 0;
   let count1 = 0;
   let count2 = 0;
