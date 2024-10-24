@@ -38,31 +38,27 @@ function calculateOldValue(currentValue) {
 const addCartBTN = document.querySelector(
   ".product__infor__col__list__btn--add"
 );
+function mergeByIdWithCount(array) {
+  const merged = {};
 
-function mergeCounts(data) {
-  const result = [];
-
-  // Create a map to store the ids and their cumulative counts
-  const map = new Map();
-
-  // Loop through the data to accumulate the counts for each id
-  data.forEach((item) => {
-    const id = item.id;
-    const count = parseInt(item.count); // Convert count to number
-
-    if (map.has(id)) {
-      map.set(id, map.get(id) + count);
+  array.forEach((item) => {
+    if (!merged[item.id]) {
+      merged[item.id] = { ...item }; // Nếu id chưa tồn tại, thêm mới
     } else {
-      map.set(id, count);
+      // Nếu id đã tồn tại, gộp thuộc tính count
+      merged[item.id].count =
+        parseInt(merged[item.id].count) + parseInt(item.count);
+
+      // Cập nhật các thuộc tính khác nếu cần (không ghi đè nếu không cần)
+      merged[item.id].image_url = item.image_url || merged[item.id].image_url;
+      merged[item.id].product_name =
+        item.product_name || merged[item.id].product_name;
+      merged[item.id].price = item.price || merged[item.id].price;
+      merged[item.id].oldPrice = item.oldPrice || merged[item.id].oldPrice;
     }
   });
 
-  // Convert the map back to the desired array of objects
-  map.forEach((count, id) => {
-    result.push({ id, count: count.toString() });
-  });
-
-  return result;
+  return Object.values(merged);
 }
 
 async function loadProductItem() {
@@ -90,6 +86,7 @@ async function loadProductItem() {
       document.title = `18CLOSET - ${value.product_name}`;
 
       const inputCouter = document.querySelector(".input-counter");
+
       addCartBTN.addEventListener("click", () => {
         const localValue = JSON.parse(localStorage.getItem("product-cart"));
         const dataAdd = {
@@ -100,28 +97,41 @@ async function loadProductItem() {
           price: value.price,
           oldPrice: calculateOldValue(value.price),
         };
-        
-        buyNowBTN.addEventListener("click", () => {
-          localStorage.setItem(
-            "product-pay",
-            JSON.stringify({ data: [dataAdd] })
-          );
-        });
-        
+
+        console.log("hello");
         if (!localValue) {
           localStorage.setItem(
             "product-cart",
             JSON.stringify({ data: [dataAdd] })
           );
-
         } else {
           const arrayValue = [...localValue.data, dataAdd];
-          console.log(mergeCounts(arrayValue));
+          console.log(mergeByIdWithCount(arrayValue));
           localStorage.setItem(
             "product-cart",
-            JSON.stringify({ data: arrayValue })
+            JSON.stringify({
+              data: mergeByIdWithCount(arrayValue),
+            })
           );
         }
+      });
+      buyNowBTN.addEventListener("click", () => {
+        localStorage.setItem(
+          "product-pay",
+          JSON.stringify({
+            data: [
+              {
+                id: value.id,
+                count: inputCouter.value,
+                image_url: "./assets/img_upload/" + value.image_url,
+                product_name: value.product_name,
+                price: value.price,
+                oldPrice: calculateOldValue(value.price),
+              },
+            ],
+          })
+        );
+        window.location.href = "./payment-page.html";
       });
     }
   });

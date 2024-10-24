@@ -37,7 +37,6 @@ const value = {
   oldPrice: 1600000,
 };
 function createRowCart(value) {
-  console.log(value);
   const trElement = document.createElement("tr");
   trElement.innerHTML = `
   <td class="container__cart__table__col">
@@ -111,8 +110,9 @@ const totalElement = document.querySelector(
 
 function updateCart() {
   const localValue = JSON.parse(localStorage.getItem("product-cart"));
-  
+  console.log("lcao value: ", localValue)
   if (localValue) {
+    console.log(localValue)
     let total = 0;
     localValue.data.map((value) => {
       tbodyCart.appendChild(createRowCart(value));
@@ -122,6 +122,10 @@ function updateCart() {
       style: "currency",
       currency: "VND",
     });
+    buyNowBTN.addEventListener("click", ()=>{
+      localStorage.setItem("product-pay", JSON.stringify(localValue));
+      window.location.href = "./payment-page.html";
+    })
   }
 }
 window.onload = () => {
@@ -130,11 +134,3 @@ window.onload = () => {
 
 
 const buyNowBTN = document.querySelector(".container__cart__confirm__btn");
-// buyNowBTN.addEventListener("click", (e)=>{
-//   e.preventDefault();
-//   localStorage.setItem(
-//     "product-pay",
-//     JSON.stringify(localValue)
-//   );
-//   window.location = buyNowBTN.href;
-// })

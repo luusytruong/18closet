@@ -99,4 +99,5 @@ payBTN.addEventListener("click", () => {
     "product-cart",
     JSON.stringify({ data: [] })
   );
+  alert("Nhân viên 18 CLOSET sẽ sớm liên hệ với bạn");
 });
