@@ -19,5 +19,5 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./ # Trỏ đến thư mục gốc của dự án của bạn
-          server-dir: ./public_html
+          local-dir: ./  # Trỏ đến thư mục gốc của dự án của bạn (đảm bảo có dấu / ở cuối)
+          server-dir: /public_html/  # Thư mục đích trên máy chủ FTP của bạn (đảm bảo có dấu / ở cuối)
