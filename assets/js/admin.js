@@ -28,6 +28,7 @@ sidebars.map((sidebar, index) => {
     tableList[index].classList.add("active");
     const readRoutes = routes.filter(route => route.includes('readData.php'));
     const route = readRoutes[index];
+    console.log("route: ",route)
     if (index === 1) {
       actionElement.style.display = "inline-flex";
     }
@@ -37,7 +38,6 @@ sidebars.map((sidebar, index) => {
       console.log(data)
       const tableOld = tableList[index].querySelector("table");
       const newTable = createTableArray[index](data)
-      console.log(newTable)
 
       tableOld.replaceWith(newTable);
 
