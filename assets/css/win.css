@@ -337,6 +337,7 @@
 
 .product__infor__col__list__input span {
   padding: 0 8px;
+  cursor: pointer;
 }
 .product__infor__col__list__input input {
   text-align: center;
@@ -352,13 +353,15 @@
   margin-left: 8px;
   padding: 0 8px;
   border: 1px solid #000;
-  font-weight: 600;
+  cursor: pointer;
+  font-weight: bold;
 }
 .product__infor__col__list__btn--add {
   background-color: #fff;
 }
 .product__infor__col__list__btn--add:hover {
-  background-color: #ffd5d579;
+  background-color: #000;
+  color: #fff;
 }
 
 .product__infor__col__list__btn--buy {
