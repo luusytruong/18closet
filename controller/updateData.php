@@ -102,9 +102,9 @@ try {
                     $code = $_POST['code'];
                     $discount  = $_POST['discount'];
 
-                    $sql = 'UPDATE orders SET 
+                    $sql = 'UPDATE discounts SET 
                     code = :code, 
-                    discount = :discount,
+                    discount = :discount
                     WHERE id = :id';
 
                     $stmt = $pdo->prepare($sql);
