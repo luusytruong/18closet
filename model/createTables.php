@@ -89,12 +89,8 @@ $pdo->exec( $sql );
 
 // Create table discounts
 $sql = "CREATE TABLE IF NOT EXISTS discounts (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_id INT NOT NULL,
-    product_id INT NOT NULL,
-    quantity INT NOT NULL,
-    FOREIGN KEY (customer_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+    code VARCHAR(100) PRIMARY KEY,
+    discount INT NOT NULL
 )";
 
 $pdo->exec( $sql );

@@ -98,6 +98,26 @@ try {
                         echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Sửa thông tin không thành công']);
                     }
                     break;
+                case 'discounts':
+                    $code = $_POST['code'];
+                    $discount  = $_POST['discount'];
+
+                    $sql = 'UPDATE orders SET 
+                    code = :code, 
+                    discount = :discount,
+                    WHERE id = :id';
+
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->bindParam(':code', $code);
+                    $stmt->bindParam(':discount', $discount);
+                    $stmt->bindParam(':id', $id);
+
+                    if ($stmt->execute()) {
+                        echo json_encode(['status' => 'success', 'title' => 'Thành công', 'content' => 'Thông tin đã được chỉnh sửa']);
+                    } else {
+                        echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Sửa thông tin không thành công']);
+                    }
+                    break;
                 default:
                     echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Không tìm thấy bảng']);
                     break;
