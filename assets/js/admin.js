@@ -1,12 +1,23 @@
 import { startGETFetch, routes } from "./startFetch.js";
 import { createTableArray } from "./createTable.js";
-import { showProductAddModal } from "./modal.js";
+import { showDiscountAddModal, showProductAddModal } from "./modal.js";
 
 const sidebars = Array.from(document.querySelectorAll(".sidebar__item"));
 const tableList = Array.from(document.querySelectorAll(".table__wrapper"));
 const displayTitle = document.querySelector(".display__title");
 const actionElement = document.querySelector(".actions");
 
+let indexSidebar = 1;
+export let sidebarActiveNow = sidebars[indexSidebar];
+
+indexSidebar = parseInt(localStorage.getItem("active-sidebar"));
+if (!indexSidebar && indexSidebar !== 0) indexSidebar = 1;
+sidebarActiveNow = sidebars[indexSidebar];
+window.onload = () =>{
+  
+  sidebarActiveNow.click();
+}
+console.log(sidebarActiveNow)
 
 const unActiveTable = (title) => {
   sidebars.map((bar) => {
@@ -26,21 +37,20 @@ sidebars.map((sidebar, index) => {
     unActiveTable(title);
     sidebar.classList.add("active");
     tableList[index].classList.add("active");
-    const readRoutes = routes.filter(route => route.includes('readData.php'));
+    const readRoutes = routes.filter((route) => route.includes("readData.php"));
     const route = readRoutes[index];
-    console.log("route: ",route)
-    if (index === 1) {
+    console.log("route: ", route);
+    if (index === 1 || index === 4) {
       actionElement.style.display = "inline-flex";
     }
 
     try {
       const data = await startGETFetch("GET", route);
-      console.log(data)
+      console.log(data);
       const tableOld = tableList[index].querySelector("table");
-      const newTable = createTableArray[index](data)
+      const newTable = createTableArray[index](data);
 
       tableOld.replaceWith(newTable);
-
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -51,53 +61,44 @@ sidebars.map((sidebar, index) => {
 
 const btnAddProduct = document.querySelector(".actions__add");
 btnAddProduct.addEventListener("click", () => {
-  showProductAddModal()
+  console.log(indexSidebar)
+  if (indexSidebar === 1) showProductAddModal();
+  if(indexSidebar === 4) showDiscountAddModal();
 });
 
 //
 
 // Lấy nút Quay Lên Đầu
-const btnToTop = document.getElementById('btn__to__top');
-const wrapperTabless = document.querySelectorAll('.table__wrapper');
+const btnToTop = document.getElementById("btn__to__top");
+const wrapperTabless = document.querySelectorAll(".table__wrapper");
 
 // Hàm để kiểm tra vị trí cuộn
 const checkScrollPosition = () => {
-    const wrapper = wrapperTabless[indexSidebar];
-    const scrollPosition = wrapper.scrollTop; // Vị trí cuộn hiện tại
-    const documentHeight = wrapper.scrollHeight; // Chiều cao của tài liệu
+  const wrapper = wrapperTabless[indexSidebar];
+  const scrollPosition = wrapper.scrollTop; // Vị trí cuộn hiện tại
+  const documentHeight = wrapper.scrollHeight; // Chiều cao của tài liệu
 
-    // Nếu vị trí cuộn vượt quá 1/4 chiều cao tài liệu, hiển thị nút
-    if (scrollPosition > documentHeight / 4) {
-        btnToTop.style.display = 'block'; // Hiển thị nút
-    } else {
-        btnToTop.style.display = 'none'; // Ẩn nút
-    }
+  // Nếu vị trí cuộn vượt quá 1/4 chiều cao tài liệu, hiển thị nút
+  if (scrollPosition > documentHeight / 4) {
+    btnToTop.style.display = "block"; // Hiển thị nút
+  } else {
+    btnToTop.style.display = "none"; // Ẩn nút
+  }
 };
 
 // Hàm cuộn lên đầu trang
 const scrollToTop = () => {
-    const wrapper = wrapperTabless[indexSidebar];
-    wrapper.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Cuộn mượt mà
-    });
+  const wrapper = wrapperTabless[indexSidebar];
+  wrapper.scrollTo({
+    top: 0,
+    behavior: "smooth", // Cuộn mượt mà
+  });
 };
 
 // Gắn sự kiện cuộn
 wrapperTabless.forEach((wrapper, index) => {
-    wrapper.addEventListener('scroll', checkScrollPosition);
+  wrapper.addEventListener("scroll", checkScrollPosition);
 });
 
 // Gắn sự kiện click cho nút
-btnToTop.addEventListener('click', scrollToTop);
-
-
-let indexSidebar = 1
-export let sidebarActiveNow = sidebars[indexSidebar];
-
-window.onload = () => {
-  indexSidebar = parseInt(localStorage.getItem("active-sidebar"));
-  if(!indexSidebar && indexSidebar !== 0) indexSidebar = 1;
-  sidebarActiveNow = sidebars[indexSidebar];
-  sidebarActiveNow.click();
-};
+btnToTop.addEventListener("click", scrollToTop);

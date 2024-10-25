@@ -1,4 +1,4 @@
-import { getCookie } from "./cookie";
+import { getCookie } from "./cookie.js";
 
 const minusElements = Array.from(document.querySelectorAll(".minus"));
 const plusElements = Array.from(document.querySelectorAll(".plus"));

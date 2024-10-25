@@ -1,4 +1,5 @@
 import { startFetch } from "./formActions.js";
+
 import { routes, startGETFetch, startPOSTFetch } from "./startFetch.js";
 
 const productList = document.querySelector(".container__pay__infor__products");
@@ -45,7 +46,7 @@ function createItem(value) {
             <div class="container__pay__infor__items__row">
                 <span>Thành tiền:</span>
                 <div class="container__pay__infor__items__row__price">
-                    <span><span class="cur-price">${value.price.toLocaleString(
+                    <span><span class="cur-price">${(value.price * value.count).toLocaleString(
                       "vi-VN",
                       {
                         style: "currency",
@@ -61,9 +62,10 @@ function createItem(value) {
 }
 
 const totalElement = document.querySelector(
-  ".container__cart__confirm__row__total"
+  ".container__cart__confirm__row__total.cur"
 );
 let totalInssert = 0;
+let totalValue = 0;
 function updateCart() {
   const localValue = JSON.parse(localStorage.getItem("product-pay"));
   if (localValue) {
@@ -72,6 +74,7 @@ function updateCart() {
       productList.appendChild(createItem(value));
       total += parseInt(value.price) * parseInt(value.count);
     });
+    totalValue = total;
     totalElement.innerText = total.toLocaleString("vi-VN", {
       style: "currency",
       currency: "VND",
@@ -90,9 +93,6 @@ async function updateInfor(){
     console.log(data[0])
     inputName.value = data[0].full_name;
     inputPhone.value = data[0].phone_number;
-    
-
-
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -122,3 +122,37 @@ payBTN.addEventListener("click", () => {
   );
   
 });
+
+
+
+const discountBTN = document.querySelector(".container__pay__confirm__discount__btn");
+const inputADiscount = document.querySelector(".input-discount");
+const discountDisplay = document.querySelector(".container__cart__confirm__row__total.discount")
+const totalAllDisplay = document.querySelector(".container__cart__confirm__row__total.pay")
+
+let discountValue = 0;
+let totalValueAll = 0;
+
+discountBTN.addEventListener("click", async () => {
+  console.log("hel")
+  const data = await startGETFetch("GET", routes[17]);
+  const valueDiscount = inputADiscount.value.trim();
+
+  data.map(value=>{
+    if(valueDiscount == value.code){
+      discountValue = value.discount
+      discountDisplay.innerText = discountValue.toLocaleString("vi-VN", {
+        style: "currency",
+        currency: "VND",
+      });
+    }
+  });
+  totalValueAll = totalValue - discountValue;
+  totalAllDisplay.innerText = totalValueAll.toLocaleString("vi-VN", {
+    style: "currency",
+    currency: "VND",
+  });
+
+});
+
+
