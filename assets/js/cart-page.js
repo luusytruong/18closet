@@ -96,7 +96,6 @@ function createRowCart(value) {
   });
   return trElement;
 }
-
 function removeById(idToRemove) {
   const localValue = JSON.parse(localStorage.getItem("product-cart"));
   return localValue.data.filter(item => item.id !== idToRemove);

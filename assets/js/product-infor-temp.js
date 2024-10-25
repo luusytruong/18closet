@@ -1,3 +1,4 @@
+import { loadMiniDisplayCart } from "./header.js";
 import {
   createMiniProductDisplay,
   handleClickMiniDisplay,
@@ -114,6 +115,7 @@ async function loadProductItem() {
             })
           );
         }
+        loadMiniDisplayCart()
       });
       buyNowBTN.addEventListener("click", () => {
         localStorage.setItem(

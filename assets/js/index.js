@@ -95,3 +95,4 @@ function activeImg2(btn) {
 }
 
 startSlideInterval();
+
