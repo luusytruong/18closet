@@ -92,6 +92,7 @@ document.querySelector(".form-overlay").addEventListener("click", () => {
   hideForm();
 });
 
+//click show form
 const formLogin = document.querySelector(".login");
 const btnShowForm = document.getElementById("show-login");
 
@@ -102,3 +103,30 @@ btnShowForm.addEventListener("click", () => {
   }
   formLogin.classList.add("show");
 });
+
+//xử lý cart, phải khai báo thêm 2 var khi gọi function
+let timeoutId = null;
+let timeout = 300;
+export const actionMiniCart = (option) => {
+  const btnShowMiniCart = document.getElementById("show-cart");
+  if (option === "hide") {
+    timeoutId = setTimeout(() => {
+      btnShowMiniCart.classList.remove("show");
+    }, timeout);
+  } else if (option === "show") {
+    clearTimeout(timeoutId);
+    btnShowMiniCart.classList.add("show");
+  } else if (option === "init") {
+    const parent = document.querySelector(".mini-cart .list-item");
+    const btnDeleteItems = parent.querySelectorAll(".item .item-right");
+    btnDeleteItems.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const parent = btn.closest(".item");
+        parent.classList.add("delete");
+        setTimeout(() => {
+          parent.remove();
+        }, 500);
+      });
+    });
+  }
+};

@@ -1,8 +1,13 @@
+import { actionMiniCart } from "./userActions.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const navItems = Array.from(document.querySelectorAll(".nav-item"));
   const subMenu = Array.from(document.querySelectorAll(".sub__menu"));
   let showSubMenu = false;
   let timeoutId = null;
+  let timeout = 300;
+  //xử lý cart
+  const btnShowMiniCart = document.getElementById("show-cart");
 
   navItems.map((navItem, index) => {
     navItem.addEventListener("mouseenter", () => {
@@ -28,6 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
 
+      if (navItem.id === btnShowMiniCart.id) {
+        console.log("hover");
+        actionMiniCart("show");
+        actionMiniCart("init");
+        // clearTimeout(timeoutId)
+        // navItem.classList.add('show')
+      }
+
       showSubMenu = true;
 
       if (timeoutId) {
@@ -35,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       console.log(navItem);
-      
     });
     navItem.addEventListener("mouseleave", () => {
       if (document.querySelector(".sub__menu.shows")) {
@@ -50,14 +62,20 @@ document.addEventListener("DOMContentLoaded", () => {
           }, 200);
         }
       }
+      if (navItem.id === btnShowMiniCart.id) {
+        actionMiniCart("hide");
+        // timeoutId = setTimeout(() => {
+        //   navItem.classList.remove('show')
+        // }, 300);
+        console.log("nothover");
+      }
     });
   });
-
 
   subMenu.map((menu, index) => {
     const aE = Array.from(menu.querySelectorAll(".col__menu-link"));
     aE.map((a) => {
-      a.addEventListener("click", function(event) {
+      a.addEventListener("click", function (event) {
         event.preventDefault();
         localStorage.setItem("category", index + 1);
         window.location.href = this.href;
@@ -66,6 +84,33 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Hàm để kiểm tra vị trí cuộn
+const headerRelative = document.querySelector(".header");
+const headerFixed = document.querySelector(".header-fixed");
+const headerChild = document.querySelector(".header__wrapper");
+
+const checkScrollPosition = () => {
+  // Vị trí cuộn hiện tại
+  const scrollPosition = window.scrollY; 
+
+  if (scrollPosition > 93) {
+    if (headerFixed.classList.contains('show')) {
+      return
+    }
+    headerFixed.appendChild(headerChild);
+    headerFixed.classList.add("show");
+
+  } else {
+    headerFixed.classList.remove("show");
+    headerRelative.appendChild(headerChild);
+  }
+};
+
+window.addEventListener("scroll", () => {
+  console.log("cc");
+  checkScrollPosition();
+});
+checkScrollPosition();
 
 // khong thay cái nào
 // allLink.map(link=>{
