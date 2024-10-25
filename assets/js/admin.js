@@ -1,13 +1,12 @@
 import { startGETFetch, routes } from "./startFetch.js";
 import { createTableArray } from "./createTable.js";
-import { showAddModal } from "./modal.js";
+import { showProductAddModal } from "./modal.js";
 
 const sidebars = Array.from(document.querySelectorAll(".sidebar__item"));
 const tableList = Array.from(document.querySelectorAll(".table__wrapper"));
 const displayTitle = document.querySelector(".display__title");
 const actionElement = document.querySelector(".actions");
-let indexSidebar = 1
-export let sidebarActiveNow = sidebars[indexSidebar];
+
 
 const unActiveTable = (title) => {
   sidebars.map((bar) => {
@@ -34,26 +33,28 @@ sidebars.map((sidebar, index) => {
     }
 
     try {
-      const data = await startGETFetch("GET", route); // Wait for the data
+      const data = await startGETFetch("GET", route);
       console.log(data)
       const tableOld = tableList[index].querySelector("table");
       const newTable = createTableArray[index](data)
+      console.log(newTable)
 
       tableOld.replaceWith(newTable);
 
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+
+    localStorage.setItem("active-sidebar", index);
   });
 });
 
 const btnAddProduct = document.querySelector(".actions__add");
 btnAddProduct.addEventListener("click", () => {
-  showAddModal()
+  showProductAddModal()
 });
 
 //
-sidebarActiveNow.click();
 
 // Lấy nút Quay Lên Đầu
 const btnToTop = document.getElementById('btn__to__top');
@@ -89,3 +90,14 @@ wrapperTabless.forEach((wrapper, index) => {
 
 // Gắn sự kiện click cho nút
 btnToTop.addEventListener('click', scrollToTop);
+
+
+let indexSidebar = 1
+export let sidebarActiveNow = sidebars[indexSidebar];
+
+window.onload = () => {
+  indexSidebar = parseInt(localStorage.getItem("active-sidebar"));
+  if(!indexSidebar && indexSidebar !== 0) indexSidebar = 1;
+  sidebarActiveNow = sidebars[indexSidebar];
+  sidebarActiveNow.click();
+};

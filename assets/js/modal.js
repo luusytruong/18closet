@@ -5,36 +5,43 @@ import { beginToast } from "./toast.js";
 export const modalElement = document.querySelector(".modal");
 export const overlayElement = modalElement.querySelector(".modal-overlay");
 export const modalContainer = modalElement.querySelector(".modal-container");
-export const addModal = modalContainer.querySelector(".modal__add");
-export const editModal = modalContainer.querySelector(".modal__edit");
-export const removeModal = modalContainer.querySelector(".modal__remove");
+export const addProductModal = modalContainer.querySelector(".modal__add.product");
+export const editProductModal = modalContainer.querySelector(".modal__edit.product");
+export const removeProductModal = modalContainer.querySelector(".modal__remove.product");
 
 const confirmBTNs = Array.from(
   modalElement.querySelectorAll(".modal__confirm__btn")
 );
-const addConfirmBTN = document.querySelector(".modal__add__btn");
-const editConfirmBTN = document.querySelector(".modal__edit__btn");
-const removeConfirmBTN = document.querySelector(".modal__remove__btn");
+const addConfirmBTN = document.querySelector(".modal__add__btn.product");
+const editConfirmBTN = document.querySelector(".modal__edit__btn.product");
+const removeConfirmBTN = document.querySelector(".modal__remove__btn.product");
 
 let wrapperTableIndex = 0;
 
-export const hideModal = () => {
-  removeModal.style.display = "none";
-  editModal.style.display = "none";
+const closeAllForm = ()=>{
+  const modals = Array.from(document.querySelectorAll(".modal__box"));
+  modals.map(modal=>{
+    modal.style.display = 'none'
+  })
   modalElement.style.display = "none";
-  addModal.style.display = "none";
+}
 
+const activeNessesaryForm= ()=>{
+  modalElement.style.display = "flex";
+}
+
+export const hideModal = () => {
+  closeAllForm();
   sidebarActiveNow.click();
 };
 
-export const showAddModal = () => {
-  removeModal.style.display = "none";
-  editModal.style.display = "none";
-  modalElement.style.display = "flex";
-  addModal.style.display = "flex";
+export const showProductAddModal = () => {
+  closeAllForm();
+  activeNessesaryForm();
+  addProductModal.style.display = "flex";
 };
 
-export const showEditModal = (
+export const showEditProductModal = (
   id,
   product_name,
   category_id,
@@ -43,29 +50,28 @@ export const showEditModal = (
   description,
   added_date
 ) => {
-  removeModal.style.display = "none";
-  addModal.style.display = "none";
-  modalElement.style.display = "flex";
-  editModal.style.display = "flex";
+  closeAllForm();
+  activeNessesaryForm();
+  editProductModal.style.display = "flex";
 
-  editModal.querySelector(".input-id").value = id;
-  editModal.querySelector(".name").value = product_name;
-  editModal.querySelector(".category").value = category_id;
-  editModal.querySelector(".price").value = price;
-  editModal.querySelector(".quantity").value = stock_quantity;
-  editModal.querySelector(".description").value = description;
-  // editModal.querySelector(".url").value = image_url;
-  editModal.querySelector(".added_date").value = added_date;
+  editProductModal.querySelector(".input-id").value = id;
+  editProductModal.querySelector(".name").value = product_name;
+  editProductModal.querySelector(".category").value = category_id;
+  editProductModal.querySelector(".price").value = price;
+  editProductModal.querySelector(".quantity").value = stock_quantity;
+  editProductModal.querySelector(".description").value = description;
+  // editProductModal.querySelector(".url").value = image_url;
+  editProductModal.querySelector(".added_date").value = added_date;
 };
-export const showRemoveModal = (id, product_name) => {
-  addModal.style.display = "none";
+export const showRemoveProductModal = (id, product_name) => {
+  closeAllForm();
+  activeNessesaryForm();
   modalElement.style.display = "flex";
-  editModal.style.display = "none";
-  removeModal.style.display = "flex";
+  removeProductModal.style.display = "flex";
 
   // insert value
-  removeModal.querySelector(".input-id").value = id;
-  removeModal.querySelector(".name").value = product_name;
+  removeProductModal.querySelector(".input-id").value = id;
+  removeProductModal.querySelector(".name").value = product_name;
 };
 
 overlayElement.addEventListener("click", () => {

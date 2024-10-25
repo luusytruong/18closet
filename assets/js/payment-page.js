@@ -1,5 +1,5 @@
 import { startFetch } from "./formActions.js";
-import { startPOSTFetch } from "./startFetch.js";
+import { routes, startGETFetch, startPOSTFetch } from "./startFetch.js";
 
 const productList = document.querySelector(".container__pay__infor__products");
 
@@ -78,9 +78,30 @@ function updateCart() {
     });
     totalInssert = total;
   }
+
 }
+
+const inputName = document.querySelector(".input-name")
+const inputPhone = document.querySelector(".input-phone")
+
+async function updateInfor(){
+  try {
+    const data = await startGETFetch("GET", routes[1]); // Wait for the data
+    console.log(data[0])
+    inputName.value = data[0].full_name;
+    inputPhone.value = data[0].phone_number;
+    
+
+
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
 window.onload = () => {
   updateCart();
+  updateInfor();
+
 };
 
 const payBTN = document.querySelector(".container__pay__confirm__order-btn");
@@ -93,11 +114,11 @@ payBTN.addEventListener("click", () => {
     total_amount: totalInssert,
     shipping_adress: inputAddress.value,
   };
-  console.log(data)
 
   startFetch('http://localhost/fashion-store/controller/createData.php', data);
-  // localStorage.setItem(
-  //   "product-cart",
-  //   JSON.stringify({ data: [] })
-  // );
+  localStorage.setItem(
+    "product-cart",
+    JSON.stringify({ data: [] })
+  );
+  
 });

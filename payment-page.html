@@ -456,11 +456,11 @@
                                 <div class="container__pay__infor__address__row">
                                     <div class="container__pay__infor__address__col">
                                         <span>Họ và tên:</span>
-                                        <input class="input-name" name="name" type="text" placeholder="Họ và tên của bạn">
+                                        <input class="input-name" name="name" type="text" placeholder="Họ và tên của bạn" readonly>
                                     </div>
                                     <div class="container__pay__infor__address__col">
                                         <span>Số điện thoại:</span>
-                                        <input class="input-phone" name="phone_number" type="text" placeholder="Số điện thoại của bạn">
+                                        <input class="input-phone" name="phone_number" type="text" placeholder="Số điện thoại của bạn" readonly>
                                     </div>
                                 </div>
                                 <div class="container__pay__infor__address__col">
@@ -478,7 +478,7 @@
                             <div class="container__pay__confirm__way">
                                 <span class="container__pay__confirm__discount__title">PHƯƠNG THỨC THANH TOÁN</span>
                                 <label for="">
-                                    <input type="radio" name="way-pay" id="">
+                                    <input type="radio" name="way-pay" id="" checked>
                                     Thanh toán khi nhận hàng
                                 </label>
                                 <label for="">
@@ -488,10 +488,25 @@
                             </div>
                             <div class="container__cart__confirm__row">
                                 <span>
-                                    Tổng đơn
-                                </span>
+                                    Tổng tiền hàng                              </span>
                                 <span>
                                     <span class="container__cart__confirm__row__total">1.500.000&nbsp;₫</span>
+                                </span>
+                            </div>
+                            <div class="container__cart__confirm__row">
+                                <span>
+                                    Mã giảm giá
+                                </span>
+                                <span>
+                                    <span class="container__cart__confirm__row__total">-20.000&nbsp;₫</span>
+                                </span>
+                            </div>
+                            <div class="container__cart__confirm__row">
+                                <span>
+                                    Tổng thanh toán
+                                </span>
+                                <span>
+                                    <span class="container__cart__confirm__row__total pay">1.500.000&nbsp;₫</span>
                                 </span>
                             </div>
                             <button class="container__pay__confirm__order-btn">ĐẶT HÀNG</button>

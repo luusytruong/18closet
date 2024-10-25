@@ -128,6 +128,9 @@ function updateCart() {
     })
   }
 }
+
+
+
 window.onload = () => {
   updateCart();
 };

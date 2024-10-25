@@ -1,12 +1,6 @@
 import {
-  modalElement,
-  overlayElement,
-  modalContainer,
-  addModal,
-  editModal,
-  showAddModal,
-  showEditModal,
-  showRemoveModal,
+  showEditProductModal,
+  showRemoveProductModal,
 } from "./modal.js";
 
 export const createTableUser = (values) => {
@@ -81,7 +75,7 @@ export const createTableProducts = (values) => {
         `;
     const editIcon = trElement.querySelector(".fa-pen-to-square");
     editIcon.addEventListener("click", () => {
-      showEditModal(
+      showEditProductModal(
         value.id,
         value.product_name,
         value.category_id,
@@ -94,7 +88,7 @@ export const createTableProducts = (values) => {
     });
     const removeIcon = trElement.querySelector(".fa-trash");
     removeIcon.addEventListener("click", () => {
-      showRemoveModal(
+      showRemoveProductModal(
         value.id,
         value.product_name);
     });
@@ -162,9 +156,41 @@ export const createTableOders = (values) => {
   return tableElement;
 };
 
+export const createTableDiscount = (values) => {
+  const tableElement = document.createElement("table");
+  tableElement.className = "container__table";
+  const headTable = document.createElement("tr");
+  headTable.className = "container__row";
+  headTable.innerHTML = `
+                          <th class="container__col">MÃ GIẢM GIÁ</th>
+                          <th class="container__col">SỐ PHẦN TRĂM GIẢM</th>
+      `;
+  tableElement.appendChild(headTable);
+
+  values.map((value) => {
+    const trElement = document.createElement("tr");
+    trElement.classList.add("container__row");
+    trElement.innerHTML = `
+                  <td class="container__col">${value.id}</td>
+                  <td class="container__col">${value.category_name}</td>
+                  <td class="container__col">
+                      <div>
+                          <i class="fa-solid fa-pen-to-square"></i>
+                          <i class="fa-solid fa-trash"></i>
+                      </div>
+                  </td>
+          `;
+    tableElement.appendChild(trElement);
+  });
+
+  return tableElement;
+};
+
+
 export const createTableArray = [
   createTableUser,
   createTableProducts,
   createTableCategorys,
   createTableOders,
+  createTableDiscount,
 ];
