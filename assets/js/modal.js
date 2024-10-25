@@ -6,15 +6,24 @@ export const modalElement = document.querySelector(".modal");
 export const overlayElement = modalElement.querySelector(".modal-overlay");
 export const modalContainer = modalElement.querySelector(".modal-container");
 export const addProductModal = modalContainer.querySelector(".modal__add.product");
+export const addDiscountModal = modalContainer.querySelector(".modal__add.discount");
 export const editProductModal = modalContainer.querySelector(".modal__edit.product");
+export const editDiscountModal = modalContainer.querySelector(".modal__edit.discount");
 export const removeProductModal = modalContainer.querySelector(".modal__remove.product");
+export const removeDiscountModal = modalContainer.querySelector(".modal__remove.discount");
 
 const confirmBTNs = Array.from(
   modalElement.querySelectorAll(".modal__confirm__btn")
 );
-const addConfirmBTN = document.querySelector(".modal__add__btn.product");
-const editConfirmBTN = document.querySelector(".modal__edit__btn.product");
-const removeConfirmBTN = document.querySelector(".modal__remove__btn.product");
+
+// product
+const addProductConfirmBTN = document.querySelector(".modal__add__btn.product");
+const editProductConfirmBTN = document.querySelector(".modal__edit__btn.product");
+const removeProductConfirmBTN = document.querySelector(".modal__remove__btn.product");
+// discount
+const addDiscountConfirmBTN = document.querySelector(".modal__add__btn.discount");
+const editDiscountConfirmBTN = document.querySelector(".modal__edit__btn.discount");
+const removeDiscountConfirmBTN = document.querySelector(".modal__remove__btn.discount");
 
 let wrapperTableIndex = 0;
 
@@ -40,6 +49,11 @@ export const showProductAddModal = () => {
   activeNessesaryForm();
   addProductModal.style.display = "flex";
 };
+export const showDiscountAddModal = () => {
+  closeAllForm();
+  activeNessesaryForm();
+  addDiscountModal.style.display = "flex";
+};
 
 export const showEditProductModal = (
   id,
@@ -63,6 +77,19 @@ export const showEditProductModal = (
   // editProductModal.querySelector(".url").value = image_url;
   editProductModal.querySelector(".added_date").value = added_date;
 };
+export const showEditDiscountModal = (
+  id,
+  code,
+  discount
+) => {
+  closeAllForm();
+  activeNessesaryForm();
+  editDiscountModal.style.display = "flex";
+
+  editDiscountModal.querySelector(".input-id").value = id;
+  editDiscountModal.querySelector(".code").value = code;
+  editDiscountModal.querySelector(".discount").value = discount;
+};
 export const showRemoveProductModal = (id, product_name) => {
   closeAllForm();
   activeNessesaryForm();
@@ -72,6 +99,16 @@ export const showRemoveProductModal = (id, product_name) => {
   // insert value
   removeProductModal.querySelector(".input-id").value = id;
   removeProductModal.querySelector(".name").value = product_name;
+};
+export const showRemoveDiscountModal = (id, code) => {
+  closeAllForm();
+  activeNessesaryForm();
+  modalElement.style.display = "flex";
+  removeDiscountModal.style.display = "flex";
+
+  // insert value
+  removeDiscountModal.querySelector(".input-id").value = id;
+  removeDiscountModal.querySelector(".code").value = code;
 };
 
 overlayElement.addEventListener("click", () => {
@@ -115,7 +152,7 @@ function startPOSTFetchF(url, formData) {
 
 let cooldown = true;
 
-addConfirmBTN.addEventListener("click", (e) => {
+addProductConfirmBTN.addEventListener("click", (e) => {
   if (!cooldown) {
     console.log("đang hồi chiêu");
     return;
@@ -125,7 +162,7 @@ addConfirmBTN.addEventListener("click", (e) => {
   wrapperTableIndex = 1;
   e.preventDefault();
 
-  const form = addConfirmBTN.closest(".modal__box").querySelector("form");
+  const form = addProductConfirmBTN.closest(".modal__box").querySelector("form");
   const formData = new FormData(form);
 
   formData.append("table", "products");
@@ -137,7 +174,7 @@ addConfirmBTN.addEventListener("click", (e) => {
   }, 3000);
 });
 
-editConfirmBTN.addEventListener("click", (e) => {
+editProductConfirmBTN.addEventListener("click", (e) => {
   if (!cooldown) {
     console.log("đang hồi chiêu");
     return;
@@ -147,11 +184,12 @@ editConfirmBTN.addEventListener("click", (e) => {
   wrapperTableIndex = 1;
   e.preventDefault();
 
-  const form = editConfirmBTN.closest(".modal__box").querySelector("form");
+  const form = editProductConfirmBTN.closest(".modal__box").querySelector("form");
   const formData = new FormData(form);
 
   formData.append("table", "products");
 
+  console.log(formData)
   startPOSTFetchF(routes[6], formData);
 
   setTimeout(() => {
@@ -159,7 +197,7 @@ editConfirmBTN.addEventListener("click", (e) => {
   }, 3000);
 });
 
-removeConfirmBTN.addEventListener("click", (e) => {
+removeProductConfirmBTN.addEventListener("click", (e) => {
   if (!cooldown) {
     console.log("đang hồi chiêu");
     return;
@@ -168,7 +206,7 @@ removeConfirmBTN.addEventListener("click", (e) => {
 
   wrapperTableIndex = 1;
   e.preventDefault();
-  const form = removeConfirmBTN.closest(".modal__box").querySelector("form");
+  const form = removeProductConfirmBTN.closest(".modal__box").querySelector("form");
   const formData = new FormData(form);
 
   formData.append("table", "products");
@@ -200,4 +238,78 @@ inputFileElement.map((inputt) => {
       reader.readAsDataURL(file);
     }
   });
+});
+
+
+// discount
+
+addDiscountConfirmBTN.addEventListener("click", (e) => {
+  if (!cooldown) {
+    console.log("đang hồi chiêu");
+    return;
+  }
+  cooldown = false;
+  
+  wrapperTableIndex = 1;
+  e.preventDefault();
+  
+  const form = addDiscountConfirmBTN.closest(".modal__box").querySelector("form");
+  console.log(addDiscountConfirmBTN)
+  const formData = new FormData(form);
+
+  formData.append("table", "discounts");
+
+  startPOSTFetchF(routes[16], formData);
+
+  setTimeout(() => {
+    cooldown = true;
+  }, 3000);
+})
+
+editDiscountConfirmBTN.addEventListener("click", (e) => {
+  if (!cooldown) {
+    console.log("đang hồi chiêu");
+    return;
+  }
+  cooldown = false;
+
+  wrapperTableIndex = 1;
+  e.preventDefault();
+
+  const form = editDiscountConfirmBTN.closest(".modal__box").querySelector("form");
+  const formData = new FormData(form);
+  formData.append("table", "discounts");
+  
+  console.log("Form Data:");
+  for (const [key, value] of formData.entries()) {
+    console.log(`${key}: ${value}`);
+  }
+  
+  console.log("Route:", routes[18]);
+  startPOSTFetchF(routes[18], formData);
+
+  setTimeout(() => {
+    cooldown = true;
+  }, 3000);
+});
+
+removeDiscountConfirmBTN.addEventListener("click", (e) => {
+  if (!cooldown) {
+    console.log("đang hồi chiêu");
+    return;
+  }
+  cooldown = false;
+
+  wrapperTableIndex = 1;
+  e.preventDefault();
+  const form = removeDiscountConfirmBTN.closest(".modal__box").querySelector("form");
+  const formData = new FormData(form);
+
+  formData.append("table", "discounts");
+
+  startPOSTFetchF(routes[7], formData);
+
+  setTimeout(() => {
+    cooldown = true;
+  }, 3000);
 });

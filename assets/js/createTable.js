@@ -1,5 +1,7 @@
 import {
+  showEditDiscountModal,
   showEditProductModal,
+  showRemoveDiscountModal,
   showRemoveProductModal,
 } from "./modal.js";
 
@@ -88,9 +90,7 @@ export const createTableProducts = (values) => {
     });
     const removeIcon = trElement.querySelector(".fa-trash");
     removeIcon.addEventListener("click", () => {
-      showRemoveProductModal(
-        value.id,
-        value.product_name);
+      showRemoveProductModal(value.id, value.product_name);
     });
     tableElement.appendChild(trElement);
   });
@@ -162,6 +162,7 @@ export const createTableDiscount = (values) => {
   const headTable = document.createElement("tr");
   headTable.className = "container__row";
   headTable.innerHTML = `
+                          <th class="container__col">ID</th>
                           <th class="container__col">MÃ GIẢM GIÁ</th>
                           <th class="container__col">SỐ PHẦN TRĂM GIẢM</th>
       `;
@@ -172,7 +173,8 @@ export const createTableDiscount = (values) => {
     trElement.classList.add("container__row");
     trElement.innerHTML = `
                   <td class="container__col">${value.id}</td>
-                  <td class="container__col">${value.category_name}</td>
+                  <td class="container__col">${value.code}</td>
+                  <td class="container__col">${value.discount}</td>
                   <td class="container__col">
                       <div>
                           <i class="fa-solid fa-pen-to-square"></i>
@@ -180,12 +182,19 @@ export const createTableDiscount = (values) => {
                       </div>
                   </td>
           `;
+    const editIcon = trElement.querySelector(".fa-pen-to-square");
+    editIcon.addEventListener("click", () => {
+      showEditDiscountModal(value.id, value.code, value.discount);
+    });
+    const removeIcon = trElement.querySelector(".fa-trash");
+    removeIcon.addEventListener("click", () => {
+      showRemoveDiscountModal(value.id, value.code);
+    });
     tableElement.appendChild(trElement);
   });
 
   return tableElement;
 };
-
 
 export const createTableArray = [
   createTableUser,

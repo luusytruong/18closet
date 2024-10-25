@@ -1,5 +1,4 @@
 import { actionMiniCart } from "./userActions.js";
-console.log(actionMiniCart)
 
 document.addEventListener("DOMContentLoaded", () => {
   const navItems = Array.from(document.querySelectorAll(".nav-item"));

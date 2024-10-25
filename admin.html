@@ -346,117 +346,52 @@
             </div>
 
             <!-- caterogy -->
-            <div class="modal__box modal__add caterogys">
-                <h2>Thêm sản phẩm</h2>
+            <div class="modal__box modal__add discount">
+                <h2>Thêm mã giảm giá</h2>
                 <form action="" class="form">
-                    <!-- <div class="col">
-                        <span>Mã sản phẩm</span>
-                        <input type="text">
-                    </div> -->
                     <div class="col col1">
-                        <span>Tên sản phẩm</span>
-                        <input name="product_name" type="text">
+                        <span>Mã giảm giá</span>
+                        <input name="code" type="text">
                     </div>
-                    <div class="col  col3">
-                        <span>Danh mục</span>
-                        <select id="" name="category_id">
-                            <option value="1" selected>Áo</option>
-                            <option value="2">Váy</option>
-                        </select>
-                    </div>
-                    <div class="col col3">
-                        <span>Giá</span>
-                        <input type="text" name="price">
-                    </div>
-                    <div class="col col3">
-                        <span>Số lượng</span>
-                        <input type="text" name="stock_quantity">
-                    </div>
-                    <div class="col  col1">
-                        <span>Mô tả</span>
-                        <!-- <input type="text"> -->
-                        <textarea id="" name="description"></textarea>
-                    </div>
-                    <div class="col">
-                        <span>URL</span>
-                        <label title="Chọn ảnh">
-                            <span>
-                                Chọn ảnh
-                            </span>
-                            <input type="file" class="input-file" name="image">
-                            <img src="" alt="" class="col__image">
-                        </label>
-                    </div>
-                    <div class="col">
-                        <span>Ngày thêm</span>
-                        <input type="date" readonly name="added_date">
+                    <div class="col col1">
+                        <span>Số phần trăm giảm</span>
+                        <input name="discount" type="text">
                     </div>
                 </form>
-                <button class="modal__add__btn caterogy">Xác nhận</button>
+                <button class="modal__add__btn discount">Xác nhận</button>
             </div>
 
-            <div class="modal__box modal__edit caterogys">
-                <h2>Sửa thông tin sản phẩm</h2>
-                <form action="#" class="form" enctype="multipart/form-data">
+            <div class="modal__box modal__edit discount">
+                <h2>Sửa mã giảm giá</h2>
+                <form action="" class="form">
                     <div class="col id">
-                        <span>Mã sản phẩm</span>
+                        <span>ID</span>
                         <input type="text" class="input-id" name="id" readonly>
                     </div>
                     <div class="col col1">
-                        <span>Tên sản phẩm</span>
-                        <input type="text" class="name" name="product_name">
+                        <span>Mã giảm giá</span>
+                        <input name="code" type="text" class="code">
                     </div>
-                    <div class="col  col3">
-                        <span>Danh mục</span>
-                        <select id="" class="category" name="category_id">
-                            <option value="1" selected>Áo</option>
-                            <option value="2">Váy</option>
-                        </select>
-                    </div>
-                    <div class="col col3">
-                        <span>Giá</span>
-                        <input type="text" class="price" name="price">
-                    </div>
-                    <div class="col col3">
-                        <span>Số lượng</span>
-                        <input type="text" class="quantity" name="stock_quantity">
-                    </div>
-                    <div class="col  col1">
-                        <span>Mô tả</span>
-                        <!-- <input type="text"> -->
-                        <textarea id="" class="description" name="description"></textarea>
-                    </div>
-
-                    <div class="col">
-                        <span>URL</span>
-                        <label title="Chọn ảnh">
-                            <span>
-                                Chọn ảnh
-                            </span>
-                            <input type="file" class="input-file" name="image">
-                            <img src="" alt="" class="col__image">
-                        </label>
-                    </div>
-                    <div class="col">
-                        <span>Ngày thêm</span>
-                        <input type="date" readonly class="added_date" name="added_date">
+                    <div class="col col1">
+                        <span>Số phần trăm giảm</span>
+                        <input name="discount" type="text" class="discount">
                     </div>
                 </form>
-                <button class="modal__edit__btn  caterogy" id="">Xác nhận</button>
+                <button class="modal__edit__btn  discount" id="">Xác nhận</button>
             </div>
-            <div class="modal__box modal__remove caterogys">
-                <h2>Xác nhận xóa</h2>
+            <div class="modal__box modal__remove discount">
+                <h2>Xác nhận xóa mã giảm giá</h2>
                 <form action="" class="form">
                     <div class="col col1">
-                        <span>Tên sản phẩm</span>
-                        <input type="text" class="name" readonly>
+                        <span>Mã giảm giá</span>
+                        <input type="text" class="code" readonly>
                     </div>
                     <div class="col id">
-                        <span>Mã sản phẩm</span>
+                        <span>ID</span>
                         <input type="text" class="input-id" name="id" readonly>
                     </div>
                 </form>
-                <button class="modal__remove__btn caterogy" id="">Xác nhận</button>
+                <button class="modal__remove__btn discount" id="">Xác nhận</button>
             </div>
 
         </div>
