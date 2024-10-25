@@ -20,14 +20,13 @@ export function readDataForm() {
       }
 
       //đặt giá trị thành sai
-      cooldown = false
+      cooldown = false;
 
       //lấy data từ form
       const data = new FormData(this);
 
       //kiểm tra là data của login hay register
       if (data.get("fullname")) {
-
         //khởi tạo data từ form
         const dataForm = {
           action: "register",
@@ -41,7 +40,7 @@ export function readDataForm() {
 
         //sau 3s mới cho click tiếp
         setTimeout(() => {
-            cooldown = true
+          cooldown = true;
         }, 3000);
 
         console.log(dataForm);
@@ -57,9 +56,9 @@ export function readDataForm() {
 
         //sau 3s mới cho click tiếp
         setTimeout(() => {
-            cooldown = true
+          cooldown = true;
         }, 3000);
-        
+
         console.log(dataForm);
       }
     });
@@ -79,17 +78,22 @@ export function startFetch(path, data) {
       if (data.status === "success") {
         beginToast(data.status, data.title, data.content);
         if (data.register) {
-            setTimeout(() => {
-                console.log("hahaha");
-                toTargetForm('')
-            }, 3000);
+          setTimeout(() => {
+            console.log("hahaha");
+            toTargetForm("");
+          }, 3000);
+        }
+        if (data.order) {
+          setTimeout(() => {
+            window.location.href = "./";
+          }, 3000);
         }
         if (data.session_id) {
-            setTimeout(() => {
-                console.log(data.session_id);
-                toTargetForm('')
-                hideForm()
-            }, 1500);
+          setTimeout(() => {
+            console.log(data.session_id);
+            toTargetForm("");
+            hideForm();
+          }, 1500);
         }
       } else if (data.status === "error") {
         beginToast(data.status, data.title, data.content);

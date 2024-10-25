@@ -70,7 +70,7 @@ function updateCart() {
     let total = 0;
     localValue.data.map((value) => {
       productList.appendChild(createItem(value));
-      total += parseInt(value.price);
+      total += parseInt(value.price) * parseInt(value.count);
     });
     totalElement.innerText = total.toLocaleString("vi-VN", {
       style: "currency",

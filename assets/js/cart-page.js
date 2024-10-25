@@ -1,3 +1,5 @@
+import { getCookie } from "./cookie";
+
 const minusElements = Array.from(document.querySelectorAll(".minus"));
 const plusElements = Array.from(document.querySelectorAll(".plus"));
 
@@ -115,13 +117,19 @@ function updateCart() {
     let total = 0;
     localValue.data.map((value) => {
       tbodyCart.appendChild(createRowCart(value));
-      total += parseInt(value.price);
+      total += parseInt(value.price) * parseInt(value.count);
     });
     totalElement.innerText = total.toLocaleString("vi-VN", {
       style: "currency",
       currency: "VND",
     });
     buyNowBTN.addEventListener("click", ()=>{
+      var formLogin = document.querySelector(".login");
+      const letHimCook = getCookie();
+      if (letHimCook === null) {
+        formLogin.classList.add("show");
+        return;
+      }
       localStorage.setItem("product-pay", JSON.stringify(localValue));
       window.location.href = "./payment-page.html";
     })
