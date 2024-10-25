@@ -84,7 +84,7 @@ try {
                     $stmt->bindParam(':shipping_adress', $shipping_adress);
 
                     if ($stmt->execute()) {
-                        echo json_encode(['status' => 'success', 'title' => 'Thành công', 'content' => 'Đặt hàng thành công']);
+                        echo json_encode(['status' => 'success', 'title' => 'Thành công', 'content' => 'Đặt hàng thành công', 'order' => 'order']);
                     } else {
                         echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Đặt hàng thất bại']);
                     }

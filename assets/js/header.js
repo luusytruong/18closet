@@ -1,4 +1,5 @@
 import { actionMiniCart } from "./userActions.js";
+console.log(actionMiniCart)
 
 document.addEventListener("DOMContentLoaded", () => {
   const navItems = Array.from(document.querySelectorAll(".nav-item"));
@@ -163,6 +164,7 @@ function createMiniItemCart(id, image_url, product_name, price, count) {
     const results = removeById(id);
     setTimeout(() => {
       localStorage.setItem("product-cart", JSON.stringify({ data: results }));
+      loadMiniDisplayCart();
     }, 500);
   });
   return item;
@@ -173,12 +175,14 @@ function removeById(idToRemove) {
   return localValue.data.filter((item) => item.id !== idToRemove);
 }
 
-const localStorageCart = JSON.parse(localStorage.getItem("product-cart"));
 
 export function loadMiniDisplayCart() {
+  const localStorageCart = JSON.parse(localStorage.getItem("product-cart"));
   const miniCartList = document.querySelector(".list-item");
   let total = 0;
+  miniCartList.innerHTML = "";
   localStorageCart.data.map((value) => {
+    console.log("localStorageCart: ", value)
     var itemCart = createMiniItemCart(
       value.id,
       value.image_url,
@@ -186,8 +190,7 @@ export function loadMiniDisplayCart() {
       value.price,
       value.count
     );
-    total += value.price;
-    miniCartList.innerHTML = "";
+    total += value.price * value.count;
     miniCartList.appendChild(itemCart);
   });
 

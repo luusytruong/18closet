@@ -1,9 +1,11 @@
+import { getCookie } from "./cookie.js";
 import { loadMiniDisplayCart } from "./header.js";
 import {
   createMiniProductDisplay,
   handleClickMiniDisplay,
 } from "./loadData.js";
-import { startGETFetch } from "./startFetch.js";
+import { routes, startGETFetch } from "./startFetch.js";
+import { actionMiniCart } from "./userActions.js";
 
 const productNameElement = document.querySelector(".product__infor__name");
 const currentPriceElement = document.querySelector(
@@ -89,6 +91,15 @@ async function loadProductItem() {
       const inputCouter = document.querySelector(".input-counter");
 
       addCartBTN.addEventListener("click", () => {
+
+        // 
+        var formLogin = document.querySelector(".login");
+        const letHimCook = getCookie();
+        if (letHimCook === null) {
+          formLogin.classList.add("show");
+          return;
+        }
+
         const localValue = JSON.parse(localStorage.getItem("product-cart"));
         const dataAdd = {
           id: value.id,
@@ -115,9 +126,18 @@ async function loadProductItem() {
             })
           );
         }
-        loadMiniDisplayCart()
+        console.log("load");
+        loadMiniDisplayCart();
+        actionMiniCart("show");
       });
       buyNowBTN.addEventListener("click", () => {
+        var formLogin = document.querySelector(".login");
+        const letHimCook = getCookie();
+        if (letHimCook === null) {
+          formLogin.classList.add("show");
+          return;
+        }
+
         localStorage.setItem(
           "product-pay",
           JSON.stringify({
@@ -134,6 +154,8 @@ async function loadProductItem() {
           })
         );
         window.location.href = "./payment-page.html";
+
+        
       });
     }
   });
