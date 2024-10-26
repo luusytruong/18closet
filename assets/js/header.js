@@ -99,7 +99,7 @@ const checkScrollPosition = () => {
     }
     headerFixed.appendChild(headerChild);
     headerFixed.classList.add("show");
-  } else {
+  } else if (scrollPosition === 0) {
     headerFixed.classList.remove("show");
     headerRelative.appendChild(headerChild);
   }

@@ -1,16 +1,17 @@
-// import { sidebarActiveNow } from "./admin.js";
+// import { loadAdmin, sidebarActiveNow } from "./admin.js";
+
 import "./toast.js";
 import { beginToast } from "./toast.js";
 import { hideForm, showForm, toTargetForm } from "./userActions.js";
 
 let cooldown = true;
 //fuction đọc data từ form đang active
-export function readDataForm() {
+export async function readDataForm() {
   const path = "http://localhost/fashion-store/controller/userActions.php";
   //lắng nghe sự kiện submit từ form đang active
   document
     .querySelector(".form.active")
-    .addEventListener("submit", function (e) {
+    .addEventListener("submit", async function (e) {
       //ngăn submit form
       e.preventDefault();
       console.log("he");
@@ -54,8 +55,13 @@ export function readDataForm() {
         };
 
         //bắt đầu gửi yêu cầu đến endpoint
-        startFetch(path, dataForm);
-
+        const result = await startFetchAsync(path, dataForm);
+        if (result.status === "success") {
+          hideForm();
+          setTimeout(() => {
+            window.location.href = "./admin.html";
+          }, 350);
+        }
         //sau 3s mới cho click tiếp
         setTimeout(() => {
           cooldown = true;
