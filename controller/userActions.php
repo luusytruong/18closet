@@ -242,7 +242,7 @@ try {
                             echo json_encode([
                                 'status' => 'error',
                                 'title' => 'Đăng nhập thất bại',
-                                'content' => 'Số điện thoại hoặc mật khẩu không đúng'
+                                'content' => 'Email thoại hoặc mật khẩu không đúng'
                             ]);
                             exit;
                         }
@@ -250,7 +250,7 @@ try {
                         echo json_encode([
                             'status' => 'error',
                             'title' => 'Đăng nhập thất bại',
-                            'content' => 'Số điện thoại không tồn tại'
+                            'content' => 'Email thoại không tồn tại'
                         ]);
                         exit;
                     }

@@ -21,12 +21,10 @@ window.onload = () => {
   }
   const path = "http://localhost/fashion-store/controller/checkLogin.php"
   startFetch(path, data)
-
-  // sidebarActiveNow.click();
+  
+  sidebarActiveNow.click();
 };
 console.log(sidebarActiveNow);
-
-
 const unActiveTable = (title) => {
   sidebars.map((bar) => {
     bar.classList.remove("active");

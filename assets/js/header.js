@@ -174,24 +174,24 @@ function removeById(idToRemove) {
   return localValue.data.filter((item) => item.id !== idToRemove);
 }
 
-
 export function loadMiniDisplayCart() {
   const localStorageCart = JSON.parse(localStorage.getItem("product-cart"));
   const miniCartList = document.querySelector(".list-item");
   let total = 0;
   miniCartList.innerHTML = "";
-  localStorageCart.data.map((value) => {
-    console.log("localStorageCart: ", value)
-    var itemCart = createMiniItemCart(
-      value.id,
-      value.image_url,
-      value.product_name,
-      value.price,
-      value.count
-    );
-    total += value.price * value.count;
-    miniCartList.appendChild(itemCart);
-  });
+  if (localStorageCart)
+    localStorageCart.data.map((value) => {
+      console.log("localStorageCart: ", value);
+      var itemCart = createMiniItemCart(
+        value.id,
+        value.image_url,
+        value.product_name,
+        value.price,
+        value.count
+      );
+      total += value.price * value.count;
+      miniCartList.appendChild(itemCart);
+    });
 
   const totalPriceCart = document.querySelector(".total-price-cart");
   totalPriceCart.innerText = total.toLocaleString("vi-VN", {

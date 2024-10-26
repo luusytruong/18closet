@@ -1,4 +1,4 @@
-import { sidebarActiveNow } from "./admin.js";
+// import { sidebarActiveNow } from "./admin.js";
 import "./toast.js";
 import { beginToast } from "./toast.js";
 import { hideForm, showForm, toTargetForm } from "./userActions.js";
@@ -99,7 +99,6 @@ export function startFetch(path, data) {
         if (data.admin_login) {
           if (data.login === true) {
             hideForm();
-            sidebarActiveNow.click()
           }
         }
         if (data.user_login) {
