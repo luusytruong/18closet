@@ -130,6 +130,7 @@ payBTN.addEventListener("click", async () => {
       total_amount: totalInssert,
       shipping_adress: inputAddress.value,
     };
+    console.log(data)
 
     startFetch(
       "http://localhost/fashion-store/controller/createData.php",
