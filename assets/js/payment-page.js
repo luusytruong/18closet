@@ -60,6 +60,7 @@ function createItem(value) {
 const totalElement = document.querySelector(
   ".container__cart__confirm__row__total.cur"
 );
+
 let totalInssert = 0;
 let totalValue = 0;
 function updateCart() {
@@ -71,7 +72,12 @@ function updateCart() {
       total += parseInt(value.price) * parseInt(value.count);
     });
     totalValue = total;
+    console.log("total: ", total)
     totalElement.innerText = total.toLocaleString("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    });    
+    totalAllDisplay.innerText = total.toLocaleString("vi-VN", {
       style: "currency",
       currency: "VND",
     });
