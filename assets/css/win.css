@@ -711,6 +711,7 @@ h2.container__pay__infor__title {
 .container__pay__infor__products {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
   margin: -10px;
   height: 100%;

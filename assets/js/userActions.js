@@ -1,5 +1,5 @@
 import { getCookie } from "./cookie.js";
-import { readDataForm } from "./formActions.js";
+import { readDataForm, startFetch } from "./formActions.js";
 
 const passwordFieldRegister = document.querySelector(
   'input[name = "password-register"]'
@@ -81,7 +81,7 @@ readDataForm();
 export const hideForm = () => {
   const formShow = document.querySelector(".login.show");
   if (formShow) {
-    formLogin.classList.add("wait")
+    formLogin.classList.add("wait");
     setTimeout(() => {
       document.querySelector(".login.show").classList.remove("show");
       document.querySelector(".login.wait").classList.remove("wait");
@@ -95,20 +95,31 @@ document.querySelector(".form-overlay").addEventListener("click", () => {
   hideForm();
 });
 //function show form
-export const showForm = ()=>{
-  const firstForm = document.querySelector('.login')
-  firstForm.classList.add('show')
-}
+export const showForm = () => {
+  const firstForm = document.querySelector(".login");
+  firstForm.classList.add("show");
+};
 //click show form
 const formLogin = document.querySelector(".login");
 const btnShowForm = document.getElementById("show-login");
-
+const btnShowFormLink = btnShowForm.querySelector("a.header__right.nav-link");
+if (btnShowFormLink) {
+  btnShowFormLink.addEventListener("click", (e) => {
+    e.preventDefault();
+  });
+}
 btnShowForm.addEventListener("click", () => {
   const letHimCook = getCookie();
   if (letHimCook !== null) {
+    formLogin.classList.add("show");
     return;
+  } else {
+    const data = {
+      case: "users",
+    };
+    const path = "http://localhost/fashion-store/controller/checkLogin.php";
+    const result = startFetch(path, data);
   }
-  formLogin.classList.add("show");
 });
 
 //xử lý cart, phải khai báo thêm 2 var khi gọi function
