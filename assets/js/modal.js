@@ -142,7 +142,9 @@ function startPOSTFetchF(url, formData) {
         console.log(data);
         beginToast(data.status, data.title, data.content);
         hideModal();
-        scrollToBottom(wrapperTableIndex);
+        if (data.director) {
+          scrollToBottom(wrapperTableIndex);
+        }
       }
     })
     .catch((error) => {
