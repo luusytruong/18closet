@@ -14,7 +14,6 @@ indexSidebar = parseInt(localStorage.getItem("active-sidebar"));
 if (!indexSidebar && indexSidebar !== 0) indexSidebar = 1;
 sidebarActiveNow = sidebars[indexSidebar];
 window.onload = () =>{
-  
   sidebarActiveNow.click();
 }
 console.log(sidebarActiveNow)
