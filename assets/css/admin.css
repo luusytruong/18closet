@@ -125,7 +125,7 @@ h2.display__title {
 .actions {
     position: absolute;
     top: 18px;
-    left: 315px;
+    right: 0;
     display: none;
 }
 
@@ -201,6 +201,13 @@ td:hover{
 .container__col {
     padding: 10px;
     text-align: center;
+
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .container__col i:hover {

@@ -79,9 +79,8 @@ export function startFetch(path, data) {
         beginToast(data.status, data.title, data.content);
         if (data.register) {
           setTimeout(() => {
-            console.log("hahaha");
             toTargetForm("");
-          }, 3000);
+          }, 500);
         }
         if (data.order) {
           setTimeout(() => {
