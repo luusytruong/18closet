@@ -185,6 +185,7 @@
 
 .diplay__text {
   line-height: 26px;
+  text-align: justify;
 }
 
 .diplay__text span {
