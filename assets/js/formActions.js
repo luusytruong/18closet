@@ -1,6 +1,7 @@
+import { sidebarActiveNow } from "./admin.js";
 import "./toast.js";
 import { beginToast } from "./toast.js";
-import { hideForm, toTargetForm } from "./userActions.js";
+import { hideForm, showForm, toTargetForm } from "./userActions.js";
 
 let cooldown = true;
 //fuction đọc data từ form đang active
@@ -12,6 +13,7 @@ export function readDataForm() {
     .addEventListener("submit", function (e) {
       //ngăn submit form
       e.preventDefault();
+      console.log("he");
 
       //kiểm tra cooldown ngăn spam
       if (!cooldown) {
@@ -33,6 +35,22 @@ export function readDataForm() {
           full_name: data.get("fullname"),
           phone_number: data.get("tel-register"),
           password: data.get("password-register"),
+        };
+
+        //bắt đầu gửi yêu cầu đến endpoint
+        startFetch(path, dataForm);
+
+        //sau 3s mới cho click tiếp
+        setTimeout(() => {
+          cooldown = true;
+        }, 3000);
+
+        console.log(dataForm);
+      } else if (data.get("email-login")) {
+        const dataForm = {
+          action: "admin",
+          email: data.get("email-login"),
+          password: data.get("password-login"),
         };
 
         //bắt đầu gửi yêu cầu đến endpoint
@@ -75,8 +93,20 @@ export function startFetch(path, data) {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log("96", data);
       if (data.status === "success") {
         beginToast(data.status, data.title, data.content);
+        if (data.admin_login) {
+          if (data.login === true) {
+            hideForm();
+            sidebarActiveNow.click()
+          }
+        }
+        if (data.user_login) {
+          if (data.login === true) {
+            hideForm();
+          }
+        }
         if (data.register) {
           setTimeout(() => {
             toTargetForm("");
@@ -96,6 +126,17 @@ export function startFetch(path, data) {
         }
       } else if (data.status === "error") {
         beginToast(data.status, data.title, data.content);
+
+        if (data.admin_login) {
+          if (data.login === false) {
+            showForm();
+          }
+        }
+        if (data.user_login) {
+          if (data.login === false) {
+            showForm();
+          }
+        }
       } else {
         beginToast("error", "Đã xảy ra lỗi", "Vui lòng thử lại sau");
         console.log(data);
@@ -118,9 +159,6 @@ export async function startFetchAsync(path, data) {
       body: params.toString(),
     });
     const result = await response.json();
-
-    console.log(result);
-
     return result;
   } catch (error) {
     console.log("error: ", error);

@@ -1,6 +1,7 @@
 import { startGETFetch, routes } from "./startFetch.js";
 import { createTableArray } from "./createTable.js";
 import { showDiscountAddModal, showProductAddModal } from "./modal.js";
+import { readDataForm, startFetch } from "./formActions.js";
 
 const sidebars = Array.from(document.querySelectorAll(".sidebar__item"));
 const tableList = Array.from(document.querySelectorAll(".table__wrapper"));
@@ -13,11 +14,18 @@ export let sidebarActiveNow = sidebars[indexSidebar];
 indexSidebar = parseInt(localStorage.getItem("active-sidebar"));
 if (!indexSidebar && indexSidebar !== 0) indexSidebar = 1;
 sidebarActiveNow = sidebars[indexSidebar];
-window.onload = () =>{
+window.onload = () => {
   
-  sidebarActiveNow.click();
-}
-console.log(sidebarActiveNow)
+  const data = {
+    case: 'admin'
+  }
+  const path = "http://localhost/fashion-store/controller/checkLogin.php"
+  startFetch(path, data)
+
+  // sidebarActiveNow.click();
+};
+console.log(sidebarActiveNow);
+
 
 const unActiveTable = (title) => {
   sidebars.map((bar) => {
@@ -62,9 +70,9 @@ sidebars.map((sidebar, index) => {
 
 const btnAddProduct = document.querySelector(".actions__add");
 btnAddProduct.addEventListener("click", () => {
-  console.log(indexSidebar)
+  console.log(indexSidebar);
   if (indexSidebar === 1) showProductAddModal();
-  if(indexSidebar === 4) showDiscountAddModal();
+  if (indexSidebar === 4) showDiscountAddModal();
 });
 
 //

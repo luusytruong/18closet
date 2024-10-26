@@ -193,11 +193,11 @@ try {
 
                     // xác thực đầu vào
 
-                    if (empty($phoneNumber)) {
+                    if (empty($email)) {
                         echo json_encode([
                             'status' => 'error',
                             'title' => 'Đã xảy ra lỗi',
-                            'content' => 'Vui lòng nhập số điện thoại'
+                            'content' => 'Vui lòng nhập email'
                         ]);
                         exit;
                     }
@@ -234,13 +234,9 @@ try {
                             session_start();
 
                             $_SESSION['admin'] = $id;
+                            $_SESSION['email'] = $email;
 
-                            echo json_encode([
-                                'status' => 'success',
-                                'title' => 'Thành công' . session_id(),
-                                'content' => 'Đăng nhập thành công',
-                                'session_id' => session_id()
-                            ]);
+                            echo json_encode(['status' => 'success', 'admin_login' => true, 'login' => true, 'admin_id' => $_SESSION['admin'], 'title' => 'Thành công'. session_id(), 'content' => 'Đăng nhập thành công']);
                             exit;
                         } else {
                             echo json_encode([

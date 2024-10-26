@@ -1,11 +1,13 @@
 import { getCookie } from "./cookie.js";
+import { startFetch, startFetchAsync } from "./formActions.js";
 import { loadMiniDisplayCart } from "./header.js";
 import {
   createMiniProductDisplay,
   handleClickMiniDisplay,
 } from "./loadData.js";
 import { routes, startGETFetch } from "./startFetch.js";
-import { actionMiniCart } from "./userActions.js";
+import { beginToast } from "./toast.js";
+import { actionMiniCart, showForm } from "./userActions.js";
 
 const productNameElement = document.querySelector(".product__infor__name");
 const currentPriceElement = document.querySelector(
@@ -91,8 +93,7 @@ async function loadProductItem() {
       const inputCouter = document.querySelector(".input-counter");
 
       addCartBTN.addEventListener("click", () => {
-
-        // 
+        //
         var formLogin = document.querySelector(".login");
         const letHimCook = getCookie();
         if (letHimCook === null) {
@@ -130,32 +131,44 @@ async function loadProductItem() {
         loadMiniDisplayCart();
         actionMiniCart("show");
       });
-      buyNowBTN.addEventListener("click", () => {
+      buyNowBTN.addEventListener("click", async () => {
         var formLogin = document.querySelector(".login");
         const letHimCook = getCookie();
         if (letHimCook === null) {
           formLogin.classList.add("show");
           return;
+        } else {
+          const data = {
+            case: "users",
+          };
+          const path =
+            "http://localhost/fashion-store/controller/checkLogin.php";
+          const result = await startFetchAsync(path, data);
+          console.log(result);
+          beginToast(result.status, result.title, result.content);
+          if (result.status === "error") {
+            showForm();
+          } else if (result.status === 'success') {
+            localStorage.setItem(
+              "product-pay",
+              JSON.stringify({
+                data: [
+                  {
+                    id: value.id,
+                    count: inputCouter.value,
+                    image_url: "./assets/img_upload/" + value.image_url,
+                    product_name: value.product_name,
+                    price: value.price,
+                    oldPrice: calculateOldValue(value.price),
+                  },
+                ],
+              })
+            );
+            window.location.href = "./payment-page.html";
+          } else {
+            alert('đã có lỗi nghiêm trọng')
+          }
         }
-
-        localStorage.setItem(
-          "product-pay",
-          JSON.stringify({
-            data: [
-              {
-                id: value.id,
-                count: inputCouter.value,
-                image_url: "./assets/img_upload/" + value.image_url,
-                product_name: value.product_name,
-                price: value.price,
-                oldPrice: calculateOldValue(value.price),
-              },
-            ],
-          })
-        );
-        window.location.href = "./payment-page.html";
-
-        
       });
     }
   });

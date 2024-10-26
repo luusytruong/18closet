@@ -79,19 +79,26 @@ readDataForm();
 
 //function ẩn form
 export const hideForm = () => {
-  document.querySelector(".login.show").classList.add("wait");
-  setTimeout(() => {
-    document.querySelector(".login.show").classList.remove("show");
-    document.querySelector(".login.wait").classList.remove("wait");
-  }, 500);
-  console.log("debug");
+  const formShow = document.querySelector(".login.show");
+  if (formShow) {
+    formLogin.classList.add("wait")
+    setTimeout(() => {
+      document.querySelector(".login.show").classList.remove("show");
+      document.querySelector(".login.wait").classList.remove("wait");
+    }, 500);
+    console.log("debug");
+  }
 };
 
 //lắng nghe click từ form-overlay
 document.querySelector(".form-overlay").addEventListener("click", () => {
   hideForm();
 });
-
+//function show form
+export const showForm = ()=>{
+  const firstForm = document.querySelector('.login')
+  firstForm.classList.add('show')
+}
 //click show form
 const formLogin = document.querySelector(".login");
 const btnShowForm = document.getElementById("show-login");
