@@ -50,9 +50,6 @@ function createRowCart(value) {
             value.product_name
           }</div>
           <span class="container__cart__table__col__text">
-              Màu sắc:
-          </span>
-          <span class="container__cart__table__col__text">
               Kích thước:
               <span>M</span>
           </span>

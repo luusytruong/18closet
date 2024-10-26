@@ -12,8 +12,9 @@
   user-select: none;
   position: relative;
 }
-button{
+input, button{
   font-family: 'SVN Poppins';
+  font-size: 16px;
 }
 html {
   font-size: 62.5%;

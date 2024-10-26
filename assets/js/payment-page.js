@@ -14,9 +14,6 @@ function createItem(value) {
               value.product_name
             }</span>
             <div class="container__pay__infor__items__row">
-                <span>Màu sắc:</span>
-            </div>
-            <div class="container__pay__infor__items__row">
                 <span>Kích thước:</span>
                 <span>M</span>
             </div>
