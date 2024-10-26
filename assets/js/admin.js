@@ -33,6 +33,7 @@ const unActiveTable = (title) => {
 sidebars.map((sidebar, index) => {
   sidebar.addEventListener("click", async () => {
     sidebarActiveNow = sidebar;
+    indexSidebar = index;
     const title = sidebar.querySelector("span").innerText;
     unActiveTable(title);
     sidebar.classList.add("active");

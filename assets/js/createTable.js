@@ -164,7 +164,7 @@ export const createTableDiscount = (values) => {
   headTable.innerHTML = `
                           <th class="container__col">ID</th>
                           <th class="container__col">MÃ GIẢM GIÁ</th>
-                          <th class="container__col">SỐ PHẦN TRĂM GIẢM</th>
+                          <th class="container__col">SỐ TIỀN GIẢM</th>
       `;
   tableElement.appendChild(headTable);
 

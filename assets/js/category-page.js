@@ -23,6 +23,7 @@ async function loadLostProduct() {
   let countLost = 0;
   let count1 = 0;
   let count2 = 0;
+  console.log(data);
   data.map((value, index) => {
     const miniDisplay = createMiniProductDisplay(value);
     const clonedMiniDisplay = miniDisplay.cloneNode(true);
@@ -42,20 +43,24 @@ async function loadLostProduct() {
     //     .appendChild(clonedMiniDisplay);
     //   countLost++;
     // }
-    const localStorageValue = localStorage.getItem("category")
-    console.log(localStorageValue)
     // dress
-    if (localStorageValue == 2) {
+    if (value.category_id === 2) {
+      shirtProductDisplay
+        .querySelector(".product__list")
+        .appendChild(miniDisplay);
+    } else {
       dressProductDisplay
         .querySelector(".product__list")
         .appendChild(miniDisplay);
-        shirtProductDisplay.style.display = 'none'
-      } else {
-        shirtProductDisplay
-        .querySelector(".product__list")
-        .appendChild(miniDisplay);
-        dressProductDisplay.style.display = 'none'
     }
   });
+  const localStorageValue = parseInt(localStorage.getItem("category"));
+  console.log(localStorageValue);
+
+  if (localStorageValue === 1) {
+    dressProductDisplay.style.display = "none";
+  } else {
+    shirtProductDisplay.style.display = "none";
+  }
   // console.log(buyLostProductDisplay);
 }
