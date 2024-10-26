@@ -493,27 +493,31 @@
 }
 
 /* cart page */
+.container__nav {
+  padding: 0 15px;
+}
 .container__cart {
   display: flex;
   margin-top: 20px;
+  padding: 0 15px 50px 15px;
 }
 
 .container__cart__table {
   width: 70%;
   border-collapse: collapse;
-  border-radius: 8px;
+  border-radius: 10px;
   background-color: #fff;
   overflow: hidden;
-  box-shadow: 8px 8px 12px 2px #ddd;
+  box-shadow: 8px 8px 12px 2px #f5f5f5;
 }
 
 table,
 tr {
-  border: 1px solid #ddd;
+  border: 1px solid #eee;
 }
 
 .container__cart__table__col {
-  padding: 10px;
+  padding: 15px;
   text-align: center;
 }
 
@@ -526,6 +530,7 @@ tr {
 .container__cart__table__col>.price i {
   position: relative !important;
   margin-left: 4px;
+  font-size: 18px;
 }
 
 tr td.container__cart__table__col:nth-child(1) {
@@ -549,7 +554,8 @@ tr td.container__cart__table__col:nth-child(1) {
 
 .container__cart__table__col__name {
   font-size: 1.6rem;
-  color: #b407ce;
+  color: #333;
+  font-weight: bold;
 }
 
 .container__cart__table__col__text {
@@ -567,19 +573,18 @@ tr td.container__cart__table__col:nth-child(1) {
 .container__cart__table__col__input {
   display: inline-flex;
   justify-content: center;
-  border: 1px solid #ddd;
+  border: 1px solid #eee;
   /* width: 50%; */
-  border-radius: 4px;
 }
 
 .container__cart__table__col input {
   width: 30px;
   outline: none;
-  /* border: none; */
-  border: 1px solid #ddd;
+  border: none;
   border-top: none;
   border-bottom: none;
   text-align: center;
+  cursor: not-allowed;
 }
 
 .container__cart__table__col__input span {
@@ -591,6 +596,7 @@ tr td.container__cart__table__col:nth-child(1) {
 }
 
 .container__cart__table__col__total {
+  display: none;
   text-decoration: line-through;
 }
 
@@ -615,7 +621,7 @@ tr td.container__cart__table__col:nth-child(1) {
   border-radius: 10px;
   overflow: hidden;
   background-color: #fff;
-  box-shadow: 8px 8px 12px 2px #ddd;
+  box-shadow: 8px 8px 12px 2px #f5f5f5;
 }
 
 .container__cart__confirm__noti {
@@ -623,10 +629,11 @@ tr td.container__cart__table__col:nth-child(1) {
   align-items: center;
   justify-content: center;
   display: flex;
-  background-color: #b407ce;
+  background-color: #000;
   color: #fff;
   width: 100%;
-  padding: 8px 0;
+  padding: 10px;
+  text-align: center;
 }
 
 .container__cart__confirm__box {
@@ -639,6 +646,9 @@ tr td.container__cart__table__col:nth-child(1) {
   display: flex;
   justify-content: space-between;
   color: #000;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .container__cart__confirm__row span {
@@ -657,7 +667,7 @@ tr td.container__cart__table__col:nth-child(1) {
   border-radius: 4px;
   letter-spacing: 1px;
   color: #fff;
-  background-color: #b407ce;
+  background-color: #000;
   cursor: pointer;
 }
 
@@ -709,10 +719,6 @@ h2.container__pay__infor__title {
 }
 
 .container__pay__infor__products {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
   margin: -10px;
   height: 100%;
   /* max-height: 376px;
@@ -737,6 +743,7 @@ h2.container__pay__infor__title {
   background-color: #fff;
   padding: 20px;
   /* box-shadow: 0 0 10px #0000000a; */
+  height: 168px;
 
   img {
     border: 1px solid #ddd;

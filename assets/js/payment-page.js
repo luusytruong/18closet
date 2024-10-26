@@ -127,7 +127,7 @@ payBTN.addEventListener("click", async () => {
     const data = {
       table: "orders",
       customer_id: user_id,
-      total_amount: totalInssert,
+      total_amount: totalValueAll,
       shipping_adress: inputAddress.value,
     };
 
@@ -135,7 +135,7 @@ payBTN.addEventListener("click", async () => {
       "http://localhost/fashion-store/controller/createData.php",
       data
     );
-    localStorage.setItem("product-cart", JSON.stringify({ data: [] }));
+    
   } else {
     alert('ddax xay ra loiix')
   }

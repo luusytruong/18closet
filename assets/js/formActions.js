@@ -118,6 +118,8 @@ export function startFetch(path, data) {
           }, 500);
         }
         if (data.order) {
+          localStorage.setItem("product-cart", JSON.stringify({ data: [] }));
+          localStorage.setItem("product-pay", JSON.stringify({ data: [] }));
           setTimeout(() => {
             window.location.href = "./";
           }, 3000);

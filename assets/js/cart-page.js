@@ -66,7 +66,7 @@ function createRowCart(value) {
   </td>
   <td class="container__cart__table__col">
       <div class="container__cart__table__col__input">
-          <input type="text" value="${value.count}" >
+          <input type="text" value="${value.count}" readonly>
       </div>
   </td>
   <td class="container__cart__table__col">
