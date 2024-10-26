@@ -186,6 +186,75 @@ try {
                         exit;
                     }
                     break;
+                case 'admin':
+
+                    $email = $_POST['email'];
+                    $password = $_POST['password'];
+
+                    // xác thực đầu vào
+
+                    if (empty($email)) {
+                        echo json_encode([
+                            'status' => 'error',
+                            'title' => 'Đã xảy ra lỗi',
+                            'content' => 'Vui lòng nhập email'
+                        ]);
+                        exit;
+                    }
+
+                    if (empty($password)) {
+                        echo json_encode([
+                            'status' => 'error',
+                            'title' => 'Đã xảy ra lỗi',
+                            'content' => 'Vui lòng nhập mật khẩu'
+                        ]);
+                        exit;
+                    } elseif (strlen($password) < 5) {
+                        echo json_encode([
+                            'status' => 'error',
+                            'title' => 'Đã xảy ra lỗi',
+                            'content' => 'Mật không dưới 5 ký tự'
+                        ]);
+                        exit;
+                    }
+
+                    $sql = 'SELECT id, password FROM admins WHERE email = :email';
+
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->bindParam(':email', $email);
+                    $stmt->execute();
+
+                    if ($stmt->rowCount() > 0) {
+                        $stmt->bindColumn(1, $id);
+                        $stmt->bindColumn(2, $passworddb);
+                        $stmt->fetchAll(PDO::FETCH_BOUND);
+
+                        if (($password === $passworddb)) {
+
+                            session_start();
+
+                            $_SESSION['admin'] = $id;
+                            $_SESSION['email'] = $email;
+
+                            echo json_encode(['status' => 'success', 'admin_login' => true, 'login' => true, 'admin_id' => $_SESSION['admin'], 'title' => 'Thành công'. session_id(), 'content' => 'Đăng nhập thành công']);
+                            exit;
+                        } else {
+                            echo json_encode([
+                                'status' => 'error',
+                                'title' => 'Đăng nhập thất bại',
+                                'content' => 'Số điện thoại hoặc mật khẩu không đúng'
+                            ]);
+                            exit;
+                        }
+                    } else {
+                        echo json_encode([
+                            'status' => 'error',
+                            'title' => 'Đăng nhập thất bại',
+                            'content' => 'Số điện thoại không tồn tại'
+                        ]);
+                        exit;
+                    }
+                    break;
 
                 default:
                     echo json_encode(['title' => 'non action!']);

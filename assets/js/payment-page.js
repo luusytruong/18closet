@@ -1,4 +1,4 @@
-import { startFetch } from "./formActions.js";
+import { startFetch, startFetchAsync } from "./formActions.js";
 
 import { routes, startGETFetch, startPOSTFetch } from "./startFetch.js";
 
@@ -43,13 +43,12 @@ function createItem(value) {
             <div class="container__pay__infor__items__row">
                 <span>Thành tiền:</span>
                 <div class="container__pay__infor__items__row__price">
-                    <span><span class="cur-price">${(value.price * value.count).toLocaleString(
-                      "vi-VN",
-                      {
-                        style: "currency",
-                        currency: "VND",
-                      }
-                    )}</span></span>
+                    <span><span class="cur-price">${(
+                      value.price * value.count
+                    ).toLocaleString("vi-VN", {
+                      style: "currency",
+                      currency: "VND",
+                    })}</span></span>
                 </div>
             </div>
         </div>
@@ -78,18 +77,30 @@ function updateCart() {
     });
     totalInssert = total;
   }
-
 }
 
-const inputName = document.querySelector(".input-name")
-const inputPhone = document.querySelector(".input-phone")
-
-async function updateInfor(){
+const inputName = document.querySelector(".input-name");
+const inputPhone = document.querySelector(".input-phone");
+let user_id = null
+async function updateInfor() {
   try {
     const data = await startGETFetch("GET", routes[1]); // Wait for the data
-    console.log(data[0])
-    inputName.value = data[0].full_name;
-    inputPhone.value = data[0].phone_number;
+    console.log(data);
+    const datafetch = {
+      case: "users",
+    };
+    const path = "http://localhost/fashion-store/controller/checkLogin.php";
+    const result = await startFetchAsync(path, datafetch);
+    if (result.user_id) {
+      user_id = result.user_id
+
+      data.map(usdt=>{
+        if (usdt.id = user_id) {
+          inputName.value = usdt.full_name;
+          inputPhone.value = usdt.phone_number;
+        }
+      })
+    }
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -98,46 +109,54 @@ async function updateInfor(){
 window.onload = () => {
   updateCart();
   updateInfor();
-
 };
 
 const payBTN = document.querySelector(".container__pay__confirm__order-btn");
 const inputAddress = document.querySelector(".input-address");
 
-payBTN.addEventListener("click", () => {
-  const data = {
-    table: "orders",
-    customer_id: 1,
-    total_amount: totalInssert,
-    shipping_adress: inputAddress.value,
-  };
-
-  startFetch('http://localhost/fashion-store/controller/createData.php', data);
-  localStorage.setItem(
-    "product-cart",
-    JSON.stringify({ data: [] })
-  );
+payBTN.addEventListener("click", async () => {
   
+
+  if (user_id) {
+    const data = {
+      table: "orders",
+      customer_id: user_id,
+      total_amount: totalInssert,
+      shipping_adress: inputAddress.value,
+    };
+
+    startFetch(
+      "http://localhost/fashion-store/controller/createData.php",
+      data
+    );
+    localStorage.setItem("product-cart", JSON.stringify({ data: [] }));
+  } else {
+    alert('ddax xay ra loiix')
+  }
 });
 
-
-
-const discountBTN = document.querySelector(".container__pay__confirm__discount__btn");
+const discountBTN = document.querySelector(
+  ".container__pay__confirm__discount__btn"
+);
 const inputADiscount = document.querySelector(".input-discount");
-const discountDisplay = document.querySelector(".container__cart__confirm__row__total.discount")
-const totalAllDisplay = document.querySelector(".container__cart__confirm__row__total.pay")
+const discountDisplay = document.querySelector(
+  ".container__cart__confirm__row__total.discount"
+);
+const totalAllDisplay = document.querySelector(
+  ".container__cart__confirm__row__total.pay"
+);
 
 let discountValue = 0;
 let totalValueAll = 0;
 
 discountBTN.addEventListener("click", async () => {
-  console.log("hel")
+  console.log("hel");
   const data = await startGETFetch("GET", routes[17]);
   const valueDiscount = inputADiscount.value.trim();
 
-  data.map(value=>{
-    if(valueDiscount == value.code){
-      discountValue = value.discount
+  data.map((value) => {
+    if (valueDiscount == value.code) {
+      discountValue = value.discount;
       discountDisplay.innerText = discountValue.toLocaleString("vi-VN", {
         style: "currency",
         currency: "VND",
@@ -149,7 +168,4 @@ discountBTN.addEventListener("click", async () => {
     style: "currency",
     currency: "VND",
   });
-
 });
-
-

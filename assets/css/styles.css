@@ -327,6 +327,7 @@ input[type="password"]::-ms-clear {
         box-shadow: 0 0 20px #00000012;
         gap: 5px;
         position: relative;
+        color: #333;
 
         label {
           width: 100%;
@@ -354,6 +355,7 @@ input[type="password"]::-ms-clear {
           justify-content: center;
           align-items: center;
           z-index: 2;
+          background-color: unset !important;
         }
 
         .fa-eye,

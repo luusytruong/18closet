@@ -65,7 +65,7 @@ try {
                     $stmt->bindParam(':description', $description);
                     $stmt->bindParam(':image_url', $imageUrl);
                     if ($stmt->execute()) {
-                        echo json_encode(['status' => 'success', 'title' => 'Thành công', 'content' => 'Sản phẩm đã được thêm']);
+                        echo json_encode(['director'=>'bottom','status' => 'success', 'title' => 'Thành công', 'content' => 'Sản phẩm đã được thêm']);
                     } else {
                         echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Không thể thêm sản phẩm']);
                     }
@@ -84,7 +84,7 @@ try {
                     $stmt->bindParam(':shipping_adress', $shipping_adress);
 
                     if ($stmt->execute()) {
-                        echo json_encode(['status' => 'success', 'title' => 'Thành công', 'content' => 'Đặt hàng thành công', 'order' => 'order']);
+                        echo json_encode(['director'=>'bottom','status' => 'success', 'title' => 'Thành công', 'content' => 'Đặt hàng thành công', 'order' => 'order']);
                     } else {
                         echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Đặt hàng thất bại']);
                     }
@@ -101,7 +101,7 @@ try {
                     $stmt->bindParam(':discount', $discount);
 
                     if ($stmt->execute()) {
-                        echo json_encode(['status' => 'success', 'title' => 'Thành công', 'content' => 'Tạo mã thành công']);
+                        echo json_encode(['director'=>'bottom','status' => 'success', 'title' => 'Thành công', 'content' => 'Tạo mã thành công']);
                     } else {
                         echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Tạo mã thất bại']);
                     }

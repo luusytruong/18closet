@@ -43,7 +43,7 @@ try {
                             exit;
                         }
                         //dinh dang anh
-                        $validFormats = ['jpg', 'png', 'jpeg', 'gif'];
+                        $validFormats = ['jpg', 'png', 'jpeg', 'gif', 'webp'];
                         if (!in_array($imageFileType, $validFormats)) {
                             echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Tệp tin không phải là ảnh']);
                             exit;

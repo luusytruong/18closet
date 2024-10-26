@@ -30,6 +30,57 @@
         </div>
     </div>
     <div class="app">
+        <div class="login">
+            <div class="wrapper">
+                <div class="form-overlay"></div>
+                <form action="#" class="form active">
+                    <img src="./assets/img/logo.webp" alt="realtime chat logo">
+                    <label class="box-input">
+                        Email
+                        <i class="fa-solid fa-phone"></i>
+                        <input name="email-login" type="email" placeholder="hua@gmail.com" required>
+                    </label>
+                    <label class="box-input password">
+                        Mật khẩu
+                        <i class="fa-solid fa-lock"></i>
+                        <input name="password-login" type="password" placeholder="••••••" required>
+                        <i class="fa-solid fa-eye"></i>
+                    </label>
+                    <button type="submit">
+                        Đăng nhập
+                    </button>
+                    <div class="option" style="display: none;">
+                        <a class="btn-show-register" href="#">Đăng ký</a>
+                        <a href="#">Quên mật khẩu?</a>
+                    </div>
+                </form>
+                <form action="#" class="form">
+                    <img src="./assets/img/logo.webp" alt="realtime chat logo">
+                    <label class="box-input">
+                        Họ và tên
+                        <i class="fa-solid fa-user"></i>
+                        <input name="fullname" type="text" placeholder="nguyen van a" required>
+                    </label>
+                    <label class="box-input">
+                        Số Điện thoại
+                        <i class="fa-solid fa-phone"></i>
+                        <input name="tel-register" type="tel" placeholder="+84" required>
+                    </label>
+                    <label class="box-input password">
+                        Mật khẩu
+                        <i class="fa-solid fa-lock"></i>
+                        <input name="password-register" type="password" placeholder="••••••" required>
+                        <i class="fa-solid fa-eye"></i>
+                    </label>
+                    <button type="submit">
+                        Đăng ký
+                    </button>
+                    <div id="show-login" class="option register">
+                        <a class="btn-show-login" href="#">Đăng nhập</a>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="grid">
             <div class="content">
                 <div class="sidebar">
@@ -398,6 +449,7 @@
     </div>
     <script type="module" src="./assets/js/admin.js"></script>
     <script type="module" src="./assets/js/modal.js"></script>
+    <script type="module" src="./assets/js/userActions.js"></script>
 
 </body>
 
