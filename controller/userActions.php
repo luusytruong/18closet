@@ -236,7 +236,7 @@ try {
                             $_SESSION['admin'] = $id;
                             $_SESSION['email'] = $email;
 
-                            echo json_encode(['status' => 'success', 'admin_login' => true, 'login' => true, 'admin_id' => $_SESSION['admin'], 'title' => 'Thành công'. session_id(), 'content' => 'Đăng nhập thành công']);
+                            echo json_encode(['status' => 'success', 'admin_login' => true, 'login' => true, 'admin_id' => $_SESSION['admin'], 'title' => 'Thành công' . session_id(), 'content' => 'Đăng nhập thành công']);
                             exit;
                         } else {
                             echo json_encode([
@@ -255,7 +255,15 @@ try {
                         exit;
                     }
                     break;
-
+                    case 'logout';
+                    session_start();
+                    clearSession();
+                    echo json_encode([
+                        'status' => 'success',
+                        'title' => 'Thành công',
+                        'content' => 'Đăng xuất thành công'
+                    ]);
+                    break;
                 default:
                     echo json_encode(['title' => 'non action!']);
                     break;

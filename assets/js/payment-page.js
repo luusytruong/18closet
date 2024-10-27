@@ -1,6 +1,7 @@
 import { startFetch, startFetchAsync } from "./formActions.js";
 
 import { routes, startGETFetch, startPOSTFetch } from "./startFetch.js";
+import { beginToast } from "./toast.js";
 
 const productList = document.querySelector(".container__pay__infor__products");
 
@@ -121,8 +122,13 @@ const payBTN = document.querySelector(".container__pay__confirm__order-btn");
 const inputAddress = document.querySelector(".input-address");
 
 payBTN.addEventListener("click", async () => {
-  
-
+  if (inputAddress.value == '') {
+    beginToast('error', 'Đã xảy ra lỗi', 'Vui lòng nhập địa chỉ giao hàng')
+    return
+  }
+  if (totalValueAll === 0) {
+    totalValueAll = totalInssert
+  }
   if (user_id) {
     const data = {
       table: "orders",

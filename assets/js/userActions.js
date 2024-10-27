@@ -1,5 +1,5 @@
 import { getCookie } from "./cookie.js";
-import { readDataForm, startFetch } from "./formActions.js";
+import { readDataForm, startFetch, startFetchAsync } from "./formActions.js";
 
 const passwordFieldRegister = document.querySelector(
   'input[name = "password-register"]'
@@ -108,9 +108,9 @@ if (btnShowFormLink) {
     e.preventDefault();
   });
 }
-btnShowForm.addEventListener("click", () => {
+btnShowForm.addEventListener("click", async () => {
   const letHimCook = getCookie();
-  if (letHimCook !== null) {
+  if (letHimCook === null) {
     formLogin.classList.add("show");
     return;
   } else {
@@ -118,7 +118,17 @@ btnShowForm.addEventListener("click", () => {
       case: "users",
     };
     const path = "http://localhost/fashion-store/controller/checkLogin.php";
-    const result = startFetch(path, data);
+    // const result = startFetch(path, data);
+
+    const result = await startFetchAsync(path, data);
+    console.log(result);
+    if (result.user_login) {
+      if (result.login) {
+        window.location.href = './order.html'
+      } else{
+        showForm()
+      }
+    }
   }
 });
 

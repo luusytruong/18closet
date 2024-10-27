@@ -173,3 +173,18 @@ export async function startFetchAsync(path, data) {
     return null;
   }
 }
+
+export async function startGETAsync(path, data) {
+  const params = new URLSearchParams(data);
+  try {
+    const response = await fetch(`${path}?${params.toString()}`, {
+      method: "GET",
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log("error: ", error);
+    beginToast("error", "Đã xảy ra lỗi phía máy chủ", error);
+    return null;
+  }
+}

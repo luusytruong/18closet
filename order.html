@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="./assets/img/shortut-ico.webp" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/win.css">
+    <link rel="stylesheet" href="./assets/css/order.css">
+    <script src="./assets/js/header.js"></script>
+    <title>18CLOSET - Đơn Hàng</title>
+</head>
+
+<body style="background-color: #f5f5f5;">
+    <div id="toast" class="toast">
+        <div class="wrapper">
+            <div class="toast-icon">
+
+            </div>
+            <div class="toast-info">
+                <div class="toast-title">
+
+                </div>
+                <div class="toast-content">
+
+                </div>
+            </div>
+            <div class="cooldown"></div>
+        </div>
+    </div>
+    <div class="login">
+        <div class="wrapper">
+            <div class="form-overlay"></div>
+            <form action="#" class="form active">
+                <img src="./assets/img/logo.webp" alt="realtime chat logo">
+                <label class="box-input">
+                    Số Điện thoại
+                    <i class="fa-solid fa-phone"></i>
+                    <input name="tel-login" type="tel" placeholder="+84" required>
+                </label>
+                <label class="box-input password">
+                    Mật khẩu
+                    <i class="fa-solid fa-lock"></i>
+                    <input name="password-login" type="password" placeholder="••••••" required>
+                    <i class="fa-solid fa-eye"></i>
+                </label>
+                <button type="submit">
+                    Đăng nhập
+                </button>
+                <div class="option">
+                    <a class="btn-show-register" href="#">Đăng ký</a>
+                    <a href="#">Quên mật khẩu?</a>
+                </div>
+            </form>
+            <form action="#" class="form">
+                <img src="./assets/img/logo.webp" alt="realtime chat logo">
+                <label class="box-input">
+                    Họ và tên
+                    <i class="fa-solid fa-user"></i>
+                    <input name="fullname" type="text" placeholder="nguyen van a" required>
+                </label>
+                <label class="box-input">
+                    Số Điện thoại
+                    <i class="fa-solid fa-phone"></i>
+                    <input name="tel-register" type="tel" placeholder="+84" required>
+                </label>
+                <label class="box-input password">
+                    Mật khẩu
+                    <i class="fa-solid fa-lock"></i>
+                    <input name="password-register" type="password" placeholder="••••••" required>
+                    <i class="fa-solid fa-eye"></i>
+                </label>
+                <button type="submit">
+                    Đăng ký
+                </button>
+                <div class="option register">
+                    <a class="btn-show-login" href="#">Đăng nhập</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="wait-loading">
+        <img src="./assets/img/icons/icegif-1259.gif" alt="">
+    </div>
+    <div class="app">
+        <header class="header-fixed"></header>
+        <header class="header">
+            <div class="header__wrapper">
+                <div class="sub__menu shirt">
+                    <div class="sub__menu__wrapper">
+                        <div class="sub__menu__background"></div>
+                        <div class="sub__menu__dropdown">
+                            <div class="menu__dropdown__col col-1">
+                                <div class="col-inner">
+                                    <img src="./assets/img/ao_ao-khoac_1.webp" alt="">
+                                </div>
+                            </div>
+                            <div class="menu__dropdown__col col-2">
+                                <div class="col-inner">
+                                    <ul class="col__menu">
+                                        <li class="col__menu-item item-highlight">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Áo Nữ
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Áo Thun
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Áo Sơ Mi
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Áo Kiểu
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Áo Croptop
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Áo Polo
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Áo Dệt Kim
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Áo Dài
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="menu__dropdown__col col-3">
+                                <div class="col-inner">
+                                    <img src="./assets/img/ao_ao-khoac_2.webp" alt="">
+                                </div>
+                            </div>
+                            <div class="menu__dropdown__col col-4">
+                                <div class="col-inner">
+                                    <div class="col-inner">
+                                        <ul class="col__menu">
+                                            <li class="col__menu-item item-highlight">
+                                                <a href="./category-page.html" class="col__menu-link">
+                                                    Áo Khoác
+                                                </a>
+                                            </li>
+                                            <li class="col__menu-item">
+                                                <a href="./category-page.html" class="col__menu-link">
+                                                    Áo Khoác Blazer
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub__menu dress">
+                    <div class="sub__menu__wrapper">
+                        <div class="sub__menu__background"></div>
+                        <div class="sub__menu__dropdown">
+                            <div class="menu__dropdown__col col-1">
+                                <div class="col-inner">
+                                    <img src="./assets/img/vay_dam_1.webp" alt="">
+                                </div>
+                            </div>
+                            <div class="menu__dropdown__col col-2">
+                                <div class="col-inner">
+                                    <ul class="col__menu">
+                                        <li class="col__menu-item item-highlight">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Váy Chữ A
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Váy Babydoll
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Váy Suông
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Váy Maxi
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Váy Ôm
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Váy Oversize
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Váy 2 Dây
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Đầm Công Sở
+                                            </a>
+                                        </li>
+                                        <li class="col__menu-item">
+                                            <a href="./category-page.html" class="col__menu-link">
+                                                Đầm dự Tiệc
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="menu__dropdown__col col-3">
+                                <div class="col-inner">
+                                    <img src="./assets/img/vay_dam_2.webp" alt="">
+                                </div>
+                            </div>
+                            <div class="menu__dropdown__col col-4">
+                                <div class="col-inner">
+                                    <div class="col-inner">
+                                        <ul class="col__menu">
+                                            <li class="col__menu-item item-highlight">
+                                                <a href="./category-page.html" class="col__menu-link">
+                                                    Chân Váy Chữ A
+                                                </a>
+                                            </li>
+                                            <li class="col__menu-item">
+                                                <a href="./category-page.html" class="col__menu-link">
+                                                    Chân Váy Suông
+                                                </a>
+                                            </li>
+                                            <li class="col__menu-item">
+                                                <a href="./category-page.html" class="col__menu-link">
+                                                    Chân Váy Ôm
+                                                </a>
+                                            </li>
+                                            <li class="col__menu-item">
+                                                <a href="./category-page.html" class="col__menu-link">
+                                                    Chân Váy Xếo Ly
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__inner">
+                    <div class="header__inner__left">
+                        <a href="./" class="header__logo">
+                            <img src="./assets/img/logo.webp" alt="logo">
+                        </a>
+                    </div>
+                    <div class="header__inner__middle">
+                        <ul class="header__middel nav">
+                            <li class="header__middel  nav-item">
+                                <a href="#" class="header__middel  nav-link">
+                                    ÁO - ÁO KHOÁC
+                                </a>
+                            </li>
+                            <li class="header__middel  nav-item">
+                                <a href="#" class="header__middel  nav-link">
+                                    VÁY - ĐẦM
+                                </a>
+                            </li>
+                            <!-- <li class="header__middel  nav-item">
+                                <a href="#" class="header__middel  nav-link">
+                                    SET ĐỒ NỮ
+                                </a>
+                            </li>
+                            <li class="header__middel  nav-item">
+                                <a href="#" class="header__middel  nav-link">
+                                    YẾM
+                                </a>
+                            </li> -->
+                            <li class="header__middel  nav-item">
+                                <a href="./contact-me.html" class="header__middel  nav-link">
+                                    LIÊN HỆ
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header__inner__right">
+                        <ul class="header__right nav">
+                            <li class="header__right nav-item">
+                                <button class="header__right nav-link">
+                                    <i class="fa-solid fa-search"></i>
+                                </button>
+                            </li>
+                            <li id="show-login" class="header__right nav-item">
+                                <a href="#" class="header__right nav-link">
+                                    <img class="img-default" src="./assets/img/icons/user.webp" alt="">
+                                    <img class="img-hover" src="./assets/img/icons/user_hover.webp" alt="">
+                                </a>
+                            </li>
+                            <li class="header__right nav-item">
+                                <a href="#" class="header__right nav-link">
+                                    <img class="img-default" src="./assets/img/icons/wish_list.webp" alt="">
+                                    <img class="img-hover" src="./assets/img/icons/wish_list_hover.webp" alt="">
+                                </a>
+                            </li>
+                            <li id="show-cart" class="header__right nav-item">
+                                <a href="./cart-page.html" class="header__right nav-link">
+                                    <img class="img-default" src="./assets/img/icons/cart.webp" alt="">
+                                    <img class="img-hover" src="./assets/img/icons/cart_hover.svg" alt="">
+                                </a>
+                                <div class="mini-cart">
+                                    <div class="mini-cart-wrapper">
+                                        <div class="list-item">
+                                            <!-- <div class="item">
+                                                <div class="item-left">
+                                                    <img src="./assets/img_upload/dress1.webp" alt="">
+                                                </div>
+                                                <div class="item-middel">
+                                                    <div class="item-middel-name">
+                                                        Váy có mã là số một
+                                                        Váy có mã là số một
+                                                    </div>
+                                                    <div class="item-middle-more">
+                                                        <div class="item-middel-price">
+                                                            100000
+                                                        </div>
+                                                        <span>x</span>
+                                                        <div class="item-middel-quantity">
+                                                            1
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-right">
+                                                    <i class="fa-regular fa-circle-xmark"></i>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="item-left">
+                                                    <img src="./assets/img_upload/dress1.webp" alt="">
+                                                </div>
+                                                <div class="item-middel">
+                                                    <div class="item-middel-name">
+                                                        Váy có mã là số hai
+                                                        Váy có mã là số hai
+                                                        Váy có mã là số hai
+                                                    </div>
+                                                    <div class="item-middle-more">
+                                                        <div class="item-middel-price">
+                                                            100000
+                                                        </div>
+                                                        <span>x</span>
+                                                        <div class="item-middel-quantity">
+                                                            1
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-right">
+                                                    <i class="fa-regular fa-circle-xmark"></i>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="item-left">
+                                                    <img src="./assets/img_upload/dress1.webp" alt="">
+                                                </div>
+                                                <div class="item-middel">
+                                                    <div class="item-middel-name">
+                                                        Váy có mã là số ba
+                                                        Váy có mã là số ba
+                                                        Váy có mã là số ba
+                                                    </div>
+                                                    <div class="item-middle-more">
+                                                        <div class="item-middel-price">
+                                                            100000
+                                                        </div>
+                                                        <span>x</span>
+                                                        <div class="item-middel-quantity">
+                                                            1
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-right">
+                                                    <i class="fa-regular fa-circle-xmark"></i>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="item-left">
+                                                    <img src="./assets/img_upload/dress1.webp" alt="">
+                                                </div>
+                                                <div class="item-middel">
+                                                    <div class="item-middel-name">
+                                                        Váy có mã là số bốn
+                                                        Váy có mã là số bốn
+                                                        Váy có mã là số bốn
+                                                    </div>
+                                                    <div class="item-middle-more">
+                                                        <div class="item-middel-price">
+                                                            100000
+                                                        </div>
+                                                        <span>x</span>
+                                                        <div class="item-middel-quantity">
+                                                            1
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-right">
+                                                    <i class="fa-regular fa-circle-xmark"></i>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                        <div class="total-price-in-cart">
+                                            <span>TỔNG</span>
+                                            <span class="total-price-cart">336666</span>
+                                        </div>
+                                        <button class="view-cart-now">
+                                            XEM GIỎ HÀNG
+                                        </button>
+                                        <button class="payment-now">
+                                            THANH TOÁN
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container" style="display: none;">
+            <div class="grid">
+                <div class="container__nav">
+                    <span>Trang chủ</span>
+                    <span>/</span>
+                    <span>Tài khoản</span>
+                    <span>/</span>
+                    <span>Đơn hàng</span>
+                </div>
+                <div class="main-order">
+                    <div class="col info-left">
+                        <div class="wrapper">
+                            <div class="account-avt">
+                                <img src="./assets/img/icons/user.png" alt="">
+                            </div>
+                            <div class="account-name">
+                                <p>
+                                    Hứa Thị Ngọc Bích
+                                </p>
+                            </div>
+                            <div class="account-info">
+                                <div class="account-phone">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <p>
+                                        0999999999
+                                    </p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="account-create">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    <p>
+                                        Tham gia
+                                        <span>
+                                            27/10/2024
+                                        </span>
+                                    </p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="account-address">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <p>
+                                        Chợ Chu, Định Hoá, Thái Nguyên
+                                        Chợ Chu, Định Hoá, Thái Nguyên
+                                    </p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                            <div class="logout">
+                                <div class="account-logout">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    <p>
+                                        Đăng xuất
+                                    </p>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col order-right">
+                        <p class="title-order-right">
+                            ĐƠN HÀNG
+                        </p>
+                        <div class="order-list">
+                            <div class="empty">
+                                <img src="./assets/img/icons/empty.png" alt="">
+                            </div>
+                            <!-- <div class="order">
+                                <div class="img-show">
+                                    <img src="./assets/img/icons/up-arrow.png" alt="">
+                                </div>
+                                <div class="order-information">
+                                    <p class="order-name">
+                                        Đơn hàng số <strong>
+                                            #
+                                            <span class="order-id">
+                                                1
+                                            </span>
+                                        </strong>
+                                        , ngày
+                                        <span class="order-date">
+                                            27-10-2024 13:10:10
+                                        </span>
+                                    </p>
+                                    <p class="order-amount">
+                                        100.999.000
+                                    </p>
+                                    <div class="order-address">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <p>
+                                            Chợ chu, Định Hoá, Thái Nguyên
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="order-status">
+                                    <p>
+                                        Chuẩn bị Hàng
+                                    </p>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="shopping">
+                        <a class="shopping-link" href="./">TIẾP TỤC MUA SẮM</a>
+                    </div>
+                </div>
+            </div>
+            <footer id="footer">
+            </footer>
+        </div>
+    </div>
+    <script type="module" src="./assets/js/userActions.js"></script>
+    <script type="module" src="./assets/js/header.js"></script>
+    <script type="module" src="./assets/js/order.js"></script>
+</body>
+
+</html>

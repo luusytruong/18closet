@@ -647,8 +647,8 @@ tr td.container__cart__table__col:nth-child(1) {
   justify-content: space-between;
   color: #000;
   border-bottom: 1px solid #eee;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
+  /* margin-bottom: 20px;
+  padding-bottom: 10px; */
 }
 
 .container__cart__confirm__row span {

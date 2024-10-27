@@ -36,7 +36,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':adminname', $adminname);
 $stmt->bindParam(':password', $password);
 $stmt->bindParam(':email', $email);
-$stmt->execute();
+// $stmt->execute();
 
 // Create table categorys
 $sql = "CREATE TABLE IF NOT EXISTS categorys (
@@ -71,6 +71,18 @@ $sql = "CREATE TABLE IF NOT EXISTS orders (
     shipping_adress VARCHAR(255) NOT NULL,
     payment_status VARCHAR(255) NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES users(id) ON DELETE CASCADE
+)";
+
+$pdo->exec( $sql );
+
+// Create table order_detail
+$sql = "CREATE TABLE IF NOT EXISTS order_detail (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    product_amount INT NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 )";
 
 $pdo->exec( $sql );

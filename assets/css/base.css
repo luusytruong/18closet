@@ -12,6 +12,13 @@
   user-select: none;
   position: relative;
 }
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  }
+  html::-webkit-scrollbar {
+   display: none;
+  }
 input, button{
   font-family: 'SVN Poppins';
   font-size: 16px;
