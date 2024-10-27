@@ -69,7 +69,7 @@ $sql = "CREATE TABLE IF NOT EXISTS orders (
     order_date TIMESTAMP DEFAULT  CURRENT_TIMESTAMP,
     total_amount INT NOT NULL,
     shipping_adress VARCHAR(255) NOT NULL,
-    payment_status VARCHAR(255) NOT NULL,
+    payment_status VARCHAR(255) NOT NULL DEFAULT 'Chưa thanh toán',
     FOREIGN KEY (customer_id) REFERENCES users(id) ON DELETE CASCADE
 )";
 

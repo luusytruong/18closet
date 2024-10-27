@@ -117,13 +117,6 @@ export function startFetch(path, data) {
             toTargetForm("");
           }, 500);
         }
-        if (data.order) {
-          localStorage.setItem("product-cart", JSON.stringify({ data: [] }));
-          localStorage.setItem("product-pay", JSON.stringify({ data: [] }));
-          setTimeout(() => {
-            window.location.href = "./";
-          }, 3000);
-        }
         if (data.session_id) {
           setTimeout(() => {
             console.log(data.session_id);
@@ -186,5 +179,24 @@ export async function startGETAsync(path, data) {
     console.log("error: ", error);
     beginToast("error", "Đã xảy ra lỗi phía máy chủ", error);
     return null;
+  }
+}
+
+export async function startFetchAsyncJSON(path, data) {
+  try {
+      const response = await fetch(path, {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json", // Thay đổi thành application/json
+          },
+          body: JSON.stringify(data), // Dữ liệu đã được stringify
+      });
+      
+      const result = await response.json();
+      return result;
+  } catch (error) {
+      console.log("error: ", error);
+      beginToast("error", "Đã xảy ra lỗi phía máy chủ", error);
+      return null;
   }
 }

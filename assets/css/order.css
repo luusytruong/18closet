@@ -1,5 +1,4 @@
-
-.wait-loading{
+.wait-loading {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,21 +9,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    img{
+
+    img {
         height: 300px;
     }
 }
+
 @keyframes loading {
-    0%{
+    0% {
         opacity: 1;
     }
-    100%{
+
+    100% {
         opacity: 0;
     }
 }
-.wait-loading.ok{
+
+.wait-loading.ok {
     animation: loading .5s ease forwards;
 }
+
 .container__nav {
     span:last-child {
         color: #333;
@@ -161,6 +165,7 @@
     align-items: flex-end;
     margin: 15px -10px -10px -10px;
 }
+
 .logout>div:hover {
     background-color: #eee;
     background-color: rgba(254, 230, 230, 0.5);
@@ -170,10 +175,12 @@
         opacity: 1;
     }
 }
+
 .account-logout {
     border-radius: 15px;
     background-color: rgba(254, 230, 230, 0.25);
-    i{
+
+    i {
         color: #ee0000;
     }
 }
@@ -195,18 +202,21 @@
     padding: 0;
     overflow-y: auto;
 }
-.empty{
+
+.empty {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 200px;
-     img{
+
+    img {
         width: 200px;
         opacity: .3;
-     }
+    }
 }
+
 .order {
     padding: 0;
     background-color: rgb(245, 230, 254, 0.25);
@@ -241,7 +251,8 @@
     font-weight: bold;
     font-size: 18px;
     padding: 6px 0;
-    strong{
+
+    strong {
         background-color: rgba(0, 190, 0, 0.05);
         color: rgb(0, 190, 0);
         border-radius: 4px;
@@ -254,7 +265,8 @@
     color: #333;
     font-weight: bold;
 }
-.order-address{
+
+.order-address {
     position: absolute;
     bottom: 10px;
     right: 15px;
@@ -264,10 +276,12 @@
     align-items: center;
     justify-content: flex-end;
     gap: 5px;
-    i{
+
+    i {
         color: #BE63F9;
     }
 }
+
 .order-status {
     display: flex;
     justify-content: center;
@@ -298,4 +312,149 @@
     color: purple;
     border-radius: 40px;
 
+}
+.view-order.active{
+    display: unset;
+}
+.view-order {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+
+    .wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+}
+
+.order-show {
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.order-title {
+    margin-bottom: 20px;
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-weight: bold;
+
+    i {
+        margin-right: 10px;
+    }
+
+    strong {
+        background-color: rgba(0, 190, 0, 0.05);
+        color: rgb(0, 190, 0);
+        font-weight: bold;
+        padding: 0 6px;
+        border-radius: 6px;
+    }
+}
+.order-title:hover{
+    color: rgb(0, 190, 0);
+}
+.list-product {
+    flex: 1;
+    overflow-y: auto;
+}
+.list-product {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+.list-product::-webkit-scrollbar {
+ display: none;
+}
+
+.product {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    background-color: rgb(245, 230, 254, 0.25);
+    margin-bottom: 10px;
+}
+.product:hover{
+    background-color: #eeeeee5a;
+    cursor: pointer;
+}
+.product>* {
+    flex: 1;
+}
+
+.product-img {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        aspect-ratio: 1/1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 1px solid #eee;
+        border-radius: 10px;
+    }
+}
+
+.product-info {
+    flex: 4;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.product-name {
+    font-weight: bold;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-price {
+    color: #555;
+    flex: 1;
+}
+
+.product-quantity {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        background-color: rgba(0, 190, 0, 0.05);
+        color: rgb(0, 190, 0);
+        font-weight: bold;
+        padding: 6px 12px;
+        border-radius: 6px;
+    }
+}
+
+.product-total {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        color: rgb(168, 0, 190);
+        font-weight: bold;
+    }
 }

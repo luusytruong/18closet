@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clearTimeout(timeoutId);
       }
 
-      console.log(navItem);
+      // console.log(navItem);
     });
     navItem.addEventListener("mouseleave", () => {
       if (document.querySelector(".sub__menu.shows")) {
@@ -106,7 +106,7 @@ const checkScrollPosition = () => {
 };
 
 window.addEventListener("scroll", () => {
-  console.log("cc");
+  // console.log("cc");
   checkScrollPosition();
 });
 checkScrollPosition();

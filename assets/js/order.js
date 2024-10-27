@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>
     `;
     const order = document.createElement("div");
-    order.classList.add("order");
+    order.classList.add('order', `order${id}`);
     order.innerHTML = child;
     return order
   }
@@ -173,4 +173,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   //call fc
   removeLoading();
   listenerBtnLogout()
+
+  //fuc lấy id đơn
+  async function readOrderId() {
+    const orders = Array.from(document.querySelectorAll('.order'))
+    orders.map(order=>{
+        order.addEventListener('click', ()=>{
+            const orderId = order.className.slice(11)
+            console.log(orderId);
+            const localS = JSON.parse(localStorage.getItem('product-pay'))
+            console.log(localS.data);
+            
+        })
+        
+    })
+  }
+  readOrderId()
 });

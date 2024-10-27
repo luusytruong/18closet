@@ -1,4 +1,4 @@
-import { startFetch, startFetchAsync } from "./formActions.js";
+import { startFetch, startFetchAsync, startFetchAsyncJSON } from "./formActions.js";
 
 import { routes, startGETFetch, startPOSTFetch } from "./startFetch.js";
 import { beginToast } from "./toast.js";
@@ -130,7 +130,7 @@ payBTN.addEventListener("click", async () => {
     totalValueAll = totalInssert
   }
   if (user_id) {
-    const data = {
+    let data = {
       table: "orders",
       customer_id: user_id,
       total_amount: totalValueAll,
@@ -138,9 +138,34 @@ payBTN.addEventListener("click", async () => {
     };
     console.log(data)
 
-    startFetch(
+    let result = await startFetchAsync(
       "http://localhost/fashion-store/controller/createData.php",
       data
+    );
+    if (result.status === 'success') {
+      if (result.order) {
+        beginToast(result.status, result.title, result.content)
+        localStorage.setItem("product-cart", JSON.stringify({ data: [] }));
+        localStorage.setItem("product-pay", JSON.stringify({ data: [] }));
+        setTimeout(() => {
+          window.location.href = "./";
+        }, 1500);
+      }
+    }
+
+    const localS = JSON.parse(localStorage.getItem('product-pay'))
+    // console.log('day la ob',localS.data);
+    // console.log('day la json',JSON.stringify(localS.data));
+    let route = "http://localhost/fashion-store/controller/createOrderDetail.php"
+    data = {
+      table: 'order_detail',
+      customer_id: user_id,
+      data: localS.data
+    }
+    console.log(data);
+    result = await startFetchAsyncJSON(route, data)
+    console.log(
+      'data từ server' , result
     );
     
   } else {

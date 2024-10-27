@@ -65,7 +65,7 @@ try {
                     $stmt->bindParam(':description', $description);
                     $stmt->bindParam(':image_url', $imageUrl);
                     if ($stmt->execute()) {
-                        echo json_encode(['director'=>'bottom','status' => 'success', 'title' => 'Thành công', 'content' => 'Sản phẩm đã được thêm']);
+                        echo json_encode(['director' => 'bottom', 'status' => 'success', 'title' => 'Thành công', 'content' => 'Sản phẩm đã được thêm']);
                     } else {
                         echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Không thể thêm sản phẩm']);
                     }
@@ -84,12 +84,12 @@ try {
                     $stmt->bindParam(':shipping_adress', $shipping_adress);
 
                     if ($stmt->execute()) {
-                        echo json_encode(['director'=>'bottom','status' => 'success', 'title' => 'Thành công', 'content' => 'Đặt hàng thành công', 'order' => 'order']);
+                        echo json_encode(['director' => 'bottom', 'status' => 'success', 'title' => 'Thành công', 'content' => 'Đặt hàng thành công', 'order' => 'order']);
                     } else {
                         echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Đặt hàng thất bại']);
                     }
                     break;
-                    
+
                 case 'discounts':
                     $code = $_POST['code'];
                     $discount  = $_POST['discount'];
@@ -101,10 +101,56 @@ try {
                     $stmt->bindParam(':discount', $discount);
 
                     if ($stmt->execute()) {
-                        echo json_encode(['director'=>'bottom','status' => 'success', 'title' => 'Thành công', 'content' => 'Tạo mã thành công']);
+                        echo json_encode(['director' => 'bottom', 'status' => 'success', 'title' => 'Thành công', 'content' => 'Tạo mã thành công']);
                     } else {
                         echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Tạo mã thất bại']);
                     }
+                    break;
+                case 'order_detail':
+                    if (isset($_POST['customer_id'])) {
+                        $customer_id = $_POST['customer_id'];
+                        $sql = "SELECT id FROM orders WHERE customer_id = :customer_id ORDER BY order_date DESC LIMIT 1";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->bindParam(':customer_id', $customer_id);
+
+                        if ($stmt->execute()) {
+                            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                            if (isset($data[0]['id'])) {
+                                $order_id = $data[0]['id'];
+                                if (isset($_POST['product_id']) && isset($_POST['product_amount'])) {
+
+                                    $product_id = $_POST['product_id'];
+                                    $product_amount = $_POST['product_amount'];
+
+                                    $sql = "INSERT INTO order_detail (order_id, product_id, product_amount) 
+                                    VALUE (:order_id, :product_id, :product_amount)";
+                                    $stmt = $pdo->prepare($sql);
+                                    $stmt->bindParam('order_id', $order_id);
+                                    $stmt->bindParam('product_id', $product_id);
+                                    $stmt->bindParam('product_amount', $product_amount);
+
+                                    if ($stmt->execute()) {
+                                        echo json_encode(['status' => 'success', 'title' => 'Thành công', 'content' => 'Thêm dữ liệu thành công']);
+                                    } else {
+                                        echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Thêm dữ liệu thất bại']);
+                                    }
+                                } else {
+                                    echo json_encode(['status' => "error", 'title' => 'Đã xảy ra lỗi', 'content' => 'Không có id hoặc amount']);
+                                    exit;
+                                }
+                            } else {
+                                echo json_encode(['error' => "khong ton tai order_id"]);
+                                exit;
+                            }
+                        } else {
+                            echo json_encode(['error' => "da xay ra loi khi query"]);
+                            exit;
+                        }
+                    } else {
+                        echo json_encode(['error' => "deo co customer_id"]);
+                        exit;
+                    }
+
                     break;
                 default:
                     echo json_encode(['status' => 'error', 'title' => 'Đã xảy ra lỗi', 'content' => 'Không tìm thấy bảng']);
