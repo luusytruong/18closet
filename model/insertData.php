@@ -5,7 +5,7 @@ $dress = [
     [
         "product_name" => "Váy Chữ A Tay Dài Phối Nơ Thun Giấy DCATCU7",
         "category_id" => 1,
-        "price" => 1500000,
+        "price" => 310000, 
         "stock_quantity" => 5,
         "description" => "Váy nữ dạ hội thiết kế sang trọng với chất liệu cao cấp, phù hợp cho các buổi tiệc tối hoặc sự kiện đặc biệt.",
         "image_url" => "dress1.webp",
@@ -13,7 +13,7 @@ $dress = [
     [
         "product_name" => "Đầm Chữ A Phối Khoác Đính Nút Dáng Ngắn DCATCU6",
         "category_id" => 1,
-        "price" => 1200000,
+        "price" => 530000, 
         "stock_quantity" => 8,
         "description" => "Váy maxi hoa nhí nhẹ nhàng, thoáng mát, thích hợp cho những ngày dạo phố hay du lịch biển.",
         "image_url" => "dress2.webp",
@@ -21,7 +21,7 @@ $dress = [
     [
         "product_name" => "Đầm Chữ A Cổ Sơ Mi Đính Nút Dáng Ngắn DCATCU5",
         "category_id" => 1,
-        "price" => 1300000,
+        "price" => 580000, 
         "stock_quantity" => 10,
         "description" => "Váy công sở xếp ly với thiết kế thanh lịch, phù hợp cho môi trường văn phòng, chất liệu thoáng mát dễ chịu.",
         "image_url" => "dress3.webp",
@@ -29,7 +29,7 @@ $dress = [
     [
         "product_name" => "Đầm Chữ A Cúp Ngực Đính Nơ Dáng Ngắn DCATCU4",
         "category_id" => 1,
-        "price" => 1400000,
+        "price" => 450000, 
         "stock_quantity" => 7,
         "description" => "Váy chữ A cài nút, kiểu dáng thời thượng với phần eo nhấn nhẹ, phù hợp cho nhiều dáng người.",
         "image_url" => "dress4.webp",
@@ -37,7 +37,7 @@ $dress = [
     [
         "product_name" => "Váy Chữ A Cổ Sơ Mi Thắt Nơ Hai Nắp Túi DCATCU3",
         "category_id" => 1,
-        "price" => 1100000,
+        "price" => 360000, 
         "stock_quantity" => 9,
         "description" => "Váy suông trơn đơn giản nhưng tinh tế, dễ phối đồ cho những ngày đi làm hay dạo phố.",
         "image_url" => "dress5.webp",
@@ -45,7 +45,7 @@ $dress = [
     [
         "product_name" => "Váy Chữ A Cổ V Đính Nơ Tay Bồng DCATCU2",
         "category_id" => 1,
-        "price" => 1500000,
+        "price" => 590000, 
         "stock_quantity" => 5,
         "description" => "Váy nữ dạ hội thiết kế sang trọng với chất liệu cao cấp, phù hợp cho các buổi tiệc tối hoặc sự kiện đặc biệt.",
         "image_url" => "dress6.webp",
@@ -53,7 +53,7 @@ $dress = [
     [
         "product_name" => "Đầm Chữ A Cổ Thắt Nơ Phối Viền Trắng DCATCU1",
         "category_id" => 1,
-        "price" => 1200000,
+        "price" => 200000, 
         "stock_quantity" => 8,
         "description" => "Váy maxi hoa nhí nhẹ nhàng, thoáng mát, thích hợp cho những ngày dạo phố hay du lịch biển.",
         "image_url" => "dress7.webp",
@@ -61,7 +61,7 @@ $dress = [
     [
         "product_name" => "Váy 2 Dây Dáng Ngắn Cổ Thắt Nơ DHDTCU11",
         "category_id" => 1,
-        "price" => 1300000,
+        "price" => 480000, 
         "stock_quantity" => 10,
         "description" => "Váy công sở xếp ly với thiết kế thanh lịch, phù hợp cho môi trường văn phòng, chất liệu thoáng mát dễ chịu.",
         "image_url" => "dress8.webp",
@@ -69,7 +69,7 @@ $dress = [
     [
         "product_name" => "Đầm 2 Dây Ngực Thắt Nơ Nhún Hông DHDTCU2",
         "category_id" => 1,
-        "price" => 1400000,
+        "price" => 530000, 
         "stock_quantity" => 7,
         "description" => "Váy chữ A cài nút, kiểu dáng thời thượng với phần eo nhấn nhẹ, phù hợp cho nhiều dáng người.",
         "image_url" => "dress9.webp",
@@ -77,7 +77,7 @@ $dress = [
     [
         "product_name" => "Váy Chữ A Hoạ Tiết Hoa Hồng Dáng Xòe Tay Bồng VCAFM43",
         "category_id" => 1,
-        "price" => 1100000,
+        "price" => 370000, 
         "stock_quantity" => 9,
         "description" => "Váy suông trơn đơn giản nhưng tinh tế, dễ phối đồ cho những ngày đi làm hay dạo phố.",
         "image_url" => "dress10.webp",
@@ -88,7 +88,7 @@ $shirt = [
     [
         "product_name" => "Áo Thun Nữ Croptop Cổ Tròn In Chữ GOTUE ATFM14",
         "category_id" => 2,
-        "price" => 350000,
+        "price" => 345000,
         "stock_quantity" => 15,
         "description" => "Áo Thun Nữ Croptop Cổ Tròn In Chữ GOTUE ATFM14 thiết kế cổ điển, phù hợp cho môi trường công sở, chất liệu mềm mại, dễ chịu khi mặc cả ngày dài.",
         "image_url" => "shirt1.webp",
@@ -96,7 +96,7 @@ $shirt = [
     [
         "product_name" => "Áo Dài Cách Tân Nữ Cổ Yếm Thều Hoa ADTC5",
         "category_id" => 2,
-        "price" => 980000,
+        "price" => 298000,
         "stock_quantity" => 7,
         "description" => "Áo Dài Cách Tân Nữ Cổ Yếm Thều Hoa ADTC5 với thiết kế quyến rũ, giúp tôn dáng và mang lại vẻ đẹp sang trọng cho người mặc.",
         "image_url" => "shirt2.webp",
@@ -112,7 +112,7 @@ $shirt = [
     [
         "product_name" => "Áo Dài Cách Tân Nữ Tay Lỡ Voan Tơ Thều Hoa Nhí ADTC3",
         "category_id" => 2,
-        "price" => 1200000,
+        "price" => 512000,
         "stock_quantity" => 10,
         "description" => "Áo Dài Cách Tân Nữ Tay Lỡ Voan Tơ Thều Hoa Nhí ADTC3 với thiết kế thướt tha, nhẹ nhàng, lý tưởng cho những buổi dạo phố hoặc đi biển.",
         "image_url" => "shirt4.webp",
@@ -120,7 +120,7 @@ $shirt = [
     [
         "product_name" => "Áo Dài Hiện Đại Nữ Trễ Vai Phối Nơ ADTC2",
         "category_id" => 2,
-        "price" => 750000,
+        "price" => 478000,
         "stock_quantity" => 5,
         "description" => "Áo Dài Hiện Đại Nữ Trễ Vai Phối Nơ ADTC2 phong cách trẻ trung, năng động, phù hợp cho những ngày trời se lạnh hoặc làm điểm nhấn thời trang.",
         "image_url" => "shirt5.webp",
@@ -128,7 +128,7 @@ $shirt = [
     [
         "product_name" => "Áo Dài Cách Tân Nữ Cổ Yếm Sát Nách ADTC1",
         "category_id" => 2,
-        "price" => 1450000,
+        "price" => 589000,
         "stock_quantity" => 8,
         "description" => "Áo Dài Cách Tân Nữ Cổ Yếm Sát Nách ADTC1 với thiết kế tinh tế, họa tiết ren sang trọng, phù hợp cho các buổi tiệc cưới hay sự kiện trang trọng.",
         "image_url" => "shirt6.webp",
@@ -136,7 +136,7 @@ $shirt = [
     [
         "product_name" => "Áo Dài Hiện Đại Nữ Cổ Tàu Tay Lỡ Đính Nút Ngọc ADFM10",
         "category_id" => 2,
-        "price" => 1050000,
+        "price" => 540000,
         "stock_quantity" => 12,
         "description" => "Áo Dài Hiện Đại Nữ Cổ Tàu Tay Lỡ Đính Nút Ngọc ADFM10 thời thượng, phù hợp khi kết hợp với quần jean hoặc chân váy cho phong cách năng động.",
         "image_url" => "shirt7.webp",
@@ -144,7 +144,7 @@ $shirt = [
     [
         "product_name" => "Áo Khoác Vest/Blazer Nữ Oversize Tay Lỡ 2 Túi Nắp AKBZFM5",
         "category_id" => 2,
-        "price" => 890000,
+        "price" => 510000,
         "stock_quantity" => 14,
         "description" => "Đầm suông trơn với thiết kế đơn giản, thanh lịch, phù hợp cho các buổi đi chơi hoặc hẹn hò nhẹ nhàng.",
         "image_url" => "shirt8.webp",
@@ -152,7 +152,7 @@ $shirt = [
     [
         "product_name" => "Áo Khoác Vest/Blazer Nữ Oversize 1 Lớp 2 Túi Nắp AKBZFM4",
         "category_id" => 2,
-        "price" => 550000,
+        "price" => 450000,
         "stock_quantity" => 20,
         "description" => "Áo Khoác Vest/Blazer Nữ Oversize 1 Lớp 2 Túi Nắp AKBZFM4 ấm áp, thoải mái, phù hợp cho những ngày lạnh và những ai yêu thích phong cách thể thao, năng động.",
         "image_url" => "shirt9.webp",
@@ -160,13 +160,12 @@ $shirt = [
     [
         "product_name" => "Áo Khoác Vest/Blazer Nữ Croptop 1 Nút AKBZFM2",
         "category_id" => 2,
-        "price" => 1350000,
+        "price" => 530000,
         "stock_quantity" => 6,
         "description" => "Áo Khoác Vest/Blazer Nữ Croptop 1 Nút AKBZFM2 thanh lịch, tinh tế với thiết kế giúp tôn lên vẻ đẹp thanh thoát và sang trọng của người mặc.",
         "image_url" => "shirt10.webp",
     ]
 ];
-
 function loop($pdo, $array, $categoryName, $description)
 {
     $sql = "INSERT INTO categorys (category_name, description)
