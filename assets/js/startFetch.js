@@ -45,6 +45,14 @@ export const routes = [
   "http://localhost/fashion-store/controller/updateData.php?table=discounts",
   //19
   "http://localhost/fashion-store/controller/deleteData.php?table=discounts",
+  //20
+  "http://localhost/fashion-store/controller/createData.php?table=order_detail",
+  //21
+  "http://localhost/fashion-store/controller/readData.php?table=order_detail",
+  //22
+  "http://localhost/fashion-store/controller/updateData.php?table=order_detail",
+  //23
+  "http://localhost/fashion-store/controller/deleteData.php?table=order_detail",
 ];
 
 

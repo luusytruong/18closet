@@ -36,7 +36,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':adminname', $adminname);
 $stmt->bindParam(':password', $password);
 $stmt->bindParam(':email', $email);
-// $stmt->execute();
+$stmt->execute();
 
 // Create table categorys
 $sql = "CREATE TABLE IF NOT EXISTS categorys (

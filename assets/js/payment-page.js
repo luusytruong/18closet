@@ -145,15 +145,15 @@ payBTN.addEventListener("click", async () => {
     if (result.status === 'success') {
       if (result.order) {
         beginToast(result.status, result.title, result.content)
-        localStorage.setItem("product-cart", JSON.stringify({ data: [] }));
-        localStorage.setItem("product-pay", JSON.stringify({ data: [] }));
         setTimeout(() => {
           window.location.href = "./";
         }, 1500);
       }
     }
-
+    
     const localS = JSON.parse(localStorage.getItem('product-pay'))
+    localStorage.setItem("product-cart", JSON.stringify({ data: [] }));
+    localStorage.setItem("product-pay", JSON.stringify({ data: [] }));
     // console.log('day la ob',localS.data);
     // console.log('day la json',JSON.stringify(localS.data));
     let route = "http://localhost/fashion-store/controller/createOrderDetail.php"

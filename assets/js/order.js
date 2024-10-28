@@ -1,6 +1,6 @@
 import { getCookie } from "./cookie.js";
 import { startFetch, startFetchAsync, startGETAsync } from "./formActions.js";
-import { routes } from "./startFetch.js";
+import { routes, startGETFetch } from "./startFetch.js";
 import { beginToast } from "./toast.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -76,11 +76,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     return formattedDate;
   }
   //fuc format tiền
-  function formattedVND(amount){
+  function formattedVND(amount) {
     if (amount === undefined || amount === null) {
-        return NaN
+      return NaN;
     }
-    return amount.toLocaleString('vi-VN', {style: "currency", currency: "VND"})
+    return amount.toLocaleString("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    });
   }
   //fuc tạo order
   function createOrderEle(id, time, amount, address) {
@@ -118,9 +121,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>
     `;
     const order = document.createElement("div");
-    order.classList.add('order', `order${id}`);
+    order.classList.add("order", `order${id}`);
     order.innerHTML = child;
-    return order
+    return order;
   }
 
   //lấy user_id
@@ -172,21 +175,87 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   //call fc
   removeLoading();
-  listenerBtnLogout()
+  listenerBtnLogout();
+
+  //create item order
+  function createItem(link, name, price, quantity) {
+    const product = document.createElement("div");
+    product.classList.add("product");
+    product.innerHTML = `
+    
+    <div class="product-img">
+        <img src="./assets/img_upload/${link}" alt="">
+    </div>
+    <div class="product-info">
+        <div class="product-name">
+            ${name}
+        </div>
+        <div class="product-price">
+            ${formattedVND(price)}
+        </div>
+    </div>
+    <div class="product-quantity">
+        <p>
+            ${quantity}
+        </p>
+    </div>
+    <div class="product-total">
+        <p>
+            ${formattedVND(quantity * price)}
+        </p>
+    </div>
+    `;
+    return product;
+  }
+
+  const viewOrder = document.querySelector(".view-order");
+  const orderList = viewOrder.querySelector(".list-product");
+  const orderTitle = document.querySelector(".order-title");
 
   //fuc lấy id đơn
   async function readOrderId() {
-    const orders = Array.from(document.querySelectorAll('.order'))
-    orders.map(order=>{
-        order.addEventListener('click', ()=>{
-            const orderId = order.className.slice(11)
-            console.log(orderId);
-            const localS = JSON.parse(localStorage.getItem('product-pay'))
-            console.log(localS.data);
-            
-        })
+    const orders = Array.from(document.querySelectorAll(".order"));
+    orders.map((order, orderIndex) => {
+      order.addEventListener("click", async () => {
+        const orderId = parseInt(order.className.slice(11));
+        const localS = JSON.parse(localStorage.getItem("product-pay"));
+        console.log(orderId);
+
+        const dataProduct = await startGETFetch("GET", routes[5]);
+        const dataOrderDetail = await startGETFetch("GET", routes[21]);
+        // console.log(dataProduct)
+        console.log(dataOrderDetail);
+        const products_id = dataOrderDetail
+          .filter((value) => orderId === value.order_id)
+
+        const objectProduct = {
+          ids: products_id.map((value) => value.product_id),
+          quantity: products_id.map((value) => value.product_amount),
+        }
+          
+
+        console.log(objectProduct)
+        if (products_id.length) {
+          viewOrder.classList.add("active");
+          orderList.innerHTML = "";
+          orderTitle.querySelector("span").innerText = orderId;
+        }
         
-    })
+        dataProduct.map((product) => {
+          if (objectProduct.ids.includes(product.id)) {
+            var index = objectProduct.ids.indexOf(product.id);
+            // console.log(product)
+            // console.log(objectProduct.quantity[index])
+            const productItem = createItem(product.image_url, product.product_name, product.price, objectProduct.quantity[index]);
+            orderList.appendChild(productItem);
+          }
+        });
+        orderTitle.addEventListener("click", ()=>{
+          viewOrder.classList.remove("active");
+          
+        })
+      });
+    });
   }
-  readOrderId()
+  readOrderId();
 });
