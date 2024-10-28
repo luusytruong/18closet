@@ -113,7 +113,7 @@ btnShowForm.addEventListener("click", async () => {
   if (letHimCook === null) {
     formLogin.classList.add("show");
     return;
-  } else {
+  } else if (letHimCook !== null) {
     const data = {
       case: "users",
     };
@@ -124,11 +124,13 @@ btnShowForm.addEventListener("click", async () => {
     console.log(result);
     if (result.user_login) {
       if (result.login) {
-        window.location.href = './order.html'
-      } else{
-        showForm()
+        window.location.href = "./order.html";
+      } else {
+        showForm();
       }
     }
+  } else {
+    alert("Có lỗi xảy ra, vui lòng xoá cookie trang web");
   }
 });
 
