@@ -78,7 +78,7 @@ async function loadLostProduct() {
     }
 
     // dress
-    if (value.category_id == 1) {
+    if (value.category_id == 2) {
       if (count1 < 10) {
         dressProductDisplay
           .querySelector(".product__list")
