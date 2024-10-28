@@ -115,13 +115,16 @@ export function startFetch(path, data) {
         if (data.register) {
           setTimeout(() => {
             toTargetForm("");
-          }, 500);
+          }, 300);
         }
         if (data.session_id) {
           setTimeout(() => {
             console.log(data.session_id);
             toTargetForm("");
             hideForm();
+            setTimeout(() => {
+              window.location.href = "./";
+            }, 1000);
           }, 1500);
         }
       } else if (data.status === "error") {
@@ -184,19 +187,19 @@ export async function startGETAsync(path, data) {
 
 export async function startFetchAsyncJSON(path, data) {
   try {
-      const response = await fetch(path, {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json", // Thay đổi thành application/json
-          },
-          body: JSON.stringify(data), // Dữ liệu đã được stringify
-      });
-      
-      const result = await response.json();
-      return result;
+    const response = await fetch(path, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", // Thay đổi thành application/json
+      },
+      body: JSON.stringify(data), // Dữ liệu đã được stringify
+    });
+
+    const result = await response.json();
+    return result;
   } catch (error) {
-      console.log("error: ", error);
-      beginToast("error", "Đã xảy ra lỗi phía máy chủ", error);
-      return null;
+    console.log("error: ", error);
+    beginToast("error", "Đã xảy ra lỗi phía máy chủ", error);
+    return null;
   }
 }

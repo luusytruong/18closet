@@ -1,7 +1,12 @@
-import { startFetch, startFetchAsync, startFetchAsyncJSON } from "./formActions.js";
+import {
+  startFetch,
+  startFetchAsync,
+  startFetchAsyncJSON,
+} from "./formActions.js";
 
 import { routes, startGETFetch, startPOSTFetch } from "./startFetch.js";
 import { beginToast } from "./toast.js";
+import { showForm } from "./userActions.js";
 
 const productList = document.querySelector(".container__pay__infor__products");
 
@@ -73,11 +78,11 @@ function updateCart() {
       total += parseInt(value.price) * parseInt(value.count);
     });
     totalValue = total;
-    console.log("total: ", total)
+    console.log("total: ", total);
     totalElement.innerText = total.toLocaleString("vi-VN", {
       style: "currency",
       currency: "VND",
-    });    
+    });
     totalAllDisplay.innerText = total.toLocaleString("vi-VN", {
       style: "currency",
       currency: "VND",
@@ -88,7 +93,7 @@ function updateCart() {
 
 const inputName = document.querySelector(".input-name");
 const inputPhone = document.querySelector(".input-phone");
-let user_id = null
+let user_id = null;
 async function updateInfor() {
   try {
     const data = await startGETFetch("GET", routes[1]); // Wait for the data
@@ -99,14 +104,14 @@ async function updateInfor() {
     const path = "http://localhost/fashion-store/controller/checkLogin.php";
     const result = await startFetchAsync(path, datafetch);
     if (result.user_id) {
-      user_id = result.user_id
+      user_id = result.user_id;
 
-      data.map(usdt=>{
-        if (usdt.id = user_id) {
+      data.map((usdt) => {
+        if ((usdt.id = user_id)) {
           inputName.value = usdt.full_name;
           inputPhone.value = usdt.phone_number;
         }
-      })
+      });
     }
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -122,12 +127,12 @@ const payBTN = document.querySelector(".container__pay__confirm__order-btn");
 const inputAddress = document.querySelector(".input-address");
 
 payBTN.addEventListener("click", async () => {
-  if (inputAddress.value == '') {
-    beginToast('error', 'Đã xảy ra lỗi', 'Vui lòng nhập địa chỉ giao hàng')
-    return
+  if (inputAddress.value == "") {
+    beginToast("error", "Đã xảy ra lỗi", "Vui lòng nhập địa chỉ giao hàng");
+    return;
   }
   if (totalValueAll === 0) {
-    totalValueAll = totalInssert
+    totalValueAll = totalInssert;
   }
   if (user_id) {
     let data = {
@@ -136,40 +141,38 @@ payBTN.addEventListener("click", async () => {
       total_amount: totalValueAll,
       shipping_adress: inputAddress.value,
     };
-    console.log(data)
+    console.log(data);
 
     let result = await startFetchAsync(
       "http://localhost/fashion-store/controller/createData.php",
       data
     );
-    if (result.status === 'success') {
+    if (result.status === "success") {
       if (result.order) {
-        beginToast(result.status, result.title, result.content)
+        beginToast(result.status, result.title, result.content);
         setTimeout(() => {
           window.location.href = "./";
         }, 1500);
       }
     }
-    
-    const localS = JSON.parse(localStorage.getItem('product-pay'))
-    localStorage.setItem("product-cart", JSON.stringify({ data: [] }));
-    localStorage.setItem("product-pay", JSON.stringify({ data: [] }));
+
+    const localS = JSON.parse(localStorage.getItem("product-pay"));
     // console.log('day la ob',localS.data);
     // console.log('day la json',JSON.stringify(localS.data));
-    let route = "http://localhost/fashion-store/controller/createOrderDetail.php"
+    let route =
+      "http://localhost/fashion-store/controller/createOrderDetail.php";
     data = {
-      table: 'order_detail',
+      table: "order_detail",
       customer_id: user_id,
-      data: localS.data
-    }
+      data: localS.data,
+    };
     console.log(data);
-    result = await startFetchAsyncJSON(route, data)
-    console.log(
-      'data từ server' , result
-    );
-    
+    result = await startFetchAsyncJSON(route, data);
+    console.log("data từ server", result);
+    localStorage.setItem("product-cart", JSON.stringify({ data: [] }));
+    localStorage.setItem("product-pay", JSON.stringify({ data: [] }));
   } else {
-    alert('ddax xay ra loiix')
+    showForm();
   }
 });
 

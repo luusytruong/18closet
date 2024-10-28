@@ -130,6 +130,9 @@ async function loadProductItem() {
         console.log("load");
         loadMiniDisplayCart();
         actionMiniCart("show");
+        setTimeout(() => {
+          actionMiniCart("hide");
+        }, 200);
       });
       buyNowBTN.addEventListener("click", async () => {
         var formLogin = document.querySelector(".login");
@@ -148,7 +151,7 @@ async function loadProductItem() {
           beginToast(result.status, result.title, result.content);
           if (result.status === "error") {
             showForm();
-          } else if (result.status === 'success') {
+          } else if (result.status === "success") {
             localStorage.setItem(
               "product-pay",
               JSON.stringify({
@@ -166,7 +169,7 @@ async function loadProductItem() {
             );
             window.location.href = "./payment-page.html";
           } else {
-            alert('đã có lỗi nghiêm trọng')
+            alert("đã có lỗi nghiêm trọng");
           }
         }
       });
