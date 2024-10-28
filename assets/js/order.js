@@ -223,7 +223,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const dataProduct = await startGETFetch("GET", routes[5]);
         const dataOrderDetail = await startGETFetch("GET", routes[21]);
-        // console.log(dataProduct)
         console.log(dataOrderDetail);
         const products_id = dataOrderDetail
           .filter((value) => orderId === value.order_id)
@@ -244,8 +243,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         dataProduct.map((product) => {
           if (objectProduct.ids.includes(product.id)) {
             var index = objectProduct.ids.indexOf(product.id);
-            // console.log(product)
-            // console.log(objectProduct.quantity[index])
             const productItem = createItem(product.image_url, product.product_name, product.price, objectProduct.quantity[index]);
             orderList.appendChild(productItem);
           }
